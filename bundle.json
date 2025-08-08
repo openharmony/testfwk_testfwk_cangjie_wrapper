@@ -1,0 +1,44 @@
+{
+    "name": "@ohos/testfwk_cangjie_api",
+    "description": "test framwork",
+    "version": "6.0",
+    "license": "Apache License 2.0",
+    "publishAs": "code-segment",
+    "segment": {
+      "destPath": "test/testfwk/testfwk_cangjie_api"
+    },
+    "dirs": {},
+    "scripts": {},
+    "component": {
+      "name": "testfwk_cangjie_api",
+      "subsystem": "testfwk",
+      "syscap": [
+          "SystemCapability.Test.UiTest"
+      ],
+      "features": [
+      ],
+      "adapted_system_type": [ "standard" ],
+      "rom": "10000KB",
+      "ram": "10000KB",
+      "hisysevent_config": [  ],
+      "deps": {
+        "components": [
+          "ability_cangjie_api",
+          "cangjie_api",
+          "arkui_cangjie_api",
+          "bundlemanager_cangjie_api",
+          "hiviewdfx_cangjie_api",
+          "arkxtest",
+          "init"
+        ]
+      },
+      "build": {
+        "sub_component": [
+          "//test/testfwk/testfwk_cangjie_api/ohos/ui_test:ohos.ui_test",
+          "//test/testfwk/testfwk_cangjie_api/kit/TestKit:kit.TestKit"
+        ],
+        "inner_kits": [],
+        "test": []
+      }
+    }
+  }
