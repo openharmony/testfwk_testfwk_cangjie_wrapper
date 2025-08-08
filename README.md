@@ -11,7 +11,7 @@ UiTest provides simple and easy-to-use APIs for locating and operating UI compon
 ## Directory Structure
 
 ```
-test/testfwk/testfwk_cangjie_api
+test/testfwk/testfwk_cangjie_wrapper
 ├── ohos             # Cangjie arkXtest code
 ├── kit              # Cangjie kit code
 ```
@@ -29,4 +29,4 @@ test/testfwk/testfwk_cangjie_api
 
 **arkXtest**
 
-testfwk_cangjie_api
+testfwk_cangjie_wrapper

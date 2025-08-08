@@ -13,7 +13,7 @@
 ## 目录
 
 ```
-test/testfwk/testfwk_cangjie_api
+test/testfwk/testfwk_cangjie_wrapper
 ├── ohos             # 仓颉自动化测试框架接口实现
 ├── kit              # 仓颉kit化代码
 ```
@@ -32,4 +32,4 @@ test/testfwk/testfwk_cangjie_api
 
 **自动化测试框架**
 
-testfwk_cangjie_api
+testfwk_cangjie_wrapper

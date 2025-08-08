@@ -19,10 +19,10 @@ ohos_cj_library("kit.TestKit") {
   cj_deps = ["../../ohos/ui_test:ohos.ui_test"]
 
   cj_external_deps = [
-    "ability_cangjie_api:ohos.test_runner",
-    "ability_cangjie_api:ohos.ability_delegator_registry",
+    "ability_cangjie_wrapper:ohos.test_runner",
+    "ability_cangjie_wrapper:ohos.ability_delegator_registry",
   ]
 
   subsystem_name = "testfwk"
-  part_name = "testfwk_cangjie_api"
+  part_name = "testfwk_cangjie_wrapper"
 }
