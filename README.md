@@ -1,0 +1,3 @@
+# testfwk_testfwk_cangjie_wrapper
+
+自动化测试框架模块仓颉封装层
