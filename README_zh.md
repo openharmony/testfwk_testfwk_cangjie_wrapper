@@ -1,14 +1,8 @@
-# 自动化测试框架
+# 测试框架仓颉接口
 
 ## 简介
 
- OpenHarmony自动化测试框架代码部件仓arkxtest，包含单元测试框架(JsUnit)、Ui测试框架(UiTest)和白盒性能测试框架（PerfTest）。
-
- 单元测试框架(JsUnit)提供单元测试用例执行能力，提供用例编写基础接口，生成对应报告，用于测试系统或应用接口。
-
- Ui测试框架(UiTest)通过简洁易用的API提供查找和操作界面控件能力，支持用户开发基于界面操作的自动化测试脚本。
-
- PerfTest提供基于代码段的白盒性能测试能力，支持采集指定代码段执行期间或指定场景发生时的性能数据。
+ 测试框架仓颉接口是在 OpenHarmony 上基于测试子系统能力之上封装的仓颉API。而测试子系统是OpenHarmony为开发者提供了一套全面的自测试框架，开发者可根据测试需求开发相关测试用例，开发阶段提前发现缺陷，大幅提高代码质量。
 
 ## 目录
 
@@ -32,4 +26,4 @@ test/testfwk/testfwk_cangjie_wrapper
 
 **自动化测试框架**
 
-testfwk_cangjie_wrapper
+[call_manager](https://gitee.com/openharmony/testfwk_arkxtest/blob/master/README_zh.md)
