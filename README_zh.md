@@ -12,6 +12,12 @@ test/testfwk/testfwk_cangjie_wrapper
 ├── kit              # 仓颉kit化代码
 ```
 
+## 系统架构
+
+**图 1**  测试框架仓颉架构图
+
+![](figures/testfwk_cangjie_wrapper_architecture.png "测试框架仓颉架构图")
+
 ## 单元测试框架功能特性
 
 | No.  | 特性     | 功能说明                                               |
