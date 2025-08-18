@@ -30,6 +30,4 @@ test/testfwk/testfwk_cangjie_wrapper
 
 ## 相关仓
 
-**自动化测试框架**
-
-[call_manager](https://gitee.com/openharmony/testfwk_arkxtest/blob/master/README_zh.md)
+[自动化测试框架](https://gitee.com/openharmony/testfwk_arkxtest/blob/master/README_zh.md)

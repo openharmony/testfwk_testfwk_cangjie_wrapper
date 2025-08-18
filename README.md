@@ -1,12 +1,16 @@
-# arkXtest
+# testfwk_cangjie_wrapper
 
 ## Introduction
 
-arkXtest, the automated test framework of OpenHarmony, consists of the JS unit test framework (JsUnit) and UI test framework (UiTest).
+The testfwk_cangjie_wrapper is a Cangjie API encapsulated on OpenHarmony based on the capabilities of the arkXtest. arkXtest, the automated test framework of OpenHarmony, consists of the JS unit test framework (JsUnit) and UI test framework (UiTest).
 
 JsUnit provides APIs for writing test cases for system or application interfaces, executing unit test cases, and generating test reports.
 
 UiTest provides simple and easy-to-use APIs for locating and operating UI components, helping users to develop automatic test scripts based on UI operations.
+
+**Figure 1** testfwk_cangjie_wrapper architecture
+
+![](figures/testfwk_cangjie_wrapper_architecture_en.png "testfwk_cangjie_wrapper architecture")
 
 ## Directory Structure
 
@@ -27,6 +31,4 @@ test/testfwk/testfwk_cangjie_wrapper
 
 ## Repositories Involved
 
-**arkXtest**
-
-testfwk_cangjie_wrapper
+[arkXtest](https://gitee.com/openharmony/testfwk_arkxtest/blob/master/README_en.md)
