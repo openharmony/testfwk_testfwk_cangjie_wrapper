@@ -15,6 +15,6 @@
 
 package kit.TestKit
 
-public import ohos.ability_delegator_registry.*
-public import ohos.test_runner.*
+public import ohos.app.ability.ability_delegator_registry.*
+public import ohos.application.test_runner.*
 public import ohos.ui_test.*
