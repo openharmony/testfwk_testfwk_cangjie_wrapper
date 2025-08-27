@@ -13,14 +13,15 @@
 
 import("//build/cangjie/cjc.gni")
 
-ohos_cj_library("kit.TestKit") {
+ohos_cangjie_shared_library("kit.TestKit") {
   sources = ["index.cj"]
 
   cj_deps = ["../../ohos/ui_test:ohos.ui_test"]
 
   cj_external_deps = [
-    "ability_cangjie_wrapper:ohos.test_runner",
-    "ability_cangjie_wrapper:ohos.ability_delegator_registry",
+    "ability_cangjie_wrapper:ohos.app.ability.ui_ability",
+    "ability_cangjie_wrapper:ohos.application.test_runner",
+    "ability_cangjie_wrapper:ohos.app.ability.ability_delegator_registry",
   ]
 
   subsystem_name = "testfwk"

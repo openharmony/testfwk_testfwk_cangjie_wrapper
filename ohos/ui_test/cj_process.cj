@@ -15,14 +15,7 @@
 
 package ohos.ui_test
 
-import ohos.labels.*
-import ohos.base.*
 import ohos.ffi.*
-import std.convert.Parsable
-import ohos.encoding.json.*
-import std.convert.*
-import ohos.ability_delegator_registry.*
-import ohos.ability.*
 
 foreign {
     func FfiOHOSProcessManagerGetUid(): Int32

@@ -17,7 +17,7 @@ package ohos.ui_test
 
 import ohos.labels.*
 import ohos.ffi.*
-import ohos.base.*
+import ohos.business_exception.*
 import ohos.hilog.*
 import std.collection.*
 
