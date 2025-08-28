@@ -23,7 +23,7 @@ test/testfwk/testfwk_cangjie_wrapper
 └── ohos             # Cangjie arkXtest code
 ```
 
-## Constaints
+## Constraints
 
 The currently open UiTest apis only support standard devices.
 
