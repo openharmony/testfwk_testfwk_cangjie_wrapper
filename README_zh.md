@@ -2,31 +2,45 @@
 
 ## 简介
 
- 测试框架仓颉接口是在 OpenHarmony 上基于测试子系统能力之上封装的仓颉API。而测试子系统是OpenHarmony为开发者提供了一套全面的自测试框架，开发者可根据测试需求开发相关测试用例，开发阶段提前发现缺陷，大幅提高代码质量。
+ 测试框架仓颉接口是在 OpenHarmony 上基于测试子系统能力之上封装的仓颉API。而测试子系统是OpenHarmony为开发者提供了一套自动化测试框架，其主要由单元测试以及UI测试框架构成。
 
-## 目录
+ 单元测试供相关API，可用于编写系统或应用程序接口的测试用例、执行单元测试用例以及生成测试报告。
 
-```
-test/testfwk/testfwk_cangjie_wrapper
-├── ohos             # 仓颉自动化测试框架接口实现
-├── kit              # 仓颉kit化代码
-```
+ UI测试框架提供简单易用的API，可用于定位和操作UI组件，助力用户开发基于UI操作的自动化测试脚本。
 
 ## 系统架构
 
 **图 1**  测试框架仓颉架构图
 
-![](figures/testfwk_cangjie_wrapper_architecture.png "测试框架仓颉架构图")
+![测试框架仓颉架构图](figures/testfwk_cangjie_wrapper_architecture_zh.png "测试框架仓颉架构图")
 
-## 单元测试框架功能特性
+## 目录
 
-| No.  | 特性     | 功能说明                                               |
-| ---- | -------- |----------------------------------------------------|
-| 1    | 基础流程 | 支持编写及异步执行基础用例。                                     |
-| 2    | 断言库   | 判断用例实际结果值与预期值是否相符。                                 |
-| 3    | Mock能力 | 支持函数级mock能力，对定义的函数进行mock后修改函数的行为，使其返回指定的值或者执行某种动作。 |
-| 4    | 数据驱动 | 提供数据驱动能力，支持复用同一个测试脚本，使用不同输入数据驱动执行。                 |
-| 5    | 专项能力 | 支持测试套与用例筛选、随机执行、压力测试、超时设置、遇错即停模式，跳过，支持测试套嵌套等。      |
+```cangjie
+test/testfwk/testfwk_cangjie_wrapper
+├── figures          # 存放readme架构图
+├── kit              # 仓颉kit化代码
+└── ohos             # 仓颉自动化测试框架接口实现
+```
+
+## 约束
+
+当前开放的测试框架仓颉接口仅支持standard设备。
+
+## 使用说明
+
+如架构图所示，测试框架仓颉接口提供了UI测试框架功能，开发者可以根据使用诉求，综合使用一类或多类接口：
+
+- Driver是UI测试的入口，提供查找控件、检查控件存在性以及注入按键能力。
+- On是用于描述目标控件特征（文本、id、类型等），Driver根据On描述的控件特征来查找控件。
+- Component是Driver查找返回的控件对象，提供查询控件属性，滑动查找等触控和检视能力。
+- UiWindow是Driver查找返回的窗口对象，提供获取窗口属性、操作窗口的能力。
+
+UI测试相关的API请参见[ohos.ui_test（UI测试）](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/API_Reference/source_zh_cn/apis/TestKit/cj-apis-ui_test.md)，相关指导请参见[自动化测试框架使用指导](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/tree/master/doc/Dev_Guide/source_zh_cn/application-test)。
+
+## 参与贡献
+
+欢迎广大开发者贡献代码、文档等，具体的贡献流程和方式请参见[参与贡献](https://gitcode.com/openharmony/docs/blob/master/zh-cn/contribute/%E5%8F%82%E4%B8%8E%E8%B4%A1%E7%8C%AE.md)。
 
 ## 相关仓
 
