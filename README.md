@@ -25,9 +25,10 @@ As shown in the architecture pictures, arkXtest provides UI test framework:
 test/testfwk/testfwk_cangjie_wrapper
 ├── figures         # architecture pictures
 ├── kit             # Cangjie arkXtest kit code
-│   └── TestKit     # Cangjie arkXtest code
-└── ohos
-    └── ui_test
+│   └── TestKit
+├── ohos            # Cangjie arkXtest code
+│   └── ui_test
+└── test            # Cangjie arkXtest test cases
 ```
 
 ## Usage
@@ -37,9 +38,9 @@ The following features are provided:
 - Writing test cases, assert, executing unit test cases, and generating test reports.
 - Locating and operating UI components.
 
-Compare to the ArkTs, the following features are not provided:
+Compare to the ArkTs, there are the following differences:
 
-- Mock Capability.
+- The unit test framework is implemented based on the unit test library std.unittest of Cangjie language.
 
 For relevant API of UiTest, please refer to [ohos.ui_test (UI Testing)](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/API_Reference/source_en/apis/TestKit/cj-apis-ui_test.md); for relevant guidelines, please refer to Automated Test Framework Usage Guide.
 
