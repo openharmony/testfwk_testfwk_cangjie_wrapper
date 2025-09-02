@@ -52,14 +52,4 @@ Developers are welcome to contribute code, documentation, etc. For specific cont
 
 [arkXtest](https://gitee.com/openharmony/testfwk_arkxtest/blob/master/README_en.md)
 
-[ability_ability_cangjie_wrapper](https://gitcode.com/openharmony-sig/ability_ability_cangjie_wrapper)
-
 [arkui_arkui_cangjie_wrapper](https://gitcode.com/openharmony-sig/arkui_arkui_cangjie_wrapper)
-
-[arkcompiler_cangjie_ark_interop](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop)
-
-[bundlemanager_bundlemanager_cangjie_wrapper](https://gitcode.com/openharmony-sig/bundlemanager_bundlemanager_cangjie_wrapper)
-
-[hiviewdfx_hiviewdfx_cangjie_wrapper](https://gitcode.com/openharmony-sig/hiviewdfx_hiviewdfx_cangjie_wrapper)
-
-[init](https://gitee.com/openharmony/startup_init)
