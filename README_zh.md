@@ -52,14 +52,4 @@ UI测试相关的API请参见[ohos.ui_test（UI测试）](https://gitcode.com/op
 
 [自动化测试框架](https://gitee.com/openharmony/testfwk_arkxtest/blob/master/README_zh.md)
 
-[元能力仓颉接口](https://gitcode.com/openharmony-sig/ability_ability_cangjie_wrapper)
-
 [仓颉ArkUI开发框架](https://gitcode.com/openharmony-sig/arkui_arkui_cangjie_wrapper)
-
-[仓颉互操作 API 公共仓](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop)
-
-[包管理仓颉接口](https://gitcode.com/openharmony-sig/bundlemanager_bundlemanager_cangjie_wrapper)
-
-[DFX仓颉接口](https://gitcode.com/openharmony-sig/hiviewdfx_hiviewdfx_cangjie_wrapper)
-
-[启动子系统](https://gitee.com/openharmony/startup_init)
