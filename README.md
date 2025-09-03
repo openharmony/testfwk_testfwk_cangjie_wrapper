@@ -42,7 +42,7 @@ Compare to the ArkTs, there are the following differences:
 
 - The unit test framework is implemented based on the unit test library std.unittest of Cangjie language.
 
-For relevant API of UiTest, please refer to [ohos.ui_test (UI Testing)](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/API_Reference/source_en/apis/TestKit/cj-apis-ui_test.md); for relevant guidelines, please refer to Automated Test Framework Usage Guide.
+For relevant API of UiTest, please refer to [ohos.ui_test (UI Testing)](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/API_Reference/source_en/apis/TestKit/cj-apis-ui_test.md); for relevant guidelines, please refer to [Automated Test Framework Usage Guide](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/Dev_Guide/source_en/application-test/cj-arkxtest-guidelines.md).
 
 ## Code Contribution
 
