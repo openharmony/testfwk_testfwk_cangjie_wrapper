@@ -1606,10 +1606,24 @@ public class UIEventObserver {
     /**
      * Listen for toast show once
      * 
-     * @param { OnceType } onceType - the type of func once.
      * @param { Callback<UIElementInfo> } callback - function, returns the monitored UIElementInfo.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     *
      * @relation once(type: 'toastShow', callback: Callback<UIElementInfo>): void
+     */
+    @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Test.UiTest"
+    ]
+    public func onceToastShow(callback: Callback<UIElementInfo>): Unit {
+            onceShow(TOAST, callback)
+    }
+
+    /**
+     * Listen for dialog show once
+     * 
+     * @param { Callback<UIElementInfo> } callback - function, returns the monitored UIElementInfo.
+     *
      * @relation once(type: 'dialogShow', callback: Callback<UIElementInfo>): void
      */
     @!APILevel[
@@ -1617,13 +1631,8 @@ public class UIEventObserver {
         stagemodelonly: true,
         syscap: "SystemCapability.Test.UiTest"
     ]
-    public func once(onceType: OnceType, callback: Callback<UIElementInfo>): Unit {
-        if (onceType == OnceType.ToastShow) {
-            onceShow(TOAST, callback)
-        }
-        if (onceType == OnceType.DialogShow) {
+    public func onceDialogShow(callback: Callback<UIElementInfo>): Unit {
             onceShow(DIALOG, callback)
-        }
     }
 
     func onceShow(api: String, callback: Callback<UIElementInfo>): Unit {
