@@ -37,8 +37,7 @@ let TEST_LOG = HilogChannel(3, 0xD003100, "CJ-UITEST")
  * 
  */
 @!APILevel[
-    21,
-    stagemodelonly: true,
+    22,
     syscap: "SystemCapability.Test.UiTest"
 ]
 protected class UITest {
@@ -47,8 +46,7 @@ protected class UITest {
      * 
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     protected static func setup(): Unit {
@@ -114,8 +112,7 @@ func checkNull(data: String): Bool {
  * @relation declare class Driver
  */
 @!APILevel[
-    21,
-    stagemodelonly: true,
+    22,
     syscap: "SystemCapability.Test.UiTest"
 ]
 public class Driver {
@@ -134,8 +131,7 @@ public class Driver {
      * @relation static create(): Driver
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public static func create(): Driver {
@@ -152,8 +148,7 @@ public class Driver {
      * @relation delayMs(duration: number): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func delayMs(duration: Int32): Unit {
@@ -169,8 +164,7 @@ public class Driver {
      * @relation findComponent(on: On): Promise<Component|null>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func findComponent(on: On): ?Component {
@@ -189,8 +183,7 @@ public class Driver {
      * @relation findComponents(on: On): Promise<Array<Component>|null>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func findComponents(on: On): ?Array<Component> {
@@ -217,8 +210,7 @@ public class Driver {
      * @relation findWindow(filter: WindowFilter): Promise<UiWindow|null>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func findWindow(filter: WindowFilter): ?UiWindow {
@@ -272,8 +264,7 @@ public class Driver {
      * @relation waitForComponent(on: On, time: number): Promise<Component|null>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func waitForComponent(on: On, time: Int32): ?Component {
@@ -292,8 +283,7 @@ public class Driver {
      * @relation assertComponentExist(on: On): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func assertComponentExist(on: On): Unit {
@@ -307,8 +297,7 @@ public class Driver {
      * @relation pressBack(): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func pressBack(): Unit {
@@ -324,8 +313,7 @@ public class Driver {
      * @relation triggerKey(keyCode: number): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func triggerKey(keyCode: Int32): Unit {
@@ -341,8 +329,7 @@ public class Driver {
      * @relation triggerCombineKeys(key0: number, key1: number, key2?: number): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func triggerCombineKeys(key0: Int32, key1: Int32, key2!: Int32 = 0): Unit {
@@ -360,8 +347,7 @@ public class Driver {
      * @relation click(x: number, y: number): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func click(x: Int32, y: Int32): Unit {
@@ -378,8 +364,7 @@ public class Driver {
      * @relation doubleClick(x: number, y: number): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func doubleClick(x: Int32, y: Int32): Unit {
@@ -396,8 +381,7 @@ public class Driver {
      * @relation longClick(x: number, y: number): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func longClick(x: Int32, y: Int32): Unit {
@@ -417,8 +401,7 @@ public class Driver {
      * @relation swipe(startx: number, starty: number, endx: number, endy: number, speed?: number): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func swipe(
@@ -445,8 +428,7 @@ public class Driver {
      * @relation drag(startx: number, starty: number, endx: number, endy: number, speed?: number): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func drag(
@@ -470,8 +452,7 @@ public class Driver {
      * @relation screenCap(savePath: string): Promise<boolean>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func screenCap(savePath: String): Bool {
@@ -488,8 +469,7 @@ public class Driver {
      * @relation setDisplayRotation(rotation: DisplayRotation): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func setDisplayRotation(rotation: DisplayRotation): Unit {
@@ -504,8 +484,7 @@ public class Driver {
      * @relation getDisplayRotation(): Promise<DisplayRotation>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getDisplayRotation(): DisplayRotation {
@@ -521,8 +500,7 @@ public class Driver {
      * @relation setDisplayRotationEnabled(enabled: boolean): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func setDisplayRotationEnabled(enabled: Bool): Unit {
@@ -538,8 +516,7 @@ public class Driver {
      * @relation getDisplaySize(): Promise<Point>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getDisplaySize(): Point {
@@ -555,8 +532,7 @@ public class Driver {
      * @relation getDisplayDensity(): Promise<Point>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getDisplayDensity(): Point {
@@ -570,8 +546,7 @@ public class Driver {
      * @relation wakeUpDisplay(): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func wakeUpDisplay(): Unit {
@@ -586,8 +561,7 @@ public class Driver {
      * @relation pressHome(): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func pressHome(): Unit {
@@ -605,8 +579,7 @@ public class Driver {
      * @relation waitForIdle(idleTime: number, timeout: number): Promise<boolean>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func waitForIdle(idleTime: Int32, timeout: Int32): Bool {
@@ -624,8 +597,7 @@ public class Driver {
      * @relation injectMultiPointerAction(pointers: PointerMatrix, speed?: number): Promise<boolean>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func injectMultiPointerAction(pointers: PointerMatrix, speed!: Int32 = 600): Bool {
@@ -644,8 +616,7 @@ public class Driver {
      * @relation fling(from: Point, to: Point, stepLen: number, speed: number): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func fling(from: Point, to: Point, stepLen: Int32, speed: Int32): Unit {
@@ -663,8 +634,7 @@ public class Driver {
      * @relation fling(direction: UiDirection, speed: number): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func fling(direction: UiDirection, speed: Int32): Unit {
@@ -682,8 +652,7 @@ public class Driver {
      * @relation screenCapture(savePath: string, rect?: Rect): Promise<boolean>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func screenCapture(savePath: String, rect!: Rect = Rect(0,0,0,0)): Bool {
@@ -711,8 +680,7 @@ public class Driver {
      * @relation mouseClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func mouseClick(p: Point, btnId: MouseButton, key1!: Int32 = 0, key2!: Int32 = 0): Unit {
@@ -728,8 +696,7 @@ public class Driver {
      * @relation mouseMoveTo(p: Point): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func mouseMoveTo(p: Point): Unit {
@@ -744,8 +711,7 @@ public class Driver {
      * @relation createUIEventObserver(): UIEventObserver
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func createUIEventObserver(): UIEventObserver {
@@ -767,8 +733,7 @@ public class Driver {
      * @relation mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number, speed?: number): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func mouseScroll(p: Point, down: Bool, d: Int32, key1!: Int32 = 0, key2!: Int32 = 0, speed!: Int32 = 20): Unit {
@@ -789,8 +754,7 @@ public class Driver {
      * @relation mouseDoubleClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func mouseDoubleClick(p: Point, btnId: MouseButton, key1!: Int32 = 0, key2!: Int32 = 0): Unit {
@@ -809,8 +773,7 @@ public class Driver {
      * @relation mouseLongClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func mouseLongClick(p: Point, btnId: MouseButton, key1!: Int32 = 0, key2!: Int32 = 0): Unit {
@@ -828,8 +791,7 @@ public class Driver {
      * @relation mouseMoveWithTrack(from: Point, to: Point, speed?: number): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func mouseMoveWithTrack(from: Point, to: Point, speed!: Int32 = 600): Unit {
@@ -848,8 +810,7 @@ public class Driver {
      * @relation mouseDrag(from: Point, to: Point, speed?: number): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func mouseDrag(from: Point, to: Point, speed!: Int32 = 600): Unit {
@@ -867,8 +828,7 @@ public class Driver {
      * @relation inputText(p: Point, text: string): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func inputText(p: Point, text: String): Unit {
@@ -886,8 +846,7 @@ public class Driver {
  * @relation declare class PointerMatrix
  */
 @!APILevel[
-    21,
-    stagemodelonly: true,
+    22,
     syscap: "SystemCapability.Test.UiTest"
 ]
 public class PointerMatrix {
@@ -909,8 +868,7 @@ public class PointerMatrix {
      * @relation static create(fingers: number, steps: number): PointerMatrix
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public static func create(fingers: Int32, steps: Int32): PointerMatrix {
@@ -929,8 +887,7 @@ public class PointerMatrix {
      * @relation setPoint(finger: number, step: number, point: Point): void
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func setPoint(finger: Int32, step: Int32, point: Point): Unit {
@@ -947,8 +904,7 @@ public class PointerMatrix {
  * @relation declare class UiWindow
  */
 @!APILevel[
-    21,
-    stagemodelonly: true,
+    22,
     syscap: "SystemCapability.Test.UiTest"
 ]
 public class UiWindow {
@@ -968,8 +924,7 @@ public class UiWindow {
      * @relation getBundleName(): Promise<string>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getBundleName(): String {
@@ -986,8 +941,7 @@ public class UiWindow {
      * @relation getBounds(): Promise<Rect>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getBounds(): Rect {
@@ -1010,8 +964,7 @@ public class UiWindow {
      * @relation getTitle(): Promise<string>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getTitle(): String {
@@ -1028,8 +981,7 @@ public class UiWindow {
      * @relation getWindowMode(): Promise<WindowMode>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getWindowMode(): WindowMode {
@@ -1046,8 +998,7 @@ public class UiWindow {
      * @relation isFocused(): Promise<boolean>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func isFocused(): Bool {
@@ -1063,8 +1014,7 @@ public class UiWindow {
      * @relation focus(): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func focus(): Unit {
@@ -1084,8 +1034,7 @@ public class UiWindow {
      * @relation moveTo(x: number, y: number): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func moveTo(x: Int32, y: Int32): Unit {
@@ -1106,8 +1055,7 @@ public class UiWindow {
      * @relation resize(wide: number, height: number, direction: ResizeDirection): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func resize(wide: Int32, height: Int32, direction: ResizeDirection): Unit {
@@ -1124,8 +1072,7 @@ public class UiWindow {
      * @relation split(): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func split(): Unit {
@@ -1142,8 +1089,7 @@ public class UiWindow {
      * @relation maximize(): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func maximize(): Unit {
@@ -1160,8 +1106,7 @@ public class UiWindow {
      * @relation minimize(): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func minimize(): Unit {
@@ -1178,8 +1123,7 @@ public class UiWindow {
      * @relation resume(): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func resume(): Unit {
@@ -1196,8 +1140,7 @@ public class UiWindow {
      * @relation close(): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func close(): Unit {
@@ -1214,8 +1157,7 @@ public class UiWindow {
      * @relation isActive(): Promise<boolean>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func isActive(): Bool {
@@ -1231,8 +1173,7 @@ public class UiWindow {
  * @relation declare class On
  */
 @!APILevel[
-    21,
-    stagemodelonly: true,
+    22,
     syscap: "SystemCapability.Test.UiTest"
 ]
 public class On {
@@ -1242,8 +1183,7 @@ public class On {
      *
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public init() {}
@@ -1276,8 +1216,7 @@ public class On {
      * @relation text(txt: string, pattern?: MatchPattern): On
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func text(txt: String, pattern!: MatchPattern = MatchPattern.Equals): On {
@@ -1294,8 +1233,7 @@ public class On {
      * @relation id(id: string): On
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func id(id: String): On {
@@ -1311,8 +1249,7 @@ public class On {
      * @relation type(tp: string): On
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func onType(tp: String): On {
@@ -1329,8 +1266,7 @@ public class On {
      * @relation description(val: string, pattern?: MatchPattern): On
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func description(val: String, pattern!: MatchPattern = MatchPattern.Equals): On {
@@ -1349,8 +1285,7 @@ public class On {
      * @relation clickable(b?: boolean): On
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func clickable(b!: Bool = true): On {
@@ -1367,8 +1302,7 @@ public class On {
      * @relation longClickable(b?: boolean): On
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func longClickable(b!: Bool = true): On {
@@ -1384,8 +1318,7 @@ public class On {
      * @relation scrollable(b?: boolean): On
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func scrollable(b!: Bool = true): On {
@@ -1401,8 +1334,7 @@ public class On {
      * @relation enabled(b?: boolean): On
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func enabled(b!: Bool = true): On {
@@ -1418,8 +1350,7 @@ public class On {
      * @relation focused(b?: boolean): On
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func focused(b!: Bool = true): On {
@@ -1435,8 +1366,7 @@ public class On {
      * @relation selected(b?: boolean): On
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func selected(b!: Bool = true): On {
@@ -1452,8 +1382,7 @@ public class On {
      * @relation checked(b?: boolean): On
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func checked(b!: Bool = true): On {
@@ -1469,8 +1398,7 @@ public class On {
      * @relation checkable(b?: boolean): On
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func checkable(b!: Bool = true): On {
@@ -1486,8 +1414,7 @@ public class On {
      * @relation isBefore(on: On): On
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func isBefore(on: On): On {
@@ -1504,8 +1431,7 @@ public class On {
      * @relation isAfter(on: On): On
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func isAfter(on: On): On {
@@ -1522,8 +1448,7 @@ public class On {
      * @relation within(on: On): On
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func within(on: On): On {
@@ -1539,8 +1464,7 @@ public class On {
      * @relation inWindow(bundleName: string): On
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func inWindow(bundleName: String): On {
@@ -1556,8 +1480,7 @@ public class On {
  */
 @Derive[ToString, Equatable]
 @!APILevel[
-    21,
-    stagemodelonly: true,
+    22,
     syscap: "SystemCapability.Test.UiTest"
 ]
 public enum OnceType {
@@ -1566,8 +1489,7 @@ public enum OnceType {
      * 
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     ToastShow
@@ -1577,8 +1499,7 @@ public enum OnceType {
      * 
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     DialogShow
@@ -1591,8 +1512,7 @@ public enum OnceType {
  * @relation declare interface UIEventObserver
  */
 @!APILevel[
-    21,
-    stagemodelonly: true,
+    22,
     syscap: "SystemCapability.Test.UiTest"
 ]
 public class UIEventObserver {
@@ -1613,8 +1533,7 @@ public class UIEventObserver {
      * @relation once(type: 'dialogShow', callback: Callback<UIElementInfo>): void
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func once(onceType: OnceType, callback: Callback<UIElementInfo>): Unit {
@@ -1652,8 +1571,7 @@ public class UIEventObserver {
  * @relation declare class Component 
  */
 @!APILevel[
-    21,
-    stagemodelonly: true,
+    22,
     syscap: "SystemCapability.Test.UiTest"
 ]
 public class Component {
@@ -1675,8 +1593,7 @@ public class Component {
      * @relation click(): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func click(): Unit {
@@ -1689,8 +1606,7 @@ public class Component {
      * @relation doubleClick(): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func doubleClick(): Unit {
@@ -1703,8 +1619,7 @@ public class Component {
      * @relation longClick(): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func longClick(): Unit {
@@ -1716,8 +1631,7 @@ public class Component {
      * @relation getId(): Promise<string>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getId(): String {
@@ -1731,8 +1645,7 @@ public class Component {
      * @relation getText(): Promise<string>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getText(): String {
@@ -1746,8 +1659,7 @@ public class Component {
      * @relation getType(): Promise<string>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getType(): String {
@@ -1762,8 +1674,7 @@ public class Component {
      * @relation getBounds(): Promise<Rect>
      */ 
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getBounds(): Rect {
@@ -1778,8 +1689,7 @@ public class Component {
      * @relation getBoundsCenter(): Promise<Point>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getBoundsCenter(): Point {
@@ -1793,8 +1703,7 @@ public class Component {
      * @relation isClickable(): Promise<boolean>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func isClickable(): Bool {
@@ -1809,8 +1718,7 @@ public class Component {
      * @relation isLongClickable(): Promise<boolean>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func isLongClickable(): Bool {
@@ -1825,8 +1733,7 @@ public class Component {
      * @relation isChecked(): Promise<boolean>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func isChecked(): Bool {
@@ -1841,8 +1748,7 @@ public class Component {
      * @relation isCheckable(): Promise<boolean>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func isCheckable(): Bool {
@@ -1856,8 +1762,7 @@ public class Component {
      * @relation isScrollable(): Promise<boolean>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func isScrollable(): Bool {
@@ -1871,8 +1776,7 @@ public class Component {
      * @relation isEnabled(): Promise<boolean>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func isEnabled(): Bool {
@@ -1886,8 +1790,7 @@ public class Component {
      * @relation isFocused(): Promise<boolean>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func isFocused(): Bool {
@@ -1901,8 +1804,7 @@ public class Component {
      * @relation isSelected(): Promise<boolean>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func isSelected(): Bool {
@@ -1916,8 +1818,7 @@ public class Component {
      * @relation inputText(text: string): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func inputText(text: String): Unit {
@@ -1930,8 +1831,7 @@ public class Component {
      * @relation clearText(): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func clearText(): Unit {
@@ -1947,8 +1847,7 @@ public class Component {
      * @relation scrollSearch(on: On): Promise<Component|null>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func scrollSearch(on: On): ?Component {
@@ -1967,8 +1866,7 @@ public class Component {
      * @relation scrollToTop(speed?: number): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func scrollToTop(speed!: Int64 = 600): Unit {
@@ -1983,8 +1881,7 @@ public class Component {
      * @relation scrollToBottom(speed?: number): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func scrollToBottom(speed!: Int64 = 600): Unit {
@@ -1999,8 +1896,7 @@ public class Component {
      * @relation dragTo(target: Component): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func dragTo(target: Component): Unit {
@@ -2015,8 +1911,7 @@ public class Component {
      * @relation pinchOut(scale: number): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func pinchOut(scale: Float32): Unit {
@@ -2031,8 +1926,7 @@ public class Component {
      * @relation pinchIn(scale: number): Promise<void>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func pinchIn(scale: Float32): Unit {
@@ -2046,8 +1940,7 @@ public class Component {
      * @relation getDescription(): Promise<string>
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getDescription(): String {
