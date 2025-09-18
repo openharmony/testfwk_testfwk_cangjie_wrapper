@@ -27,8 +27,7 @@ import std.convert.*
  * @relation declare enum MatchPattern
  */
 @!APILevel[
-    21,
-    stagemodelonly: true,
+    22,
     syscap: "SystemCapability.Test.UiTest"
 ]
 public enum MatchPattern {
@@ -38,8 +37,7 @@ public enum MatchPattern {
      * @relation EQUALS = 0
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     Equals
@@ -50,8 +48,7 @@ public enum MatchPattern {
      * @relation CONTAINS = 1
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     Contains
@@ -62,8 +59,7 @@ public enum MatchPattern {
      * @relation STARTS_WITH = 2
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     StartsWith
@@ -74,8 +70,7 @@ public enum MatchPattern {
      * @relation ENDS_WITH = 3
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     EndsWith
@@ -98,8 +93,7 @@ public enum MatchPattern {
  * @relation declare enum DisplayRotation
  */
 @!APILevel[
-    21,
-    stagemodelonly: true,
+    22,
     syscap: "SystemCapability.Test.UiTest"
 ]
 public enum DisplayRotation {
@@ -109,8 +103,7 @@ public enum DisplayRotation {
      * @relation ROTATION_0 = 0
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     Rotation0
@@ -121,8 +114,7 @@ public enum DisplayRotation {
      * @relation ROTATION_90 = 1
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     Rotation90
@@ -133,8 +125,7 @@ public enum DisplayRotation {
      * @relation ROTATION_180 = 2
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     Rotation180
@@ -145,8 +136,7 @@ public enum DisplayRotation {
      * @relation ROTATION_270 = 3
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     Rotation270
@@ -179,8 +169,7 @@ public enum DisplayRotation {
  * @relation declare enum WindowMode
  */
 @!APILevel[
-    21,
-    stagemodelonly: true,
+    22,
     syscap: "SystemCapability.Test.UiTest"
 ]
 public enum WindowMode {
@@ -190,8 +179,7 @@ public enum WindowMode {
      * @relation FULLSCREEN = 0
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     Fullscreen
@@ -202,8 +190,7 @@ public enum WindowMode {
      * @relation PRIMARY = 1
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     Primary
@@ -214,8 +201,7 @@ public enum WindowMode {
      * @relation SECONDARY = 2
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     Secondary
@@ -226,8 +212,7 @@ public enum WindowMode {
      * @relation FLOATING = 3
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     Floating
@@ -260,8 +245,7 @@ public enum WindowMode {
  * @relation declare enum ResizeDirection
  */
 @!APILevel[
-    21,
-    stagemodelonly: true,
+    22,
     syscap: "SystemCapability.Test.UiTest"
 ]
 public enum ResizeDirection {
@@ -271,8 +255,7 @@ public enum ResizeDirection {
      * @relation LEFT = 0
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     Left
@@ -283,8 +266,7 @@ public enum ResizeDirection {
      * @relation RIGHT = 1
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     Right
@@ -295,8 +277,7 @@ public enum ResizeDirection {
      * @relation UP = 2
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     Up
@@ -307,8 +288,7 @@ public enum ResizeDirection {
      * @relation DOWN = 3
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     Down
@@ -319,8 +299,7 @@ public enum ResizeDirection {
      * @relation LEFT_UP = 4
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     LeftUp
@@ -331,8 +310,7 @@ public enum ResizeDirection {
      * @relation LEFT_DOWN = 5
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     LeftDown
@@ -343,8 +321,7 @@ public enum ResizeDirection {
      * @relation RIGHT_UP = 6
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     RightUp
@@ -355,8 +332,7 @@ public enum ResizeDirection {
      * @relation RIGHT_DOWN = 7
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     RightDown
@@ -383,8 +359,7 @@ public enum ResizeDirection {
  * @relation declare enum UiDirection
  */
 @!APILevel[
-    21,
-    stagemodelonly: true,
+    22,
     syscap: "SystemCapability.Test.UiTest"
 ]
 public enum UiDirection {
@@ -394,8 +369,7 @@ public enum UiDirection {
      * @relation LEFT = 0
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     Left
@@ -406,8 +380,7 @@ public enum UiDirection {
      * @relation RIGHT = 1
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     Right
@@ -418,8 +391,7 @@ public enum UiDirection {
      * @relation UP = 2
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     Up
@@ -430,8 +402,7 @@ public enum UiDirection {
      * @relation DOWN = 3
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     Down
@@ -454,8 +425,7 @@ public enum UiDirection {
  * @relation declare enum MouseButton
  */
 @!APILevel[
-    21,
-    stagemodelonly: true,
+    22,
     syscap: "SystemCapability.Test.UiTest"
 ]
 public enum MouseButton {
@@ -465,8 +435,7 @@ public enum MouseButton {
      * @relation MOUSE_BUTTON_LEFT = 0
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     MouseButtonLeft
@@ -477,8 +446,7 @@ public enum MouseButton {
      * @relation MOUSE_BUTTON_RIGHT = 1
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     MouseButtonRight
@@ -489,8 +457,7 @@ public enum MouseButton {
      * @relation MOUSE_BUTTON_MIDDLE = 2
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     MouseButtonMiddle
@@ -512,8 +479,7 @@ public enum MouseButton {
  * @relation declare interface Point
  */
 @!APILevel[
-    21,
-    stagemodelonly: true,
+    22,
     syscap: "SystemCapability.Test.UiTest"
 ]
 public class Point {
@@ -523,8 +489,7 @@ public class Point {
     * @relation x: number
     */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public var x: Int32
@@ -535,8 +500,7 @@ public class Point {
     * @relation y: number
     */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public var y: Int32
@@ -547,8 +511,7 @@ public class Point {
     * @relation displayId?: number
     */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public var displayId: ?Int32    
@@ -557,8 +520,7 @@ public class Point {
      * Point constructor.
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public init(x: Int32, y: Int32, displayId!: ?Int32 = None) {
@@ -588,8 +550,7 @@ public class Point {
  * @relation declare interface UIElementInfo
  */
 @!APILevel[
-    21,
-    stagemodelonly: true,
+    22,
     syscap: "SystemCapability.Test.UiTest"
 ]
 public class UIElementInfo {
@@ -599,8 +560,7 @@ public class UIElementInfo {
     * @relation readonly bundleName: string
     */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public let bundleName: String
@@ -611,8 +571,7 @@ public class UIElementInfo {
     * @relation readonly type: string
     */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public let componentType: String
@@ -623,8 +582,7 @@ public class UIElementInfo {
     * @relation readonly text: string
     */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public let text: String
@@ -642,8 +600,7 @@ public class UIElementInfo {
  * @relation declare interface WindowFilter
  */
 @!APILevel[
-    21,
-    stagemodelonly: true,
+    22,
     syscap: "SystemCapability.Test.UiTest"
 ]
 public class WindowFilter {
@@ -653,8 +610,7 @@ public class WindowFilter {
      * @relation bundleName?: string
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public var bundleName: ?String
@@ -665,8 +621,7 @@ public class WindowFilter {
      * @relation title?: string
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public var title: ?String
@@ -677,8 +632,7 @@ public class WindowFilter {
      * @relation focused?: boolean
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public var focused: ?Bool
@@ -689,8 +643,7 @@ public class WindowFilter {
      * @relation actived?: boolean
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public var active: ?Bool
@@ -701,8 +654,7 @@ public class WindowFilter {
      * @relation displayId?: number
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public var displayId: ?Int32
@@ -711,8 +663,7 @@ public class WindowFilter {
      * WindowFilter constructor.
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public init(bundleName!: ?String = None, title!: ?String = None, focused!: ?Bool = None, active!: ?Bool = None, displayId!: ?Int32 = None) {
@@ -733,8 +684,7 @@ public class WindowFilter {
  * @relation declare interface Rect
  */
 @!APILevel[
-    21,
-    stagemodelonly: true,
+    22,
     syscap: "SystemCapability.Test.UiTest"
 ]
 public class Rect {
@@ -744,8 +694,7 @@ public class Rect {
      * @relation left: number
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public var left: Int32
@@ -756,8 +705,7 @@ public class Rect {
      * @relation top: number
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public var top: Int32
@@ -768,8 +716,7 @@ public class Rect {
      * @relation right: number
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public var right: Int32
@@ -780,8 +727,7 @@ public class Rect {
      * @relation bottom: number
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public var bottom: Int32
@@ -792,8 +738,7 @@ public class Rect {
      * @relation displayId?: number
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public var displayId: ?Int32
@@ -802,8 +747,7 @@ public class Rect {
      * Rect constructor.
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Test.UiTest"
     ]
     public init(left: Int32, top: Int32, right: Int32, bottom: Int32, displayId!: ?Int32 = None) {
