@@ -12,12 +12,16 @@
 
 如架构图所示，测试框架仓颉接口提供了UI测试框架功能：
 
-- Driver是UI测试的入口，提供查找控件、检查控件存在性以及注入按键能力。
-- On是用于描述目标控件特征（文本、id、类型等），Driver根据On描述的控件特征来查找控件。
-- Component是Driver查找返回的控件对象，提供查询控件属性，滑动查找等触控和检视能力。
-- UiWindow是Driver查找返回的窗口对象，提供获取窗口属性、操作窗口的能力。
-- 仓颉测试框架FFI接口定义： 负责定义C互操作仓颉接口，用于实现仓颉测试框架能力。
-- 自动化测试框架：负责提供UI测试基础能力，封装C接口提供给仓颉进行互操作。
+- Driver: UI测试的入口，提供查找控件、检查控件存在性以及注入按键能力。
+- On: 用于描述目标控件特征（文本、id、类型等），Driver根据On描述的控件特征来查找控件。
+- Component: Driver查找返回的控件对象，提供查询控件属性，滑动查找等触控和检视能力。
+- UiWindow: Driver查找返回的窗口对象，提供获取窗口属性、操作窗口的能力。
+- 仓颉测试框架FFI接口定义：负责定义C语言互操作仓颉接口，用于实现仓颉测试框架能力。
+- 自动化测试框架：负责提供UI测试基础能力，封装C语言接口提供给仓颉进行互操作。
+- 启动子系统: 提供系统参数查询能力，用于判断当前环境是否支持测试。
+- 仓颉元能力：提供自动化测试框架管理能力，用于监视指定的Ability的生命周期状态更改和获取测试参数。
+- 仓颉DFX：提供日志系统，使应用/服务可以按照指定级别、标识和格式字符串输出日志内容。
+- 仓颉互操作：提供API标签与异常类。
 
 ## 目录
 
@@ -25,9 +29,9 @@
 test/testfwk/testfwk_cangjie_wrapper
 ├── figures         # 存放README架构图
 ├── kit             # 仓颉测试框架kit化代码
-│   └── TestKit
+│   └── TestKit     # 测试框架kit模块
 └── ohos            # 仓颉测试框架接口实现
-│   └── ui_test
+│   └── ui_test     # UI测试框架实现
 └── test            # 仓颉测试框架测试用例
 ```
 
@@ -50,6 +54,8 @@ UI测试相关的API请参见[ohos.ui_test（UI测试）](https://gitcode.com/op
 
 ## 相关仓
 
-[自动化测试框架](https://gitee.com/openharmony/testfwk_arkxtest/blob/master/README_zh.md)
-
-[仓颉ArkUI开发框架](https://gitcode.com/openharmony-sig/arkui_arkui_cangjie_wrapper)
+[ability_ability_cangjie_wrapper](https://gitcode.com/openharmony-sig/ability_ability_cangjie_wrapper)
+[arkcompiler_cangjie_ark_interop](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop)
+[hiviewdfx_hiviewdfx_cangjie_wrapper](https://gitcode.com/openharmony-sig/hiviewdfx_hiviewdfx_cangjie_wrapper)
+[startup_init](https://gitcode.com/openharmony/startup_init)
+[testfwk_arkxtest](https://gitcode.com/openharmony/testfwk_arkxtest)
