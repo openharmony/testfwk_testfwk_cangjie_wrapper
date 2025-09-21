@@ -55,7 +55,11 @@ Developers are welcome to contribute code, documentation, etc. For specific cont
 ## Repositories Involved
 
 [ability_ability_cangjie_wrapper](https://gitcode.com/openharmony-sig/ability_ability_cangjie_wrapper)
+
 [arkcompiler_cangjie_ark_interop](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop)
+
 [hiviewdfx_hiviewdfx_cangjie_wrapper](https://gitcode.com/openharmony-sig/hiviewdfx_hiviewdfx_cangjie_wrapper)
+
 [startup_init](https://gitcode.com/openharmony/startup_init)
+
 [testfwk_arkxtest](https://gitcode.com/openharmony/testfwk_arkxtest)

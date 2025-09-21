@@ -42,9 +42,10 @@ test/testfwk/testfwk_cangjie_wrapper
 - 编写测试用例、断言、执行测试用例以及生成测试报告的能力。
 - 定位和操作UI组件的能力。
 
-与ArkTs相比，有以下差异：
+与ArkTs能力相比，有以下差异：
 
 - 单元测试框架基于仓颉语言自带的单元测试库std.unittest实现。
+- 暂不支持白盒性能测试框架。
 
 UI测试相关的API请参见[ohos.ui_test（UI测试）](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/API_Reference/source_zh_cn/apis/TestKit/cj-apis-ui_test.md)，相关指导请参见[自动化测试框架使用指南](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/Dev_Guide/source_zh_cn/application-test/cj-arkxtest-guidelines.md)。
 
@@ -55,7 +56,11 @@ UI测试相关的API请参见[ohos.ui_test（UI测试）](https://gitcode.com/op
 ## 相关仓
 
 [ability_ability_cangjie_wrapper](https://gitcode.com/openharmony-sig/ability_ability_cangjie_wrapper)
+
 [arkcompiler_cangjie_ark_interop](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop)
+
 [hiviewdfx_hiviewdfx_cangjie_wrapper](https://gitcode.com/openharmony-sig/hiviewdfx_hiviewdfx_cangjie_wrapper)
+
 [startup_init](https://gitcode.com/openharmony/startup_init)
+
 [testfwk_arkxtest](https://gitcode.com/openharmony/testfwk_arkxtest)
