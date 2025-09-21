@@ -22,7 +22,6 @@ import std.sync.*
 import ohos.hilog.*
 import ohos.app.ability.ability_delegator_registry.*
 import ohos.app.ability.ui_ability.*
-import ohos.bundle.bundle_manager.ApplicationInfo
 import ohos.labels.*
 import ohos.ffi.*
 import ohos.business_exception.*

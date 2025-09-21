@@ -24,10 +24,8 @@
       "deps": {
         "components": [
           "ability_cangjie_wrapper",
-          "arkui_cangjie_wrapper",
           "arkxtest",
           "cangjie_ark_interop",
-          "bundlemanager_cangjie_wrapper",
           "hiviewdfx_cangjie_wrapper",
           "init"
         ]
