@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-package kit.TestKit
+package TestKit
 
 public import ohos.app.ability.ability_delegator_registry.*
 public import ohos.application.test_runner.*
