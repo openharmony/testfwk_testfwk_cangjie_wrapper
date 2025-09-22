@@ -13,7 +13,7 @@
 
 import("//build/templates/cangjie/cjc.gni")
 
-ohos_cangjie_shared_library("kit.TestKit") {
+ohos_cangjie_shared_library("TestKit") {
   sources = ["index.cj"]
 
   cj_deps = ["../../ohos/ui_test:ohos.ui_test"]
