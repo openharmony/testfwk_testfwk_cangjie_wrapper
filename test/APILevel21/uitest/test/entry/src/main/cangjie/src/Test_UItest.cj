@@ -17,8 +17,8 @@ package ohos_app_cangjie_entry
 
 internal import std.sync.*
 import std.unittest.testmacro.*
-import kit.TestKit.*
-import kit.TestKit.{Rect as Rct, MouseButton as MouseBtn, Point as PT}
+import TestKit.*
+import TestKit.{Rect as Rct, MouseButton as MouseBtn, Point as PT}
 import std.runtime.*
 import std.sync.*
 import std.time.*
@@ -26,7 +26,7 @@ import std.unittest.*
 import std.unittest.common.*
 import std.unittest.testmacro.*
 import ohos.base.*
-import kit.PerformanceAnalysisKit.Hilog
+import PerformanceAnalysisKit.Hilog
 import ohos.business_exception.*
 
 
