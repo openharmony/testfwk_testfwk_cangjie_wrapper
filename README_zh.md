@@ -19,6 +19,9 @@
 - 仓颉测试框架FFI接口定义：负责定义C语言互操作仓颉接口，用于实现仓颉测试框架能力。
 - 自动化测试框架：负责提供UI测试基础能力，封装C语言接口提供给仓颉进行互操作。
 - 启动子系统: 提供系统参数查询能力，用于判断当前环境是否支持测试。
+- ability_cangjie_wrapper：负责提供自动化测试框架管理能力，用于UI测试框架的初始化。
+- hiviewdfx_cangjie_wrapper：负责提供日志接口，用于在关键路径打印日志。
+- cangjie_ark_interop：负责提供仓颉注解定义，用于对API进行标注，以及提供抛向用户的BusinessException异常类定义。
 
 ## 目录
 
@@ -30,8 +33,7 @@ test/testfwk/testfwk_cangjie_wrapper
 └── ohos            # 仓颉测试框架接口实现
 │   └── ui_test     # UI测试框架实现
 └── test            # 测试用例
-    └── APILevel22
-        └── uitest  # UI测试框架测试用例
+    └── uitest  # UI测试框架测试用例
 ```
 
 ## 使用说明

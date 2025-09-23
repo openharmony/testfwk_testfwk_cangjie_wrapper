@@ -19,6 +19,9 @@ As shown in the architecture diagram, the Cangjie test framework API provides UI
 - Cangjie Testfwk FFI Interface Definition: Responsible for defining C interoperation Cangjie interfaces, used to implement Cangjie test framework capabilities.
 - arkxtest: Responsible for providing UI test basic capabilities, encapsulating C interfaces for interoperation with Cangjie.
 - init: Provides system parameter query capabilities, used to determine whether the current environment supports testing.
+- ability_cangjie_wrapper: Responsible for providing automated test framework management capabilities, used for UI test framework initialization.
+- hiviewdfx_cangjie_wrapper: Provides logging interfaces for printing logs on critical paths.
+- cangjie_ark_interop: Provides Cangjie annotation definitions for API annotation and BusinessException exception class definition for user-facing exceptions.
 
 ## Directory Structure
 
@@ -30,8 +33,7 @@ test/testfwk/testfwk_cangjie_wrapper
 └── ohos            # Cangjie test framework interface implementation
 │   └── ui_test     # UI test framework implementation
 └── test            # Cangjie test framework test cases
-    └── APILevel22
-        └── uitest  # UI test framework test cases
+    └── uitest  # UI test framework test cases
 ```
 
 ## Usage
@@ -44,6 +46,7 @@ The Cangjie test framework API currently provides the following functions:
 Compared to ArkTs API, there are the following differences:
 
 - The unit test framework is implemented based on the unit test library std.unittest that comes with Cangjie.
+- White-box performance testing framework is not currently supported.
 
 For UI test related APIs, please refer to [ohos.ui_test (UI Testing)](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/API_Reference/source_en/apis/TestKit/cj-apis-ui_test.md). For related guidelines, please refer to [Automated Test Framework Usage Guide](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/Dev_Guide/source_en/application-test/cj-arkxtest-guidelines.md).
 
