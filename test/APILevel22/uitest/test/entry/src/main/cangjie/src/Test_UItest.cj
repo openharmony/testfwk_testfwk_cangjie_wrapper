@@ -50,7 +50,7 @@ public class Test_UItest {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func test_get_value() {
 //        let uiTest = UITest()
 //        UITest.setup()
@@ -60,7 +60,7 @@ public class Test_UItest {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func testOn() {
         let on1 = On()
             .text("111")
@@ -81,7 +81,7 @@ public class Test_UItest {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func testUIObserver() {
         let observer: UIEventObserver = driver.createUIEventObserver()
         let callbackTrigger = AtomicBool(false)
@@ -115,14 +115,14 @@ public class Test_UItest {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func testPointerMatrix() {
         getPointerMatrix()
         @Expect(true)
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func testComponent() {
         let button = driver.findComponent(On().id("id")).getOrThrow()
 
@@ -169,7 +169,7 @@ public class Test_UItest {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func testDriver() {
         driver.wakeUpDisplay()
 
@@ -230,7 +230,7 @@ public class Test_UItest {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func testUIWindow() {
         let window = driver.findWindow(WindowFilter(active: true)).getOrThrow()
         let name = window.getBundleName()
@@ -320,7 +320,7 @@ public class Test_UItest {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func addLLT(): Unit {
         let wf = WindowFilter(bundleName: "test", title: "test", focused: true, active: true)
         try {
