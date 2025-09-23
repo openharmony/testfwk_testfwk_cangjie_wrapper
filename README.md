@@ -19,9 +19,6 @@ As shown in the architecture diagram, the Cangjie test framework API provides UI
 - Cangjie Testfwk FFI Interface Definition: Responsible for defining C interoperation Cangjie interfaces, used to implement Cangjie test framework capabilities.
 - arkxtest: Responsible for providing UI test basic capabilities, encapsulating C interfaces for interoperation with Cangjie.
 - init: Provides system parameter query capabilities, used to determine whether the current environment supports testing.
-- ability: Provides automated test framework management capabilities, used to monitor the lifecycle status changes of specified Ability and obtain test parameters.
-- hiviewdfx: Provides a logging system, enabling applications/services to output log content according to specified levels, identifiers, and format strings.
-- ark_interop: Provides APILevel and BusinessException.
 
 ## Directory Structure
 
@@ -33,6 +30,8 @@ test/testfwk/testfwk_cangjie_wrapper
 └── ohos            # Cangjie test framework interface implementation
 │   └── ui_test     # UI test framework implementation
 └── test            # Cangjie test framework test cases
+    └── APILevel22
+        └── uitest  # UI test framework test cases
 ```
 
 ## Usage
@@ -42,7 +41,7 @@ The Cangjie test framework API currently provides the following functions:
 - Capabilities for writing test cases, assertions, executing test cases, and generating test reports.
 - Capabilities for locating and operating UI components.
 
-Compared to ArkTs, there are the following differences:
+Compared to ArkTs API, there are the following differences:
 
 - The unit test framework is implemented based on the unit test library std.unittest that comes with Cangjie.
 
@@ -55,7 +54,11 @@ Developers are welcome to contribute code, documentation, etc. For specific cont
 ## Repositories Involved
 
 [ability_ability_cangjie_wrapper](https://gitcode.com/openharmony-sig/ability_ability_cangjie_wrapper)
+
 [arkcompiler_cangjie_ark_interop](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop)
+
 [hiviewdfx_hiviewdfx_cangjie_wrapper](https://gitcode.com/openharmony-sig/hiviewdfx_hiviewdfx_cangjie_wrapper)
+
 [startup_init](https://gitcode.com/openharmony/startup_init)
+
 [testfwk_arkxtest](https://gitcode.com/openharmony/testfwk_arkxtest)

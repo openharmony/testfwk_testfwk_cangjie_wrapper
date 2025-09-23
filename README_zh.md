@@ -19,9 +19,6 @@
 - 仓颉测试框架FFI接口定义：负责定义C语言互操作仓颉接口，用于实现仓颉测试框架能力。
 - 自动化测试框架：负责提供UI测试基础能力，封装C语言接口提供给仓颉进行互操作。
 - 启动子系统: 提供系统参数查询能力，用于判断当前环境是否支持测试。
-- 仓颉元能力：提供自动化测试框架管理能力，用于监视指定的Ability的生命周期状态更改和获取测试参数。
-- 仓颉DFX：提供日志系统，使应用/服务可以按照指定级别、标识和格式字符串输出日志内容。
-- 仓颉互操作：提供API标签与异常类。
 
 ## 目录
 
@@ -32,7 +29,9 @@ test/testfwk/testfwk_cangjie_wrapper
 │   └── TestKit     # 测试框架kit模块
 └── ohos            # 仓颉测试框架接口实现
 │   └── ui_test     # UI测试框架实现
-└── test            # 仓颉测试框架测试用例
+└── test            # 测试用例
+    └── APILevel22
+        └── uitest  # UI测试框架测试用例
 ```
 
 ## 使用说明
@@ -42,11 +41,12 @@ test/testfwk/testfwk_cangjie_wrapper
 - 编写测试用例、断言、执行测试用例以及生成测试报告的能力。
 - 定位和操作UI组件的能力。
 
-与ArkTs相比，有以下差异：
+与ArkTs提供的API能力相比，有以下差异：
 
 - 单元测试框架基于仓颉语言自带的单元测试库std.unittest实现。
+- 暂不支持白盒性能测试框架。
 
-UI测试相关的API请参见[ohos.ui_test（UI测试）](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/API_Reference/source_zh_cn/apis/TestKit/cj-apis-ui_test.md)，相关指导请参见[自动化测试框架使用指南](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/Dev_Guide/source_zh_cn/application-test/cj-arkxtest-guidelines.md)。
+UI测试相关的接口请参见[UI测试API文档](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/API_Reference/source_zh_cn/apis/TestKit/cj-apis-ui_test.md)，相关开发指导请参见[自动化测试框架使用指南](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/Dev_Guide/source_zh_cn/application-test/cj-arkxtest-guidelines.md)。
 
 ## 参与贡献
 
@@ -55,7 +55,11 @@ UI测试相关的API请参见[ohos.ui_test（UI测试）](https://gitcode.com/op
 ## 相关仓
 
 [ability_ability_cangjie_wrapper](https://gitcode.com/openharmony-sig/ability_ability_cangjie_wrapper)
+
 [arkcompiler_cangjie_ark_interop](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop)
+
 [hiviewdfx_hiviewdfx_cangjie_wrapper](https://gitcode.com/openharmony-sig/hiviewdfx_hiviewdfx_cangjie_wrapper)
+
 [startup_init](https://gitcode.com/openharmony/startup_init)
+
 [testfwk_arkxtest](https://gitcode.com/openharmony/testfwk_arkxtest)
