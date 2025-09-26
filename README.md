@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The testfwk_testfwk_cangjie_wrapper a suite of automated testing solutions tailored for developers engaged in application development with the Cangjie programming language on the OpenHarmony platform. It is primarily composed of two core components: a unit testing framework and a UI testing framework. The currently open testfwk_testfwk_cangjie_wrapper only supports standard devices.
+The testfwk_testfwk_cangjie_wrapper is a UI test framework (UiTest) provided for developers using the Cangjie language for application development on OpenHarmony. The currently open testfwk_testfwk_cangjie_wrapper only supports standard devices.
 
 ## System Architecture
 
@@ -13,18 +13,15 @@ The testfwk_testfwk_cangjie_wrapper a suite of automated testing solutions tailo
 As shown in the architecture diagram, the testfwk_testfwk_cangjie_wrapper provides UI test framework functions:
 
 Interface Layer:
-
-- Driver: The entry point for UI testing, providing developers with the ability to find controls, check their existence, and inject key presses.
-- On: Provides developers with the ability to describe the characteristics of target controls. Developers can use these descriptions together with Driver to locate controls.
-- Component: Represents a UI control, typically found using `Driver.findComponent(on)`. It offers developers the ability to query control properties, perform swipe-to-find operations, and other touch and inspection capabilities.
-- UiWindow: Represents a UI window, typically found using `Driver.findWindow(WindowFilter)`. It provides developers with the ability to access window properties and manipulate windows.
+- UiTest: Provides developers with the ability to find and operate interface controls, supporting users in developing automated test scripts based on interface operations. Its supported functional features mainly include the following four types:
+  - Driver: The entry point for UI test, providing developers with interface capabilities such as checking component existence, finding components, injecting key presses, clicking coordinates, sliding components, gesture operations, and screenshots.
+  - On: Provides developers with rich component characteristic descriptions (text, ID, type, etc.) interface capabilities, used to match and find target components to operate or inspect. Supports matching single attributes and matching combinations of multiple attributes, with component attributes supporting multiple matching modes and relative positioning of components.
+  - Component: Represents a control on the UI interface, generally found through the Driver.findComponent(on) method, providing developers with interface capabilities such as obtaining component properties, clicking components, sliding searches, and text injection.
+  - UiWindow: Represents a window on the UI interface, generally found through the Driver.findWindow(WindowFilter) method, providing developers with interface capabilities such as obtaining window properties, dragging windows, and adjusting window size.
 
 Framework Layer:
 
-- Driver Wrapper: Based on the underlying arkxtest's UI testing capabilities，Driver Wrapper implements features like finding controls, injecting key presses, clicking coordinates, swiping controls, performing gestures, and taking screenshots.
-- On Wrapper: Based on the underlying arkxtest's UI testing capabilities, On Wrapper implements rich descriptions of target control characteristics (text, id, type, etc.) for matching and finding controls to operate on or inspect.
-- Component Wrapper: Based on the underlying arkxtest's UI testing capabilities, Component Wrapper implements access to control properties, clicking controls, swipe-to-find operations, and text injection.
-- UiWindow Wrapper: Based on the underlying arkxtest's UI testing capabilities, UiWindow implements access to window properties and window manipulation capabilities like dragging and resizing.
+- UiTest Wrapper: Implements the UiTest wrapper based on the underlying arkxtest's UI test basic capabilities, providing a complete UI test framework through Driver class, On class, Component class, and UiWindow class.
 
 Dependency Components Introduction in Architecture:
 
@@ -51,8 +48,7 @@ test/testfwk/testfwk_cangjie_wrapper
 
 The testfwk_testfwk_cangjie_wrapper currently provides the following functions:
 
-- Capabilities for writing test cases, assertions, executing test cases, and generating test reports.
-- Capabilities for locating and operating UI components.
+- UiTest.
 
 For UI test related APIs, please refer to [ohos.ui_test (UI Testing)](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/API_Reference/source_en/apis/TestKit/cj-apis-ui_test.md). For related guidelines, please refer to [Automated Test Framework Usage Guide](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/Dev_Guide/source_en/application-test/cj-arkxtest-guidelines.md).
 
@@ -60,8 +56,8 @@ For UI test related APIs, please refer to [ohos.ui_test (UI Testing)](https://gi
 
 Compared to ArkTs API, there are the following differences:
 
-- The unit test framework is implemented based on the unit test library std.unittest that comes with Cangjie.
-- White-box performance testing framework is not currently supported.
+- The unit test framework is implemented based on the unit test library [std.unittest](https://gitcode.com/Cangjie/cangjie_runtime/blob/main/README_zh.md) that comes with Cangjie.
+- White-box performance test framework is not currently supported.
 
 ## Code Contribution
 
