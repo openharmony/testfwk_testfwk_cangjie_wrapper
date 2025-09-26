@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The testfwk_testfwk_cangjie_wrapper is a Cangjie API encapsulated on OpenHarmony based on the capabilities of the test subsystem. The test subsystem provides developers with a set of automated testing frameworks. The Cangjie test framework API consists of a unit test framework and a UI test framework. The currently open Cangjie test framework API only supports standard devices.
+The testfwk_testfwk_cangjie_wrapper a suite of automated testing solutions tailored for developers engaged in application development with the Cangjie programming language on the OpenHarmony platform. It is primarily composed of two core components: a unit testing framework and a UI testing framework. The currently open testfwk_testfwk_cangjie_wrapper only supports standard devices.
 
 ## System Architecture
 
@@ -10,18 +10,29 @@ The testfwk_testfwk_cangjie_wrapper is a Cangjie API encapsulated on OpenHarmony
 
 ![testfwk_cangjie_wrapper architecture](figures/testfwk_cangjie_wrapper_architecture_en.png)
 
-As shown in the architecture diagram, the Cangjie test framework API provides UI test framework functions:
+As shown in the architecture diagram, the testfwk_testfwk_cangjie_wrapper provides UI test framework functions:
 
-- Driver: The entry point for UI testing, providing capabilities to find components, check component existence, and inject keys.
-- On: Used to describe target component characteristics (text, ID, type, etc.), and Driver finds components based on the component characteristics described by On.
-- Component: The component object returned by Driver search, providing touch and inspection capabilities such as querying component attributes and scrolling search.
-- UiWindow: The window object returned by Driver search, providing capabilities to obtain window attributes and operate windows.
-- Cangjie Testfwk FFI Interface Definition: Responsible for defining C interoperation Cangjie interfaces, used to implement Cangjie test framework capabilities.
-- arkxtest: Responsible for providing UI test basic capabilities, encapsulating C interfaces for interoperation with Cangjie.
-- init: Provides system parameter query capabilities, used to determine whether the current environment supports testing.
-- ability_cangjie_wrapper: Responsible for providing automated test framework management capabilities, used for UI test framework initialization.
-- hiviewdfx_cangjie_wrapper: Provides logging interfaces for printing logs on critical paths.
-- cangjie_ark_interop: Provides Cangjie annotation definitions for API annotation and BusinessException exception class definition for user-facing exceptions.
+Interface Layer:
+
+- Driver: The entry point for UI testing, providing developers with the ability to find controls, check their existence, and inject key presses.
+- On: Provides developers with the ability to describe the characteristics of target controls. Developers can use these descriptions together with Driver to locate controls.
+- Component: Represents a UI control, typically found using `Driver.findComponent(on)`. It offers developers the ability to query control properties, perform swipe-to-find operations, and other touch and inspection capabilities.
+- UiWindow: Represents a UI window, typically found using `Driver.findWindow(WindowFilter)`. It provides developers with the ability to access window properties and manipulate windows.
+
+Framework Layer:
+
+- Driver Wrapper: Based on the underlying arkxtest's UI testing capabilities，Driver Wrapper implements features like finding controls, injecting key presses, clicking coordinates, swiping controls, performing gestures, and taking screenshots.
+- On Wrapper: Based on the underlying arkxtest's UI testing capabilities, On Wrapper implements rich descriptions of target control characteristics (text, id, type, etc.) for matching and finding controls to operate on or inspect.
+- Component Wrapper: Based on the underlying arkxtest's UI testing capabilities, Component Wrapper implements access to control properties, clicking controls, swipe-to-find operations, and text injection.
+- UiWindow Wrapper: Based on the underlying arkxtest's UI testing capabilities, UiWindow implements access to window properties and window manipulation capabilities like dragging and resizing.
+
+Dependency Components Introduction in Architecture:
+
+- arkxtest: Depends on the UI testing capabilities provided by the arkxtest.
+- init: Depends on the system parameter query capabilities to determine if the current environment supports testing.
+- ability_cangjie_wrapper: Depends on the AbilityDelegatorRegistry for initializing the UI testing framework.
+- hiviewdfx_cangjie_wrapper: Depends on HiLog capabilities for printing logs at key points.
+- cangjie_ark_interop: Depends on APILevel class definitions and BusinessException class definitions for API annotation and throwing exceptions to users in error branches.
 
 ## Directory Structure
 
@@ -38,17 +49,19 @@ test/testfwk/testfwk_cangjie_wrapper
 
 ## Usage
 
-The Cangjie test framework API currently provides the following functions:
+The testfwk_testfwk_cangjie_wrapper currently provides the following functions:
 
 - Capabilities for writing test cases, assertions, executing test cases, and generating test reports.
 - Capabilities for locating and operating UI components.
+
+For UI test related APIs, please refer to [ohos.ui_test (UI Testing)](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/API_Reference/source_en/apis/TestKit/cj-apis-ui_test.md). For related guidelines, please refer to [Automated Test Framework Usage Guide](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/Dev_Guide/source_en/application-test/cj-arkxtest-guidelines.md).
+
+## Constraints
 
 Compared to ArkTs API, there are the following differences:
 
 - The unit test framework is implemented based on the unit test library std.unittest that comes with Cangjie.
 - White-box performance testing framework is not currently supported.
-
-For UI test related APIs, please refer to [ohos.ui_test (UI Testing)](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/API_Reference/source_en/apis/TestKit/cj-apis-ui_test.md). For related guidelines, please refer to [Automated Test Framework Usage Guide](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/Dev_Guide/source_en/application-test/cj-arkxtest-guidelines.md).
 
 ## Code Contribution
 
