@@ -1,6 +1,6 @@
 {
     "name": "@ohos/testfwk_cangjie_wrapper",
-    "description": "testfwk_cangjie_wrappera is a set of automated testing frameworks, mainly consists of UI testing frameworks.",
+    "description": "The testfwk_testfwk_cangjie_wrapper is a UI test framework (UiTest) provided for developers on OpenHarmony.",
     "version": "6.0",
     "license": "Apache License 2.0",
     "publishAs": "code-segment",

@@ -2,27 +2,25 @@
 
 ## 简介
 
-测试框架仓颉封装是在OpenHarmony上针对开发者使用仓颉语言进行应用开发时提供的一套自动化测试框架，其主要由单元测试框架以及UI测试框架构成。当前开放的测试框架仓颉封装仅支持standard设备。
+测试框架仓颉封装是在OpenHarmony上面向开发者使用仓颉语言进行应用开发时提供的一套Ui测试框架框架。当前开放的测试框架仓颉封装仅支持standard设备。
 
 ## 系统架构
 
-**图 1**  测试框架仓颉架构图
+**图 1**  测试框架仓颉封装架构图
 
 ![测试框架仓颉架构图](figures/testfwk_cangjie_wrapper_architecture_zh.png)
 
-如架构图所示，测试框架仓颉封装提供了UI测试框架功能：
+如架构图所示：
 
 接口层：
-- Driver: UI测试的入口，面向开发者提供查找控件、检查控件存在性以及注入按键的能力。
-- On: 面向开发者提供描述目标控件特征的能力，开发者可以根据On描述的控件特征结合Driver来查找控件。
-- Component: 表示UI界面上的一个控件，一般是通过Driver.findComponent(on)方法查找到的，面向开发者提供查询控件属性，滑动查找等触控和检视能力。
-- UiWindow: 表示UI界面上的一个窗口，一般是通过Driver.findWindow(WindowFilter)方法查找到的，面向开发者提供获取窗口属性、操作窗口的能力。
+- Ui测试框架：面向开发者提供查找和操作界面控件的能力，支持用户开发基于界面操作的自动化测试脚本。
+  - Driver: Ui测试的入口，面向开发者提供检查控件存在性、查找控件，注入按键，单击坐标，滑动控件，手势操作，截图等接口能力。
+  - On: 面向开发者提供提供了丰富的控件特征描述（文本、id、类型等）接口能力，用来匹配查找要操作或检视的目标控件。支持匹配单属性和匹配多属性组合，控件属性支持多种匹配模式以及支持相对定位控件。
+  - Component: 表示UI界面上的一个控件，一般是通过Driver.findComponent(on)方法查找到的，面向开发者提供获取控件属性，单击控件，滑动查找，注入文本等接口能力。
+  - UiWindow: 表示UI界面上的一个窗口，一般是通过Driver.findWindow(WindowFilter)方法查找到的，面向开发者提供获取窗口属性，进行窗口拖动、调整窗口大小等接口能力。
 
 框架层：
-- Driver功能封装: 基于底层自动化测试框架的UI测试基础能力，实现查找控件，注入按键，单击坐标，滑动控件，手势操作，截图等能力。
-- On功能封装: 基于底层自动化测试框架的UI测试基础能力，实现丰富的目标控件特征描述（文本、id、类型等），用来匹配查找要操作或检视的目标控件。
-- Component功能封装: 基于底层自动化测试框架的UI测试基础能力，实现获取控件属性，单击控件，滑动查找，注入文本等能力。
-- UiWindow功能封装: 基于底层自动化测试框架的UI测试基础能力，实现获取窗口属性，并进行窗口拖动、调整窗口大小等能力。
+- Ui测试框架封装：基于底层自动化测试框架的Ui测试基础能力实现Ui测试框架封装，通过Driver类、On类、Component类以及UiWindow类提供一套完整的Ui测试框架。
 
 架构图中依赖部件引入说明：
 - 自动化测试框架：依赖自动化测试框架部件提供的UI测试基础能力，用于框架层能力的实现。
@@ -48,8 +46,7 @@ test/testfwk/testfwk_cangjie_wrapper
 
 当前测试框架仓颉封装提供了以下功能：
 
-- 编写测试用例、断言、执行测试用例以及生成测试报告的能力。
-- 定位和操作UI组件的能力。
+- Ui测试框架。
 
 UI测试相关的接口请参见[UI测试API文档](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/API_Reference/source_zh_cn/apis/TestKit/cj-apis-ui_test.md)，相关开发指导请参见[自动化测试框架使用指南](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/Dev_Guide/source_zh_cn/application-test/cj-arkxtest-guidelines.md)。
 
@@ -57,7 +54,7 @@ UI测试相关的接口请参见[UI测试API文档](https://gitcode.com/openharm
 
 与ArkTs提供的API能力相比，有以下差异：
 
-- 单元测试框架基于仓颉语言自带的单元测试库std.unittest实现。
+- 单元测试框架基于仓颉语言自带的单元测试库[std.unittest]((https://gitcode.com/Cangjie/cangjie_runtime/blob/main/README_zh.md))实现。
 - 暂不支持白盒性能测试框架。
 
 ## 参与贡献
