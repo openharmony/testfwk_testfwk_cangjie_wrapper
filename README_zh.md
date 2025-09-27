@@ -2,7 +2,7 @@
 
 ## 简介
 
-测试框架仓颉封装是在OpenHarmony上面向开发者使用仓颉语言进行应用开发时提供的一套Ui测试框架框架。当前开放的测试框架仓颉封装仅支持standard设备。
+测试框架仓颉封装是在OpenHarmony上面向开发者使用仓颉语言进行应用开发时提供的一套UI测试框架。当前开放的测试框架仓颉封装仅支持standard设备。
 
 ## 系统架构
 
@@ -13,21 +13,21 @@
 如架构图所示：
 
 接口层：
-- Ui测试框架：面向开发者提供查找和操作界面控件的能力，支持用户开发基于界面操作的自动化测试脚本。
-  - Driver: Ui测试的入口，面向开发者提供检查控件存在性、查找控件，注入按键，单击坐标，滑动控件，手势操作，截图等接口能力。
-  - On: 面向开发者提供提供了丰富的控件特征描述（文本、id、类型等）接口能力，用来匹配查找要操作或检视的目标控件。支持匹配单属性和匹配多属性组合，控件属性支持多种匹配模式以及支持相对定位控件。
-  - Component: 表示UI界面上的一个控件，一般是通过Driver.findComponent(on)方法查找到的，面向开发者提供获取控件属性，单击控件，滑动查找，注入文本等接口能力。
-  - UiWindow: 表示UI界面上的一个窗口，一般是通过Driver.findWindow(WindowFilter)方法查找到的，面向开发者提供获取窗口属性，进行窗口拖动、调整窗口大小等接口能力。
+- UI测试框架：面向开发者提供查找和操作界面控件的能力，支持用户开发基于界面操作的自动化测试脚本。
+  - Driver: UI测试的入口，面向开发者提供检查控件存在性、查找控件，注入按键，单击坐标，滑动控件，手势操作，截图等接口能力。
+  - On: 面向开发者提供提供了丰富的控件特征描述（文本、id、类型等）接口能力，用来匹配查找要操作或检视的目标控件。支持匹配单属性和匹配多属性组合以及支持相对定位控件。
+  - Component: 表示UI界面上的一个控件，一般是通过Driver.findComponent(on: On)方法查找到的，面向开发者提供获取控件属性，单击控件，滑动查找，注入文本等接口能力。
+  - UiWindow: 表示UI界面上的一个窗口，一般是通过Driver.findWindow(filter: WindowFilter)方法查找到的，面向开发者提供获取窗口属性，进行窗口拖动、调整窗口大小等接口能力。
 
 框架层：
-- Ui测试框架封装：基于底层自动化测试框架的Ui测试基础能力实现Ui测试框架封装，通过Driver类、On类、Component类以及UiWindow类提供一套完整的Ui测试框架。
+- UI测试框架封装：基于底层自动化测试框架的UI测试基础能力实现UI测试框架封装，通过Driver类、On类、Component类以及UiWindow类提供一套完整的UI测试框架。
 
 架构图中依赖部件引入说明：
-- 自动化测试框架：依赖自动化测试框架部件提供的UI测试基础能力，用于框架层能力的实现。
-- 启动子系统: 依赖启动子系统提供的系统参数查询能力，用于判断当前环境是否支持测试。
-- ability_cangjie_wrapper：依赖ability_cangjie_wrapper提供的自动化测试框架管理能力，用于UI测试框架的初始化。
-- hiviewdfx_cangjie_wrapper：依赖hiviewdfx_cangjie_wrapper提供的HiLog日志能力，用于在关键路径打印日志。
-- cangjie_ark_interop：依赖cangjie_ark_interop提供的仓颉注解类定义和BusinessException异常类定义，用于对API进行标注，及在错误分支向用户抛出异常。
+- 自动化测试框架：UI测试框架封装的实现依赖自动化测试框架部件提供的UI测试基础能力。
+- init组件: UI测试框架封装依赖init组件提供的系统参数查询能力，用于判断当前环境是否支持测试。
+- ability_cangjie_wrapper：UI测试框架封装依赖ability_cangjie_wrapper提供的自动化测试框架管理能力，用于框架的初始化。
+- hiviewdfx_cangjie_wrapper：UI测试框架封装依赖hiviewdfx_cangjie_wrapper提供的HiLog日志能力，用于在关键路径打印日志。
+- cangjie_ark_interop：UI测试框架封装依赖cangjie_ark_interop提供的仓颉注解类定义和BusinessException异常类定义，用于对API进行标注，及在错误分支向用户抛出异常。
 
 ## 目录
 
@@ -46,15 +46,14 @@ test/testfwk/testfwk_cangjie_wrapper
 
 当前测试框架仓颉封装提供了以下功能：
 
-- Ui测试框架。
+- UI测试框架。
 
 UI测试相关的接口请参见[UI测试API文档](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/API_Reference/source_zh_cn/apis/TestKit/cj-apis-ui_test.md)，相关开发指导请参见[自动化测试框架使用指南](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/Dev_Guide/source_zh_cn/application-test/cj-arkxtest-guidelines.md)。
 
 ## 约束
 
-与ArkTs提供的API能力相比，有以下差异：
+与ArkTS提供的API能力相比，有以下差异：
 
-- 单元测试框架基于仓颉语言自带的单元测试库[std.unittest]((https://gitcode.com/Cangjie/cangjie_runtime/blob/main/README_zh.md))实现。
 - 暂不支持白盒性能测试框架。
 
 ## 参与贡献
