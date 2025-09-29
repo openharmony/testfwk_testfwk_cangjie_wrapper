@@ -13,11 +13,12 @@ The testfwk_testfwk_cangjie_wrapper is a UI test framework (UiTest) provided for
 As shown in the architecture diagram, the testfwk_testfwk_cangjie_wrapper provides UI test framework functions:
 
 Interface Layer:
-- UiTest: Provides developers with the ability to find and operate interface controls, supporting users in developing automated test scripts based on interface operations. Its supported functional features mainly include the following four types:
-  - Driver: The entry point for UI test, providing developers with interface capabilities such as checking component existence, finding components, injecting key presses, clicking coordinates, sliding components, gesture operations, and screenshots.
-  - On: Provides developers with rich component characteristic descriptions (text, ID, type, etc.) interface capabilities, used to match and find target components to operate or inspect. Supports matching single attributes and matching combinations of multiple attributes, with component attributes supporting multiple matching modes and relative positioning of components.
-  - Component: Represents a control on the UI interface, generally found through the Driver.findComponent(on) method, providing developers with interface capabilities such as obtaining component properties, clicking components, sliding searches, and text injection.
-  - UiWindow: Represents a window on the UI interface, generally found through the Driver.findWindow(WindowFilter) method, providing developers with interface capabilities such as obtaining window properties, dragging windows, and adjusting window size.
+
+- UiTest:  Provides developers with the capability to find and operate UI components, supporting the development of automated test scripts based on UI interactions.
+  - Driver: As the core entry point, Driver provides comprehensive test environment management capabilities. It supports basic functions such as component finding, assertion, and waiting, and also provides rich interaction interfaces, including key operations, touch screen operations, mouse operations, gesture operations, screen capture, window management, and auxiliary testing functions. Driver is responsible for coordinating and managing the entire test process, serving as the central hub for executing various UI operations.
+  - On: Provides developers with rich component characteristic description interfaces, supporting precise targeting of components through multiple attributes such as text, ID, and type. On supports not only single attribute matching but also multi-attribute combination matching and relative positioning based on other components, enabling more flexible and precise component location strategies.
+  - Component: Represents a specific component object on the UI, found and returned through the Driver.findComponent(on: On) method. Unlike Driver's global control role, Component focuses on operations and attribute access for individual components. It provides developers with fine-grained operational capabilities for specific components, such as getting component attributes (text, ID, type, etc.), clicking components, double-clicking, long-pressing, dragging to target positions, text injection, scrolling search, and pinch zooming.
+  - UiWindow: Represents a window object on the UI, found through the Driver.findWindow(filter: WindowFilter) method, where WindowFilter can set attributes such as the title and ID of the window to be found. The window object provides developers with interfaces to get window attributes (such as boundaries, package name, title, etc.) and perform window operations such as window dragging, resizing, maximizing, minimizing, and closing windows.
 
 Framework Layer:
 
@@ -25,11 +26,11 @@ Framework Layer:
 
 Dependency Components Introduction in Architecture:
 
-- arkxtest: Depends on the UI testing capabilities provided by the arkxtest.
-- init: Depends on the system parameter query capabilities to determine if the current environment supports testing.
-- ability_cangjie_wrapper: Depends on the AbilityDelegatorRegistry for initializing the UI testing framework.
-- hiviewdfx_cangjie_wrapper: Depends on HiLog capabilities for printing logs at key points.
-- cangjie_ark_interop: Depends on APILevel class definitions and BusinessException class definitions for API annotation and throwing exceptions to users in error branches.
+- arkxtest: UiTest Wrapper depends on the UI testing capabilities provided by the arkxtest.
+- init: UiTest Wrapper depends on the system parameter query capability provided by the init. The system determines whether to allow the execution of UI test operations by querying specific parameters (such as persist.ace.testmode.enabled). This ensures that UiTest runs only in an appropriate environment and avoids interfering with normal user operations. Users can enable or disable the test mode by setting system parameters; for example, enable the test mode through the hdc command 'hdc shell param set persist.ace.testmode.enabled 1'.
+- ability_cangjie_wrapper: UiTest Wrapper depends on the AbilityDelegatorRegistry for initializing the UI testing framework.
+- hiviewdfx_cangjie_wrapper: UiTest Wrapper depends on HiLog capabilities for printing logs at key points.
+- cangjie_ark_interop: UiTest Wrapper depends on APILevel class definitions and BusinessException class definitions for API annotation and throwing exceptions to users in error branches.
 
 ## Directory Structure
 
