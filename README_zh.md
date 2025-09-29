@@ -25,7 +25,7 @@
 架构图中依赖部件引入说明：
 
 - 自动化测试框架：UI测试框架封装的实现依赖自动化测试框架部件提供的UI测试基础能力。
-- init组件：UI测试框架封装依赖init组件提供的系统参数查询能力，系统通过查询特定参数（如测试模式是否启用）来确定是否允许执行UI测试操作，这确保了测试框架只在合适的环境中运行，避免对正常用户操作造成干扰。用户可以通过设置系统参数来启用或禁用测试模式，例如通过hdc命令`hdc shell param set persist.ace.testmode.enabled 1`启用测试模式。
+- init组件：UI测试框架封装依赖init组件提供的系统参数查询能力，系统通过查询特定参数（如测试模式是否启用）来确定是否允许执行UI测试操作，这确保了测试框架只在合适的环境中运行，避免对正常操作造成干扰。开发者可以通过设置系统参数来启用或禁用测试模式，例如通过hdc命令`hdc shell param set persist.ace.testmode.enabled 1`启用测试模式。
 - ability_cangjie_wrapper：UI测试框架封装依赖ability_cangjie_wrapper提供的自动化测试框架管理能力，用于框架的初始化。
 - hiviewdfx_cangjie_wrapper：UI测试框架封装依赖hiviewdfx_cangjie_wrapper提供的HiLog日志能力，用于在关键路径打印日志。
 - cangjie_ark_interop：UI测试框架封装依赖cangjie_ark_interop提供的仓颉注解类定义和BusinessException异常类定义，用于对API进行标注，及在错误分支向用户抛出异常。
