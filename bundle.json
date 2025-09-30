@@ -33,7 +33,7 @@
       "build": {
         "sub_component": [
           "//test/testfwk/testfwk_cangjie_wrapper/ohos/ui_test:ohos.ui_test",
-          "//test/testfwk/testfwk_cangjie_wrapper/kit/TestKit:TestKit"
+          "//test/testfwk/testfwk_cangjie_wrapper/kit/TestKit:kit.TestKit"
         ],
         "inner_kits": [
           {
