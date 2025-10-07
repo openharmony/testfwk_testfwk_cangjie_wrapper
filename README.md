@@ -1,4 +1,4 @@
-# testfwk_testfwk_cangjie_wrapper
+# testfwk_testfwk_cangjie_wrapper(beta feature)
 
 ## Introduction
 
