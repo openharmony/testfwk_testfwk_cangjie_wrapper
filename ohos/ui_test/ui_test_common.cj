@@ -25,8 +25,6 @@ import std.convert.*
 
 /**
  * Enumerates the string value match pattern.
- *
- * @relation declare enum MatchPattern
  */
 @!APILevel[
     22,
@@ -35,8 +33,6 @@ import std.convert.*
 public enum MatchPattern {
     /**
      * Equals to a string.
-     * 
-     * @relation EQUALS = 0
      */
     @!APILevel[
         22,
@@ -46,8 +42,6 @@ public enum MatchPattern {
     |
     /**
      * Contains a substring.
-     * 
-     * @relation CONTAINS = 1
      */
     @!APILevel[
         22,
@@ -57,8 +51,6 @@ public enum MatchPattern {
     |
     /**
      * StartsWith a substring.
-     * 
-     * @relation STARTS_WITH = 2
      */
     @!APILevel[
         22,
@@ -68,8 +60,6 @@ public enum MatchPattern {
     |
     /**
      * EndsWith a substring.
-     * 
-     * @relation ENDS_WITH = 3
      */
     @!APILevel[
         22,
@@ -91,8 +81,6 @@ public enum MatchPattern {
 
 /**
  * Enumerates the rotation of the device display.
- *
- * @relation declare enum DisplayRotation
  */
 @!APILevel[
     22,
@@ -101,8 +89,6 @@ public enum MatchPattern {
 public enum DisplayRotation {
     /**
      * Device display does not rotate to display vertically.
-     * 
-     * @relation ROTATION_0 = 0
      */
     @!APILevel[
         22,
@@ -112,8 +98,6 @@ public enum DisplayRotation {
     |
     /**
      * Device display rotates 90 degrees clockwise to display horizontally.
-     * 
-     * @relation ROTATION_90 = 1
      */
     @!APILevel[
         22,
@@ -123,8 +107,6 @@ public enum DisplayRotation {
     |
     /**
      * Device display rotates clockwise 180 degrees to display vertically in reverse.
-     * 
-     * @relation ROTATION_180 = 2
      */
     @!APILevel[
         22,
@@ -134,8 +116,6 @@ public enum DisplayRotation {
     |
     /**
      * Device display rotates 270 degrees clockwise to display horizontally in reverse.
-     * 
-     * @relation ROTATION_270 = 3
      */
     @!APILevel[
         22,
@@ -167,8 +147,6 @@ public enum DisplayRotation {
 
 /**
  * Enumerates the window mode of the tested window.
- *
- * @relation declare enum WindowMode
  */
 @!APILevel[
     22,
@@ -177,8 +155,6 @@ public enum DisplayRotation {
 public enum WindowMode {
     /**
      * The test window is a full screen window.
-     * 
-     * @relation FULLSCREEN = 0
      */
     @!APILevel[
         22,
@@ -188,8 +164,6 @@ public enum WindowMode {
     |
     /**
      * The test window is the first window in the split screen state.
-     * 
-     * @relation PRIMARY = 1
      */
     @!APILevel[
         22,
@@ -199,8 +173,6 @@ public enum WindowMode {
     |
     /**
      * The test window is the second window in the split screen state.
-     * 
-     * @relation SECONDARY = 2
      */
     @!APILevel[
         22,
@@ -210,8 +182,6 @@ public enum WindowMode {
     |
     /**
      * The test window is a floating window.
-     * 
-     * @relation FLOATING = 3
      */
     @!APILevel[
         22,
@@ -243,8 +213,6 @@ public enum WindowMode {
 
 /**
  * Enumerates the resize direction for the window.
- *
- * @relation declare enum ResizeDirection
  */
 @!APILevel[
     22,
@@ -253,8 +221,6 @@ public enum WindowMode {
 public enum ResizeDirection {
     /**
      * Left.
-     * 
-     * @relation LEFT = 0
      */
     @!APILevel[
         22,
@@ -264,8 +230,6 @@ public enum ResizeDirection {
     |
     /**
      * Right.
-     * 
-     * @relation RIGHT = 1
      */
     @!APILevel[
         22,
@@ -275,8 +239,6 @@ public enum ResizeDirection {
     |
     /**
      * Up.
-     * 
-     * @relation UP = 2
      */
     @!APILevel[
         22,
@@ -286,8 +248,6 @@ public enum ResizeDirection {
     |
     /**
      * Down.
-     * 
-     * @relation DOWN = 3
      */
     @!APILevel[
         22,
@@ -297,8 +257,6 @@ public enum ResizeDirection {
     |
     /**
      * Upper left.
-     * 
-     * @relation LEFT_UP = 4
      */
     @!APILevel[
         22,
@@ -308,8 +266,6 @@ public enum ResizeDirection {
     |
     /**
      * Lower left.
-     * 
-     * @relation LEFT_DOWN = 5
      */
     @!APILevel[
         22,
@@ -319,8 +275,6 @@ public enum ResizeDirection {
     |
     /**
      * Upper right.
-     * 
-     * @relation RIGHT_UP = 6
      */
     @!APILevel[
         22,
@@ -330,8 +284,6 @@ public enum ResizeDirection {
     |
     /**
      * Lower right.
-     * 
-     * @relation RIGHT_DOWN = 7
      */
     @!APILevel[
         22,
@@ -357,8 +309,6 @@ public enum ResizeDirection {
 
 /**
  * Enumerates the direction for the UI operation .
- *
- * @relation declare enum UiDirection
  */
 @!APILevel[
     22,
@@ -367,8 +317,6 @@ public enum ResizeDirection {
 public enum UiDirection {
     /**
      * Left.
-     * 
-     * @relation LEFT = 0
      */
     @!APILevel[
         22,
@@ -378,8 +326,6 @@ public enum UiDirection {
     |
     /**
      * Right.
-     * 
-     * @relation RIGHT = 1
      */
     @!APILevel[
         22,
@@ -389,8 +335,6 @@ public enum UiDirection {
     |
     /**
      * Up.
-     * 
-     * @relation UP = 2
      */
     @!APILevel[
         22,
@@ -400,8 +344,6 @@ public enum UiDirection {
     |
     /**
      * Down.
-     * 
-     * @relation DOWN = 3
      */
     @!APILevel[
         22,
@@ -423,8 +365,6 @@ public enum UiDirection {
 
 /**
  * Enumerates the id of the button on the mouse.
- *
- * @relation declare enum MouseButton
  */
 @!APILevel[
     22,
@@ -433,8 +373,6 @@ public enum UiDirection {
 public enum MouseButton {
     /**
      * Left button of the mouse.
-     * 
-     * @relation MOUSE_BUTTON_LEFT = 0
      */
     @!APILevel[
         22,
@@ -444,8 +382,6 @@ public enum MouseButton {
     |
     /**
      * Right button of the mouse.
-     * 
-     * @relation MOUSE_BUTTON_RIGHT = 1
      */
     @!APILevel[
         22,
@@ -455,8 +391,6 @@ public enum MouseButton {
     |
     /**
      * Middle button of the mouse.
-     * 
-     * @relation MOUSE_BUTTON_MIDDLE = 2
      */
     @!APILevel[
         22,
@@ -477,8 +411,6 @@ public enum MouseButton {
 
 /**
  * Represents the point on the device screen.
- *
- * @relation declare interface Point
  */
 @!APILevel[
     22,
@@ -487,8 +419,6 @@ public enum MouseButton {
 public class Point {
     /**
     * The x-coordinate of the coordinate point.
-    *
-    * @relation x: number
     */
     @!APILevel[
         22,
@@ -498,8 +428,6 @@ public class Point {
 
     /**
     * The y-coordinate of the coordinate point.
-    *
-    * @relation y: number
     */
     @!APILevel[
         22,
@@ -509,8 +437,6 @@ public class Point {
 
     /**
     * The displayId to which the coordinate point belongs, default is the displayId of the main scrren.
-    *
-    * @relation displayId?: number
     */
     @!APILevel[
         22,
@@ -548,8 +474,6 @@ public class Point {
 
 /**
  * Represents the information of an UI element, can be a component or window.
- *
- * @relation declare interface UIElementInfo
  */
 @!APILevel[
     22,
@@ -558,8 +482,6 @@ public class Point {
 public class UIElementInfo {
     /**
     * The bundle name of the host application.
-    *
-    * @relation readonly bundleName: string
     */
     @!APILevel[
         22,
@@ -569,8 +491,6 @@ public class UIElementInfo {
 
     /**
     * The component type, set it as 'window' if it's a window.
-    *
-    * @relation readonly type: string
     */
     @!APILevel[
         22,
@@ -580,8 +500,6 @@ public class UIElementInfo {
 
     /**
     * The text of component, set it as window's title if it's a window.
-    *
-    * @relation readonly text: string
     */
     @!APILevel[
         22,
@@ -598,8 +516,6 @@ public class UIElementInfo {
 
 /**
  * Represents filer condition to get the window.
- *
- * @relation declare interface WindowFilter
  */
 @!APILevel[
     22,
@@ -608,8 +524,6 @@ public class UIElementInfo {
 public class WindowFilter {
     /**
      * The package name of the application which the window belongs to.
-     * 
-     * @relation bundleName?: string
      */
     @!APILevel[
         22,
@@ -619,8 +533,6 @@ public class WindowFilter {
 
     /**
      * The title of the window.
-     * 
-     * @relation title?: string
      */
     @!APILevel[
         22,
@@ -630,8 +542,6 @@ public class WindowFilter {
 
     /**
      * The focal state of the window.
-     * 
-     * @relation focused?: boolean
      */
     @!APILevel[
         22,
@@ -641,8 +551,6 @@ public class WindowFilter {
 
     /**
      * The active state of the window.
-     * 
-     * @relation actived?: boolean
      */
     @!APILevel[
         22,
@@ -652,8 +560,6 @@ public class WindowFilter {
 
     /**
      * Find the window in the specified ID display. By default, it searches all displays.
-     * 
-     * @relation displayId?: number
      */
     @!APILevel[
         22,
@@ -682,8 +588,6 @@ public class WindowFilter {
 
 /**
  * Represents the rectangle area on the device screen.
- *
- * @relation declare interface Rect
  */
 @!APILevel[
     22,
@@ -692,8 +596,6 @@ public class WindowFilter {
 public class Rect {
     /**
      * The x-coordinate of the top left corner of the rectangle.
-     * 
-     * @relation left: number
      */
     @!APILevel[
         22,
@@ -703,8 +605,6 @@ public class Rect {
 
     /**
      * The y-coordinate of the top left corner of the rectangle.
-     * 
-     * @relation top: number
      */
     @!APILevel[
         22,
@@ -714,8 +614,6 @@ public class Rect {
 
     /**
      * The x-coordinate at the bottom right corner of the rectangle.
-     * 
-     * @relation right: number
      */
     @!APILevel[
         22,
@@ -725,8 +623,6 @@ public class Rect {
 
     /**
      * The y-coordinate at the bottom right corner of the rectangle.
-     * 
-     * @relation bottom: number
      */
     @!APILevel[
         22,
@@ -736,8 +632,6 @@ public class Rect {
 
     /**
      * The displayId to which the rect belongs, default is the displayId of the main screen.
-     * 
-     * @relation displayId?: number
      */
     @!APILevel[
         22,
