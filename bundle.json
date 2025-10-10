@@ -1,7 +1,7 @@
 {
     "name": "@ohos/testfwk_cangjie_wrapper",
     "description": "The testfwk_testfwk_cangjie_wrapper is a UI test framework (UiTest) provided for developers on OpenHarmony.",
-    "version": "6.0",
+    "version": "6.1",
     "license": "Apache License 2.0",
     "publishAs": "code-segment",
     "segment": {
@@ -33,7 +33,7 @@
       "build": {
         "sub_component": [
           "//test/testfwk/testfwk_cangjie_wrapper/ohos/ui_test:ohos.ui_test",
-          "//test/testfwk/testfwk_cangjie_wrapper/kit/TestKit:TestKit"
+          "//test/testfwk/testfwk_cangjie_wrapper/kit/TestKit:kit.TestKit"
         ],
         "inner_kits": [
           {

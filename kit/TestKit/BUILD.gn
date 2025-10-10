@@ -11,9 +11,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# The Cangjie API is in Beta. For details on its capabilities and limitations, please refer to the README file.
+
 import("//build/templates/cangjie/cjc.gni")
 
-ohos_cangjie_shared_library("TestKit") {
+ohos_cangjie_shared_library("kit.TestKit") {
   sources = ["index.cj"]
 
   cj_deps = ["../../ohos/ui_test:ohos.ui_test"]

@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+// The Cangjie API is in Beta. For details on its capabilities and limitations, please refer to the README file.
+
 package ohos.ui_test
 
 import std.convert.Parsable
@@ -107,8 +109,6 @@ func checkNull(data: String): Bool {
 /**
  * The unified facade of UiTest framework,can be used to find Component,trigger keyEvents,perform
  * coordinates-based UI actions,capture screen and so on.
- *
- * @relation declare class Driver
  */
 @!APILevel[
     since: "22",
@@ -127,7 +127,6 @@ public class Driver {
      * Create an Driver object.
      *
      * @throws { BusinessException } 17000001 - Initialization failed.
-     * @relation static create(): Driver
      */
     @!APILevel[
         since: "22",
@@ -144,7 +143,6 @@ public class Driver {
      *
      * @param { Int32 } duration - the delay duration in milliseconds, not less than 0.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation delayMs(duration: number): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -160,7 +158,6 @@ public class Driver {
      * Find the first matched Component on current UI.
      *
      * @returns { ?Component } the first matched Component or undefined.
-     * @relation findComponent(on: On): Promise<Component|null>
      */
     @!APILevel[
         since: "22",
@@ -179,7 +176,6 @@ public class Driver {
      * Find all the matched Components on current UI.
      *
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation findComponents(on: On): Promise<Array<Component>|null>
      */
     @!APILevel[
         since: "22",
@@ -206,7 +202,6 @@ public class Driver {
      * Find the first matched UiWindow window.
      *
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation findWindow(filter: WindowFilter): Promise<UiWindow|null>
      */
     @!APILevel[
         since: "22",
@@ -260,7 +255,6 @@ public class Driver {
      * @param { Int32 } time - duration of finding in milliseconds, not less than 0.
      * @returns { ?Component } the first matched Component or undefined.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation waitForComponent(on: On, time: number): Promise<Component|null>
      */
     @!APILevel[
         since: "22",
@@ -279,7 +273,6 @@ public class Driver {
      *
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessException } 17000003 - Assertion failed.
-     * @relation assertComponentExist(on: On): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -292,8 +285,6 @@ public class Driver {
     }
     /**
      * Press the BACK key.
-     *
-     * @relation pressBack(): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -309,7 +300,6 @@ public class Driver {
      * Press the specified key.
      *
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation triggerKey(keyCode: number): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -325,7 +315,6 @@ public class Driver {
      * Press two or three key combinations
      *
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation triggerCombineKeys(key0: number, key1: number, key2?: number): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -343,7 +332,6 @@ public class Driver {
      * @param { Int32 } x - the x-coordinate, not less than 0.
      * @param { Int32 } y - the y-coordinate, not less than 0.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation click(x: number, y: number): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -360,7 +348,6 @@ public class Driver {
      * @param { Int32 } x - the x-coordinate, not less than 0.
      * @param { Int32 } y - the y-coordinate, not less than 0.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation doubleClick(x: number, y: number): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -377,7 +364,6 @@ public class Driver {
      * @param { Int32 } x - the x-coordinate, not less than 0.
      * @param { Int32 } y - the y-coordinate, not less than 0.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation longClick(x: number, y: number): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -397,7 +383,6 @@ public class Driver {
      * @param { Int32 } endy - the y-coordinate of the ending point, not less than 0.
      * @param { Int32 } speed - the speed of swipe(pixels per second),ranges from 200 to 40000.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation swipe(startx: number, starty: number, endx: number, endy: number, speed?: number): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -424,7 +409,6 @@ public class Driver {
      * @param { Int32 } endy - the y-coordinate of the ending point, not less than 0.
      * @param { Int32 } [speed] the speed of drag(pixels per second),ranges from 200 to 40000.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation drag(startx: number, starty: number, endx: number, endy: number, speed?: number): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -448,7 +432,6 @@ public class Driver {
      * @param { String } savePath - the path where to store the picture, must be in the application sandbox directory.
      * @returns { Bool } true if screen-capturing and file-storing are completed successfully,false otherwise.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation screenCap(savePath: string): Promise<boolean>
      */
     @!APILevel[
         since: "22",
@@ -465,7 +448,6 @@ public class Driver {
      *
      * @param { DisplayRotation } rotation - the target rotation to set.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation setDisplayRotation(rotation: DisplayRotation): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -480,7 +462,6 @@ public class Driver {
      * Get the rotation of the device display.
      *
      * @returns { DisplayRotation } the current display rotation.
-     * @relation getDisplayRotation(): Promise<DisplayRotation>
      */
     @!APILevel[
         since: "22",
@@ -496,7 +477,6 @@ public class Driver {
      *
      * @param { Bool } enabled - enable the rotation or not.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation setDisplayRotationEnabled(enabled: boolean): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -512,7 +492,6 @@ public class Driver {
      * Get the size of the device display.
      *
      * @returns { Point } the size of the device display.
-     * @relation getDisplaySize(): Promise<Point>
      */
     @!APILevel[
         since: "22",
@@ -528,7 +507,6 @@ public class Driver {
      * Get the density of the device display.
      *
      * @returns { Point } the density of the device display.
-     * @relation getDisplayDensity(): Promise<Point>
      */
     @!APILevel[
         since: "22",
@@ -541,8 +519,6 @@ public class Driver {
     }
     /**
      * Wake up the device display.
-     *
-     * @relation wakeUpDisplay(): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -556,8 +532,6 @@ public class Driver {
 
     /**
      * Press the home key.
-     *
-     * @relation pressHome(): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -575,7 +549,6 @@ public class Driver {
      * @param { Int32 } timeout - the maximum time to wait for idle, in millisecond, not less than 0.
      * @returns { Bool } true if wait for idle succeed in the timeout, false otherwise.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation waitForIdle(idleTime: number, timeout: number): Promise<boolean>
      */
     @!APILevel[
         since: "22",
@@ -593,7 +566,6 @@ public class Driver {
      * @param { Int32 } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
      * @returns { Bool } true if the operation finished, false
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation injectMultiPointerAction(pointers: PointerMatrix, speed?: number): Promise<boolean>
      */
     @!APILevel[
         since: "22",
@@ -612,7 +584,6 @@ public class Driver {
      * @param { Int32 } stepLen - the length of each step, in pixels.
      * @param { Int32 } speed - the speed of fling(pixels per second),ranges from 200 to 40000.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation fling(from: Point, to: Point, stepLen: number, speed: number): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -630,7 +601,6 @@ public class Driver {
      * @param { UiDirection } direction - the direction of this action.
      * @param { Int32 } speed - the speed of fling (pixels per second), default is 600.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation fling(direction: UiDirection, speed: number): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -648,7 +618,6 @@ public class Driver {
      * @param { Rect } [rect] - the specified area of current screen, default to full screen.
      * @returns { Bool } true if screen-capturing and file-storing are completed successfully, false otherwise.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation screenCapture(savePath: string, rect?: Rect): Promise<boolean>
      */
     @!APILevel[
         since: "22",
@@ -676,7 +645,6 @@ public class Driver {
      * @param { Int32 } key1 - the first keyCode,set default is 0.
      * @param { Int32 } key2 - the second keyCode,set idefault is 0.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation mouseClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -692,7 +660,6 @@ public class Driver {
      *
      * @param { Point } p - the coordinate of the specified location.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation mouseMoveTo(p: Point): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -707,7 +674,6 @@ public class Driver {
      * Create an UIEventObserver object.
      *
      * @returns { UIEventObserver } the UIEventObserver object.
-     * @relation createUIEventObserver(): UIEventObserver
      */
     @!APILevel[
         since: "22",
@@ -729,7 +695,6 @@ public class Driver {
      * @param { Int32 } speed - The Speed of mouse wheel rolls(cells per second),ranges from 1 to 500, default is 20.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number, speed?: number): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -750,7 +715,6 @@ public class Driver {
      * @param { Int32 } key1 - the first keyCode, default is 0.
      * @param { Int32 } key2 - the second keyCode, default is 0.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation mouseDoubleClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -769,7 +733,6 @@ public class Driver {
      * @param { Int32 } key1 - the first keyCode, default is 0.
      * @param { Int32 } key2 - the second keyCode, default is 0.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation mouseLongClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -787,7 +750,6 @@ public class Driver {
      * @param { Point } to - the ending point.
      * @param { Int32 } speed - speed of swipe (pixels per second),the value ranges from 200 to 40000, default is 600.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation mouseMoveWithTrack(from: Point, to: Point, speed?: number): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -806,7 +768,6 @@ public class Driver {
      * @param { Point } to - the ending point.
      * @param { Int32 } speed - speed of swipe (pixels per second),the value ranges from 200 to 40000, default is 600.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation mouseDrag(from: Point, to: Point, speed?: number): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -824,7 +785,6 @@ public class Driver {
      * @param { Point } p - the coordinate of the specified location.
      * @param { String } text - the text to inject.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation inputText(p: Point, text: string): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -841,8 +801,6 @@ public class Driver {
 /**
  * Represents a two-dimensional array of pointers on the device display, it's used to build a
  * multi-finger trace which can be injected with UiDriver.
- *
- * @relation declare class PointerMatrix
  */
 @!APILevel[
     since: "22",
@@ -864,7 +822,6 @@ public class PointerMatrix {
      * @param { Int32 } steps - The number of steps of each finger trace, ranges from 1 to 1000.
      * @returns { PointerMatrix } the PointerMatrix object.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation static create(fingers: number, steps: number): PointerMatrix
      */
     @!APILevel[
         since: "22",
@@ -883,7 +840,6 @@ public class PointerMatrix {
      * @param { Int32 } step - the index of target step to set.
      * @param { Point } point - the coordinate of target step to set.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation setPoint(finger: number, step: number, point: Point): void
      */
     @!APILevel[
         since: "22",
@@ -899,8 +855,6 @@ public class PointerMatrix {
 
 /**
  * Represents a window of the ohos application,user can perform operations or query attributes on it.
- *
- * @relation declare class UiWindow
  */
 @!APILevel[
     since: "22",
@@ -920,7 +874,6 @@ public class UiWindow {
      *
      * @returns { String } the bundle name.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     * @relation getBundleName(): Promise<string>
      */
     @!APILevel[
         since: "22",
@@ -937,7 +890,6 @@ public class UiWindow {
      *
      * @returns { Rect } the bounds rect object.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     * @relation getBounds(): Promise<Rect>
      */
     @!APILevel[
         since: "22",
@@ -960,7 +912,6 @@ public class UiWindow {
      *
      * @returns { String } the title value.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     * @relation getTitle(): Promise<string>
      */
     @!APILevel[
         since: "22",
@@ -977,7 +928,6 @@ public class UiWindow {
      *
      * @returns { WindowMode } the WindowMode object
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     * @relation getWindowMode(): Promise<WindowMode>
      */
     @!APILevel[
         since: "22",
@@ -994,7 +944,6 @@ public class UiWindow {
      *
      * @returns { Bool } the focused status
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     * @relation isFocused(): Promise<boolean>
      */
     @!APILevel[
         since: "22",
@@ -1010,7 +959,6 @@ public class UiWindow {
      * Set the focused status of this UiWindow.
      *
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     * @relation focus(): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -1030,7 +978,6 @@ public class UiWindow {
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      * @throws { BusinessException } 17000005 - This operation is not supported.
-     * @relation moveTo(x: number, y: number): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -1051,7 +998,6 @@ public class UiWindow {
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      * @throws { BusinessException } 17000005 - This operation is not supported.
-     * @relation resize(wide: number, height: number, direction: ResizeDirection): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -1068,7 +1014,6 @@ public class UiWindow {
      *
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      * @throws { BusinessException } 17000005 - This operation is not supported.
-     * @relation split(): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -1085,7 +1030,6 @@ public class UiWindow {
      *
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      * @throws { BusinessException } 17000005 - This operation is not supported.
-     * @relation maximize(): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -1102,7 +1046,6 @@ public class UiWindow {
      *
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      * @throws { BusinessException } 17000005 - This operation is not supported.
-     * @relation minimize(): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -1119,7 +1062,6 @@ public class UiWindow {
      *
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      * @throws { BusinessException } 17000005 - This operation is not supported.
-     * @relation resume(): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -1136,7 +1078,6 @@ public class UiWindow {
      *
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      * @throws { BusinessException } 17000005 - This operation is not supported.
-     * @relation close(): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -1153,7 +1094,6 @@ public class UiWindow {
      *
      * @returns { Bool } the active status.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     * @relation isActive(): Promise<boolean>
      */
     @!APILevel[
         since: "22",
@@ -1168,8 +1108,6 @@ public class UiWindow {
 
 /**
  * Describes the attribute requirements for the target Components.
- *
- * @relation declare class On
  */
 @!APILevel[
     since: "22",
@@ -1212,7 +1150,6 @@ public class On {
      * @param { String } txt - Component text, used to match the target component.
      * @param { MatchPattern } pattern - Match pattern. The default value is EQUALS.
      * @returns { On } On object that matches the text attribute of the target component.
-     * @relation text(txt: string, pattern?: MatchPattern): On
      */
     @!APILevel[
         since: "22",
@@ -1229,7 +1166,6 @@ public class On {
      * Specifies the id of the target Component.
      *
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation id(id: string): On
      */
     @!APILevel[
         since: "22",
@@ -1245,7 +1181,6 @@ public class On {
      * Specifies the type of the target Component.
      *
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation type(tp: string): On
      */
     @!APILevel[
         since: "22",
@@ -1262,7 +1197,6 @@ public class On {
      *
      * @param { MatchPattern } pattern - the MatchPattern of description value. The default value is EQUALS.
      * @throws { IllegalArgumentException } - if the input parameters are invalid.
-     * @relation description(val: string, pattern?: MatchPattern): On
      */
     @!APILevel[
         since: "22",
@@ -1281,7 +1215,6 @@ public class On {
      * @param { Bool } b - Clickable status of the target component. The default value is true.
      *                     true: clickable; false: not clickable.
      * @returns { On } On object that matches the clickable attribute of the target component.
-     * @relation clickable(b?: boolean): On
      */
     @!APILevel[
         since: "22",
@@ -1298,7 +1231,6 @@ public class On {
      * @param { Bool } b - the longClickable status. The default value is true.
      * @returns { On } this {@link On} object.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
-     * @relation longClickable(b?: boolean): On
      */
     @!APILevel[
         since: "22",
@@ -1314,7 +1246,6 @@ public class On {
      *
      * @param { Bool } b - the scrollable status. The default value is true.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
-     * @relation scrollable(b?: boolean): On
      */
     @!APILevel[
         since: "22",
@@ -1330,7 +1261,6 @@ public class On {
      *
      * @param { Bool } b - the enabled status. The default value is true.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
-     * @relation enabled(b?: boolean): On
      */
     @!APILevel[
         since: "22",
@@ -1346,7 +1276,6 @@ public class On {
      *
      * @param { Bool } b - the focused status. The default value is true.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
-     * @relation focused(b?: boolean): On
      */
     @!APILevel[
         since: "22",
@@ -1362,7 +1291,6 @@ public class On {
      *
      * @param { Bool } b the - selected status. The default value is true.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
-     * @relation selected(b?: boolean): On
      */
     @!APILevel[
         since: "22",
@@ -1378,7 +1306,6 @@ public class On {
      *
      * @param { Bool } b - the checked status. The default value is true.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
-     * @relation checked(b?: boolean): On
      */
     @!APILevel[
         since: "22",
@@ -1394,7 +1321,6 @@ public class On {
      *
      * @param { Bool } b - the checkable status. The default value is true.
      * @throws { IllegalArgumentException } - Parameter error. 1. Incorrect parameter types; 2. Parameter verification failed.
-     * @relation checkable(b?: boolean): On
      */
     @!APILevel[
         since: "22",
@@ -1410,7 +1336,6 @@ public class On {
      * object,used to locate Component relatively.
      *
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation isBefore(on: On): On
      */
     @!APILevel[
         since: "22",
@@ -1427,7 +1352,6 @@ public class On {
      * object,used to locate Component relatively.
      *
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation isAfter(on: On): On
      */
     @!APILevel[
         since: "22",
@@ -1444,7 +1368,6 @@ public class On {
      * object,used to locate Component relatively.
      *
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation within(on: On): On
      */
     @!APILevel[
         since: "22",
@@ -1460,7 +1383,6 @@ public class On {
      * Specifies the bundleName of the application which the window that the target Component is located belongs.
      *
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation inWindow(bundleName: string): On
      */
     @!APILevel[
         since: "22",
@@ -1507,8 +1429,6 @@ public enum OnceType {
 
 /**
  * Observer to monitor UI events.
- * 
- * @relation declare interface UIEventObserver
  */
 @!APILevel[
     since: "22",
@@ -1528,8 +1448,6 @@ public class UIEventObserver {
      * @param { OnceType } onceType - the type of func once.
      * @param { Callback<UIElementInfo> } callback - function, returns the monitored UIElementInfo.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @relation once(type: 'toastShow', callback: Callback<UIElementInfo>): void
-     * @relation once(type: 'dialogShow', callback: Callback<UIElementInfo>): void
      */
     @!APILevel[
         since: "22",
@@ -1566,8 +1484,6 @@ public class UIEventObserver {
 
 /**
  * Represents a Component of the ohos application,user can perform operations or query attributes on it.
- *
- * @relation declare class Component 
  */
 @!APILevel[
     since: "22",
@@ -1588,8 +1504,6 @@ public class Component {
     }
     /**
      * Click this Component.
-     *
-     * @relation click(): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -1602,7 +1516,6 @@ public class Component {
      * Double click this Component.
      *
      * @returns { Unit }
-     * @relation doubleClick(): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -1615,7 +1528,6 @@ public class Component {
      * Long click this Component.
      *
      * @returns { Unit }
-     * @relation longClick(): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -1626,8 +1538,6 @@ public class Component {
     }
     /**
      * Get the id attribute value.
-     *
-     * @relation getId(): Promise<string>
      */
     @!APILevel[
         since: "22",
@@ -1641,7 +1551,6 @@ public class Component {
      * Get the text attribute value.
      *
      * @returns { String } the text value.
-     * @relation getText(): Promise<string>
      */
     @!APILevel[
         since: "22",
@@ -1655,7 +1564,6 @@ public class Component {
      * Get the type name.
      *
      * @returns { String } the type name.
-     * @relation getType(): Promise<string>
      */
     @!APILevel[
         since: "22",
@@ -1670,7 +1578,6 @@ public class Component {
      *
      * @returns { Rect } the bounds rect object.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     * @relation getBounds(): Promise<Rect>
      */ 
     @!APILevel[
         since: "22",
@@ -1685,7 +1592,6 @@ public class Component {
      *
      * @returns { Point } the boundsCenter object.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     * @relation getBoundsCenter(): Promise<Point>
      */
     @!APILevel[
         since: "22",
@@ -1699,7 +1605,6 @@ public class Component {
      * Get the clickable status of this Component.
      *
      * @returns { Bool } the clickable status.
-     * @relation isClickable(): Promise<boolean>
      */
     @!APILevel[
         since: "22",
@@ -1714,7 +1619,6 @@ public class Component {
      *
      * @returns { Bool } the clickable status.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     * @relation isLongClickable(): Promise<boolean>
      */
     @!APILevel[
         since: "22",
@@ -1729,7 +1633,6 @@ public class Component {
      *
      * @returns { Bool } the checked status.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     * @relation isChecked(): Promise<boolean>
      */
     @!APILevel[
         since: "22",
@@ -1744,7 +1647,6 @@ public class Component {
      *
      * @returns { Bool } the checkable status.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     * @relation isCheckable(): Promise<boolean>
      */
     @!APILevel[
         since: "22",
@@ -1758,7 +1660,6 @@ public class Component {
      * Get the scrollable status of this Component.
      *
      * @returns { Bool } the scrollable status.
-     * @relation isScrollable(): Promise<boolean>
      */
     @!APILevel[
         since: "22",
@@ -1772,7 +1673,6 @@ public class Component {
      * Get the enabled status of this Component.
      *
      * @returns { Bool } the enabled status.
-     * @relation isEnabled(): Promise<boolean>
      */
     @!APILevel[
         since: "22",
@@ -1786,7 +1686,6 @@ public class Component {
      * Get the focused status of this Component.
      *
      * @returns { Bool } the focused status.
-     * @relation isFocused(): Promise<boolean>
      */
     @!APILevel[
         since: "22",
@@ -1800,7 +1699,6 @@ public class Component {
      * Get the selected status of this Component.
      *
      * @returns { Bool } the selected status.
-     * @relation isSelected(): Promise<boolean>
      */
     @!APILevel[
         since: "22",
@@ -1814,7 +1712,6 @@ public class Component {
      * Inject text to this Component,applicable to TextInput.
      *
      * @param { String } text The text to inject.
-     * @relation inputText(text: string): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -1827,7 +1724,6 @@ public class Component {
      * Clear text of this Component,applicable to TextInput.
      *
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     * @relation clearText(): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -1843,7 +1739,6 @@ public class Component {
      * @returns { ?Component } the found result,or undefined if not found.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     * @relation scrollSearch(on: On): Promise<Component|null>
      */
     @!APILevel[
         since: "22",
@@ -1862,7 +1757,6 @@ public class Component {
      * @param { Int64 } speed - the speed of swipe(pixels per second),ranges from 200 to 40000. The default value is 600.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     * @relation scrollToTop(speed?: number): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -1877,7 +1771,6 @@ public class Component {
      * @param { Int64 } speed - the speed of swipe(pixels per second),ranges from 200 to 40000. The default value is 600.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     * @relation scrollToBottom(speed?: number): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -1892,7 +1785,6 @@ public class Component {
      * @param { Component } target - the target Component.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     * @relation dragTo(target: Component): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -1907,7 +1799,6 @@ public class Component {
      * @param { Float32 } scale - the scale of the pinch enlarge this Component's size, ranges greater than 1.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     * @relation pinchOut(scale: number): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -1922,7 +1813,6 @@ public class Component {
      * @param { Float32 } scale - the scale of the pinch shrink this Component's size, ranges from 0 to 1.
      * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     * @relation pinchIn(scale: number): Promise<void>
      */
     @!APILevel[
         since: "22",
@@ -1936,7 +1826,6 @@ public class Component {
      *
      * @returns { String } the description value.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     * @relation getDescription(): Promise<string>
      */
     @!APILevel[
         since: "22",
