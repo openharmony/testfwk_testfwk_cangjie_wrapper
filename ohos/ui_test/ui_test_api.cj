@@ -35,7 +35,7 @@ let TEST_LOG = HilogChannel(3, 0xD003100, "CJ-UITEST")
 
 /**
  * UITest
- * 
+ *
  */
 @!APILevel[
     since: "22",
@@ -44,7 +44,7 @@ let TEST_LOG = HilogChannel(3, 0xD003100, "CJ-UITEST")
 protected class UITest {
     /**
      * setup
-     * 
+     *
      */
     @!APILevel[
         since: "22",
@@ -73,16 +73,13 @@ protected class UITest {
         }
     }
 }
-const INVALID_PARA: Int32 = 401
+
 func getData(params: ApiCallParams, api: String): String {
     let ret = unsafe { CJ_ApiCall(params) }
     params.free()
     let dataOrMessage = ret.data.toString()
     unsafe { LibC.free(ret.data) }
     if (ret.code != 0) {
-        if (ret.code == INVALID_PARA) {
-            throw IllegalArgumentException(dataOrMessage)
-        }
         throw BusinessException(ret.code, "${api} failed: ${dataOrMessage}")
     }
     return dataOrMessage
@@ -109,6 +106,7 @@ func checkNull(data: String): Bool {
 /**
  * The unified facade of UiTest framework,can be used to find Component,trigger keyEvents,perform
  * coordinates-based UI actions,capture screen and so on.
+ *
  */
 @!APILevel[
     since: "22",
@@ -126,6 +124,7 @@ public class Driver {
     /**
      * Create an Driver object.
      *
+     * @returns { Driver } the Driver object.
      * @throws { BusinessException } 17000001 - Initialization failed.
      */
     @!APILevel[
@@ -142,7 +141,7 @@ public class Driver {
      * Delay with specified duration.
      *
      * @param { Int32 } duration - the delay duration in milliseconds, not less than 0.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -158,6 +157,7 @@ public class Driver {
     /**
      * Find the first matched Component on current UI.
      *
+     * @param { On } on - the attribute requirements of the target Component.
      * @returns { ?Component } the first matched Component or undefined.
      */
     @!APILevel[
@@ -176,7 +176,9 @@ public class Driver {
     /**
      * Find all the matched Components on current UI.
      *
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @param { On } on - the attribute requirements of the target Component.
+     * @returns { ?Array<Component> } the matched Components list or undefined.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -203,7 +205,9 @@ public class Driver {
     /**
      * Find the first matched UiWindow window.
      *
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @param { WindowFilter } filter - the filter condition to find the window.
+     * @returns { ?UiWindow } the first matched UiWindow window or undefined.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -212,10 +216,10 @@ public class Driver {
     ]
     public func findWindow(filter: WindowFilter): ?UiWindow {
         let params: StringBuilder = StringBuilder("[{")
-        var temp = false	
-        if (let Some(v) <- filter.bundleName) {	
-            params.append("\"bundleName\":\"${v}\"")	
-            temp = true	
+        var temp = false
+        if (let Some(v) <- filter.bundleName) {
+            params.append("\"bundleName\":\"${v}\"")
+            temp = true
         }
         if (let Some(v) <- filter.title) {
             if (temp) {
@@ -241,7 +245,7 @@ public class Driver {
             if (temp) {
                 params.append(",")
             }
-           params.append("\"displayId\":${v}") 
+           params.append("\"displayId\":${v}")
         }
         params.append("}]")
         let cjCallParams = ApiCallParams(DRIVER_FINDWINDOW, ref, params.toString())
@@ -255,9 +259,10 @@ public class Driver {
     /**
      * Find the first matched Component on current UI during the time given.
      *
+     * @param { On } on - the attribute requirements of the target Component.
      * @param { Int32 } time - duration of finding in milliseconds, not less than 0.
      * @returns { ?Component } the first matched Component or undefined.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -273,9 +278,10 @@ public class Driver {
         return Component(data[1..data.size - 1])
     }
     /**
-     * Assert t the matched Components exists on current UI;if not,assertError will be raised.
+     * Assert that the matched Components exists on current UI;if not,assertError will be raised.
      *
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @param { On } on - the attribute requirements of the target Component.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessException } 17000003 - Assertion failed.
      */
@@ -290,6 +296,7 @@ public class Driver {
     }
     /**
      * Press the BACK key.
+     *
      */
     @!APILevel[
         since: "22",
@@ -304,7 +311,8 @@ public class Driver {
     /**
      * Press the specified key.
      *
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @param { Int32 } keyCode - the target keyCode.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -320,7 +328,10 @@ public class Driver {
     /**
      * Press two or three key combinations
      *
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @param { Int32 } key0 - the first keyCode.
+     * @param { Int32 } key1 - the second keyCode.
+     * @param { Int32 } key2 - the third keyCode, default is 0.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -338,7 +349,7 @@ public class Driver {
      *
      * @param { Int32 } x - the x-coordinate, not less than 0.
      * @param { Int32 } y - the y-coordinate, not less than 0.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -355,7 +366,7 @@ public class Driver {
      *
      * @param { Int32 } x - the x-coordinate, not less than 0.
      * @param { Int32 } y - the y-coordinate, not less than 0.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -372,7 +383,7 @@ public class Driver {
      *
      * @param { Int32 } x - the x-coordinate, not less than 0.
      * @param { Int32 } y - the y-coordinate, not less than 0.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -392,7 +403,7 @@ public class Driver {
      * @param { Int32 } endx - the x-coordinate of the ending point, not less than 0.
      * @param { Int32 } endy - the y-coordinate of the ending point, not less than 0.
      * @param { Int32 } speed - the speed of swipe(pixels per second),ranges from 200 to 40000.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -419,7 +430,7 @@ public class Driver {
      * @param { Int32 } endx - the x-coordinate of the ending point, not less than 0.
      * @param { Int32 } endy - the y-coordinate of the ending point, not less than 0.
      * @param { Int32 } [speed] the speed of drag(pixels per second),ranges from 200 to 40000.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -443,7 +454,7 @@ public class Driver {
      *
      * @param { String } savePath - the path where to store the picture, must be in the application sandbox directory.
      * @returns { Bool } true if screen-capturing and file-storing are completed successfully,false otherwise.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -460,7 +471,7 @@ public class Driver {
      * Set the rotation of the device display.
      *
      * @param { DisplayRotation } rotation - the target rotation to set.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -490,7 +501,7 @@ public class Driver {
      * Enable/disable the rotation of device display.
      *
      * @param { Bool } enabled - enable the rotation or not.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -534,6 +545,7 @@ public class Driver {
     }
     /**
      * Wake up the device display.
+     *
      */
     @!APILevel[
         since: "22",
@@ -547,6 +559,7 @@ public class Driver {
 
     /**
      * Press the home key.
+     *
      */
     @!APILevel[
         since: "22",
@@ -563,7 +576,7 @@ public class Driver {
      * @param { Int32 } idleTime - the threshold of UI idle time, in millisecond, not less than 0.
      * @param { Int32 } timeout - the maximum time to wait for idle, in millisecond, not less than 0.
      * @returns { Bool } true if wait for idle succeed in the timeout, false otherwise.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -579,10 +592,10 @@ public class Driver {
      * Inject multi-pointer action on the device display.
      *
      * @param { PointerMatrix } pointers - the two-dimensional array of pointers to inject.
-     * @param { Int32 } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600
-     * if out of range or null or undefined.
+     * @param { Int32 } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if
+     * out of range or null or undefined.
      * @returns { Bool } true if the operation finished, false
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -601,7 +614,7 @@ public class Driver {
      * @param { Point } to - the coordinate point where the finger leaves the screen.
      * @param { Int32 } stepLen - the length of each step, in pixels.
      * @param { Int32 } speed - the speed of fling(pixels per second),ranges from 200 to 40000.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -619,7 +632,7 @@ public class Driver {
      *
      * @param { UiDirection } direction - the direction of this action.
      * @param { Int32 } speed - the speed of fling (pixels per second), default is 600.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -637,7 +650,7 @@ public class Driver {
      * @param { String } savePath - the path where to store the picture, must be in the application sandbox directory.
      * @param { Rect } [rect] - the specified area of current screen, default to full screen.
      * @returns { Bool } true if screen-capturing and file-storing are completed successfully, false otherwise.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -666,7 +679,7 @@ public class Driver {
      * @param { MouseButton } btnId - the button of Mouse.
      * @param { Int32 } key1 - the first keyCode,set default is 0.
      * @param { Int32 } key2 - the second keyCode,set idefault is 0.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -682,7 +695,7 @@ public class Driver {
      * Move the mouse cursor to the specified location.
      *
      * @param { Point } p - the coordinate of the specified location.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -719,9 +732,9 @@ public class Driver {
      * @param { Int32 } key1 - the first keyCode, default is 0.
      * @param { Int32 } key2 - the second keyCode, default is 0.
      * @param { Int32 } speed - The Speed of mouse wheel rolls(cells per second),ranges from 1 to 500, default is 20.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -743,7 +756,7 @@ public class Driver {
      * @param { MouseButton } btnId - the button of Mouse.
      * @param { Int32 } key1 - the first keyCode, default is 0.
      * @param { Int32 } key2 - the second keyCode, default is 0.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -756,14 +769,14 @@ public class Driver {
         return
     }
     /**
-     * Long click on the specified location on the screen with the specified mouse button, and press the specified
-     * key simultaneously if necessary.
+     * Long click on the specified location on the screen with the specified mouse button, and press the specified key
+     * simultaneously if necessary.
      *
      * @param { Point } p - the coordinate of the specified location.
      * @param { MouseButton } btnId - the button of Mouse.
      * @param { Int32 } key1 - the first keyCode, default is 0.
      * @param { Int32 } key2 - the second keyCode, default is 0.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -781,7 +794,7 @@ public class Driver {
      * @param { Point } from - the starting point.
      * @param { Point } to - the ending point.
      * @param { Int32 } speed - speed of swipe (pixels per second),the value ranges from 200 to 40000, default is 600.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -800,7 +813,7 @@ public class Driver {
      * @param { Point } from - the starting point.
      * @param { Point } to - the ending point.
      * @param { Int32 } speed - speed of swipe (pixels per second),the value ranges from 200 to 40000, default is 600.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -818,7 +831,7 @@ public class Driver {
      *
      * @param { Point } p - the coordinate of the specified location.
      * @param { String } text - the text to inject.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -836,6 +849,7 @@ public class Driver {
 /**
  * Represents a two-dimensional array of pointers on the device display, it's used to build a
  * multi-finger trace which can be injected with UiDriver.
+ *
  */
 @!APILevel[
     since: "22",
@@ -856,7 +870,7 @@ public class PointerMatrix {
      * @param { Int32 } fingers - The number of fingers, ranges from 1 to 10.
      * @param { Int32 } steps - The number of steps of each finger trace, ranges from 1 to 1000.
      * @returns { PointerMatrix } the PointerMatrix object.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -875,7 +889,7 @@ public class PointerMatrix {
      * @param { Int32 } finger - the index of target finger to set.
      * @param { Int32 } step - the index of target step to set.
      * @param { Point } point - the coordinate of target step to set.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -892,6 +906,7 @@ public class PointerMatrix {
 
 /**
  * Represents a window of the ohos application,user can perform operations or query attributes on it.
+ *
  */
 @!APILevel[
     since: "22",
@@ -1012,7 +1027,7 @@ public class UiWindow {
      *
      * @param { Int32 } x - the x coordinate of destination, not less than 0.
      * @param { Int32 } y - the y coordinate of destination, not less than 0.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      * @throws { BusinessException } 17000005 - This operation is not supported.
@@ -1033,7 +1048,7 @@ public class UiWindow {
      * @param { Int32 } wide - the expected wide of the window after resizing.
      * @param { Int32 } height - the expected height of the window after resizing.
      * @param { ResizeDirection } direction - the expected direction of the window after resizing.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      * @throws { BusinessException } 17000005 - This operation is not supported.
@@ -1147,6 +1162,7 @@ public class UiWindow {
 
 /**
  * Describes the attribute requirements for the target Components.
+ *
  */
 @!APILevel[
     since: "22",
@@ -1204,7 +1220,9 @@ public class On {
     /**
      * Specifies the id of the target Component.
      *
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @param { String } id - the id value.
+     * @returns { On } this On object.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -1220,7 +1238,9 @@ public class On {
     /**
      * Specifies the type of the target Component.
      *
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @param { String } tp - the type value.
+     * @returns { On } this On object.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -1236,8 +1256,11 @@ public class On {
     /**
      * Specifies the description for the target Component.
      *
+     * @param { String } val - the description value.
      * @param { MatchPattern } pattern - the MatchPattern of description value. The default value is EQUALS.
-     * @throws { IllegalArgumentException } - if the input parameters are invalid.
+     * @returns { On } this On object.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
@@ -1271,8 +1294,8 @@ public class On {
      *
      * @param { Bool } b - the longClickable status. The default value is true.
      * @returns { On } this {@link On} object.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1. Incorrect parameter types;
-     * 2. Parameter verification failed.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
@@ -1287,8 +1310,9 @@ public class On {
      * Specifies the scrollable status of the target Component.
      *
      * @param { Bool } b - the scrollable status. The default value is true.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1. Incorrect parameter types;
-     * 2. Parameter verification failed.
+     * @returns { On } this On object.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
@@ -1303,8 +1327,9 @@ public class On {
      * Specifies the enabled status of the target Component.
      *
      * @param { Bool } b - the enabled status. The default value is true.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1. Incorrect parameter types;
-     * 2. Parameter verification failed.
+     * @returns { On } this On object.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
@@ -1319,8 +1344,9 @@ public class On {
      * Specifies the focused status of the target Component.
      *
      * @param { Bool } b - the focused status. The default value is true.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1. Incorrect parameter types;
-     * 2. Parameter verification failed.
+     * @returns { On } this On object.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
@@ -1334,9 +1360,10 @@ public class On {
     /**
      * Specifies the selected status of the target Component.
      *
-     * @param { Bool } b the - selected status. The default value is true.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1. Incorrect parameter types;
-     * 2. Parameter verification failed.
+     * @param { Bool } b - the selected status. The default value is true.
+     * @returns { On } this On object.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
@@ -1351,8 +1378,9 @@ public class On {
      * Specifies the checked status of the target Component.
      *
      * @param { Bool } b - the checked status. The default value is true.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1. Incorrect parameter types;
-     * 2. Parameter verification failed.
+     * @returns { On } this On object.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
@@ -1367,8 +1395,9 @@ public class On {
      * Specifies the checkable status of the target Component.
      *
      * @param { Bool } b - the checkable status. The default value is true.
-     * @throws { IllegalArgumentException } - Parameter error. 1. Incorrect parameter types;
-     * 2. Parameter verification failed.
+     * @returns { On } this On object.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
@@ -1383,7 +1412,9 @@ public class On {
      * Requires that the target Component which is before another Component that specified by the given On
      * object,used to locate Component relatively.
      *
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @param { On } on - the attribute requirements of Component which the target one is in front of.
+     * @returns { On } this On object.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -1400,7 +1431,9 @@ public class On {
      * Requires that the target Component which is after another Component that specified by the given On
      * object,used to locate Component relatively.
      *
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @param { On } on - the attribute requirements of Component which the target one is in back of.
+     * @returns { On } this On object.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -1417,7 +1450,9 @@ public class On {
      * Requires that the target Component which is inside of another Component that specified by the given On
      * object,used to locate Component relatively.
      *
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @param { On } on - the attribute requirements of Component which the target one is inside of.
+     * @returns { On } this On object.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -1433,7 +1468,9 @@ public class On {
     /**
      * Specifies the bundleName of the application which the window that the target Component is located belongs.
      *
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @param { String } bundleName - the bundle name of the application.
+     * @returns { On } this On object.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -1459,7 +1496,7 @@ public class On {
 public enum OnceType {
     /**
      * oastShow
-     * 
+     *
      */
     @!APILevel[
         since: "22",
@@ -1469,7 +1506,7 @@ public enum OnceType {
     |
     /**
      * DialogShow
-     * 
+     *
      */
     @!APILevel[
         since: "22",
@@ -1481,6 +1518,7 @@ public enum OnceType {
 
 /**
  * Observer to monitor UI events.
+ *
  */
 @!APILevel[
     since: "22",
@@ -1496,10 +1534,10 @@ public class UIEventObserver {
     }
     /**
      * Listen for toast show once
-     * 
+     *
      * @param { OnceType } onceType - the type of func once.
      * @param { Callback<UIElementInfo> } callback - function, returns the monitored UIElementInfo.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
@@ -1537,6 +1575,7 @@ public class UIEventObserver {
 
 /**
  * Represents a Component of the ohos application,user can perform operations or query attributes on it.
+ *
  */
 @!APILevel[
     since: "22",
@@ -1557,6 +1596,7 @@ public class Component {
     }
     /**
      * Click this Component.
+     *
      */
     @!APILevel[
         since: "22",
@@ -1591,6 +1631,7 @@ public class Component {
     }
     /**
      * Get the id attribute value.
+     * @returns { String } the id value.
      */
     @!APILevel[
         since: "22",
@@ -1631,7 +1672,7 @@ public class Component {
      *
      * @returns { Rect } the bounds rect object.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     */ 
+     */
     @!APILevel[
         since: "22",
         syscap: "SystemCapability.Test.UiTest"
@@ -1764,7 +1805,7 @@ public class Component {
     /**
      * Inject text to this Component,applicable to TextInput.
      *
-     * @param { String } text The text to inject.
+     * @param { String } text - The text to inject.
      */
     @!APILevel[
         since: "22",
@@ -1790,7 +1831,7 @@ public class Component {
      *
      * @param { On } on - the attribute requirements of the target Component.
      * @returns { ?Component } the found result,or undefined if not found.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
@@ -1808,9 +1849,10 @@ public class Component {
     /**
      * Scroll on this Component to the top,applicable to scrollable one.
      *
-     * @param { Int64 } speed - the speed of swipe(pixels per second),ranges from 200 to 40000. The default value is 600.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1. Incorrect parameter types;
-     * 2. Parameter verification failed.
+     * @param { Int64 } speed - the speed of swipe(pixels per second),ranges from 200 to 40000. The default value is
+     * 600.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
@@ -1823,9 +1865,10 @@ public class Component {
     /**
      * Scroll on this Component to the bottom,applicable to scrollable one.
      *
-     * @param { Int64 } speed - the speed of swipe(pixels per second),ranges from 200 to 40000. The default value is 600.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1. Incorrect parameter types;
-     * 2. Parameter verification failed.
+     * @param { Int64 } speed - the speed of swipe(pixels per second),ranges from 200 to 40000. The default value is
+     * 600.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
@@ -1839,7 +1882,7 @@ public class Component {
      * Drag this Component to the bounds rect of target Component.
      *
      * @param { Component } target - the target Component.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
@@ -1854,7 +1897,7 @@ public class Component {
      * Pinch enlarge this Component to the target scale.
      *
      * @param { Float32 } scale - the scale of the pinch enlarge this Component's size, ranges greater than 1.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
@@ -1869,7 +1912,7 @@ public class Component {
      * Pinch shrink this Component to the target scale.
      *
      * @param { Float32 } scale - the scale of the pinch shrink this Component's size, ranges from 0 to 1.
-     * @throws { IllegalArgumentException } - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */

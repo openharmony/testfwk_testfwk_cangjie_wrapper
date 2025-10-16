@@ -21,10 +21,11 @@ import ohos.labels.*
 import ohos.ffi.*
 import std.convert.Parsable
 import ohos.encoding.json.*
-import std.convert.*
+import ohos.business_exception.BusinessException
 
 /**
  * Enumerates the string value match pattern.
+ *
  */
 @!APILevel[
     since: "22",
@@ -33,6 +34,7 @@ import std.convert.*
 public enum MatchPattern {
     /**
      * Equals to a string.
+     *
      */
     @!APILevel[
         since: "22",
@@ -42,6 +44,7 @@ public enum MatchPattern {
     |
     /**
      * Contains a substring.
+     *
      */
     @!APILevel[
         since: "22",
@@ -51,6 +54,7 @@ public enum MatchPattern {
     |
     /**
      * StartsWith a substring.
+     *
      */
     @!APILevel[
         since: "22",
@@ -60,6 +64,7 @@ public enum MatchPattern {
     |
     /**
      * EndsWith a substring.
+     *
      */
     @!APILevel[
         since: "22",
@@ -74,13 +79,14 @@ public enum MatchPattern {
             case Contains => 1
             case StartsWith => 2
             case EndsWith => 3
-            case _ => throw IllegalArgumentException("The type is not supported.")
+            case _ => throw BusinessException(14700104, "The type is not supported.")
         }
     }
 }
 
 /**
  * Enumerates the rotation of the device display.
+ *
  */
 @!APILevel[
     since: "22",
@@ -89,6 +95,7 @@ public enum MatchPattern {
 public enum DisplayRotation {
     /**
      * Device display does not rotate to display vertically.
+     *
      */
     @!APILevel[
         since: "22",
@@ -98,6 +105,7 @@ public enum DisplayRotation {
     |
     /**
      * Device display rotates 90 degrees clockwise to display horizontally.
+     *
      */
     @!APILevel[
         since: "22",
@@ -107,6 +115,7 @@ public enum DisplayRotation {
     |
     /**
      * Device display rotates clockwise 180 degrees to display vertically in reverse.
+     *
      */
     @!APILevel[
         since: "22",
@@ -116,6 +125,7 @@ public enum DisplayRotation {
     |
     /**
      * Device display rotates 270 degrees clockwise to display horizontally in reverse.
+     *
      */
     @!APILevel[
         since: "22",
@@ -130,7 +140,7 @@ public enum DisplayRotation {
             case Rotation90 => 1
             case Rotation180 => 2
             case Rotation270 => 3
-            case _ => throw IllegalArgumentException("The type is not supported.")
+            case _ => throw BusinessException(14700104, "The type is not supported.")
         }
     }
 
@@ -140,13 +150,14 @@ public enum DisplayRotation {
             case "1" => Rotation90
             case "2" => Rotation180
             case "3" => Rotation270
-            case _ => throw IllegalArgumentException("The type is not supported.")
+            case _ => throw BusinessException(14700104, "The type is not supported.")
         }
     }
 }
 
 /**
  * Enumerates the window mode of the tested window.
+ *
  */
 @!APILevel[
     since: "22",
@@ -155,6 +166,7 @@ public enum DisplayRotation {
 public enum WindowMode {
     /**
      * The test window is a full screen window.
+     *
      */
     @!APILevel[
         since: "22",
@@ -164,6 +176,7 @@ public enum WindowMode {
     |
     /**
      * The test window is the first window in the split screen state.
+     *
      */
     @!APILevel[
         since: "22",
@@ -173,6 +186,7 @@ public enum WindowMode {
     |
     /**
      * The test window is the second window in the split screen state.
+     *
      */
     @!APILevel[
         since: "22",
@@ -182,6 +196,7 @@ public enum WindowMode {
     |
     /**
      * The test window is a floating window.
+     *
      */
     @!APILevel[
         since: "22",
@@ -196,7 +211,7 @@ public enum WindowMode {
             case Primary => 1
             case Secondary => 2
             case Floating => 3
-            case _ => throw IllegalArgumentException("The type is not supported.")
+            case _ => throw BusinessException(14700104, "The type is not supported.")
         }
     }
 
@@ -206,13 +221,14 @@ public enum WindowMode {
             case "1" => Primary
             case "2" => Secondary
             case "3" => Floating
-            case _ => throw IllegalArgumentException("The type is not supported.")
+            case _ => throw BusinessException(14700104, "The type is not supported.")
         }
     }
 }
 
 /**
  * Enumerates the resize direction for the window.
+ *
  */
 @!APILevel[
     since: "22",
@@ -221,6 +237,7 @@ public enum WindowMode {
 public enum ResizeDirection {
     /**
      * Left.
+     *
      */
     @!APILevel[
         since: "22",
@@ -230,6 +247,7 @@ public enum ResizeDirection {
     |
     /**
      * Right.
+     *
      */
     @!APILevel[
         since: "22",
@@ -239,6 +257,7 @@ public enum ResizeDirection {
     |
     /**
      * Up.
+     *
      */
     @!APILevel[
         since: "22",
@@ -248,6 +267,7 @@ public enum ResizeDirection {
     |
     /**
      * Down.
+     *
      */
     @!APILevel[
         since: "22",
@@ -257,6 +277,7 @@ public enum ResizeDirection {
     |
     /**
      * Upper left.
+     *
      */
     @!APILevel[
         since: "22",
@@ -266,6 +287,7 @@ public enum ResizeDirection {
     |
     /**
      * Lower left.
+     *
      */
     @!APILevel[
         since: "22",
@@ -275,6 +297,7 @@ public enum ResizeDirection {
     |
     /**
      * Upper right.
+     *
      */
     @!APILevel[
         since: "22",
@@ -284,6 +307,7 @@ public enum ResizeDirection {
     |
     /**
      * Lower right.
+     *
      */
     @!APILevel[
         since: "22",
@@ -302,13 +326,14 @@ public enum ResizeDirection {
             case LeftDown => 5
             case RightUp => 6
             case RightDown => 7
-            case _ => throw IllegalArgumentException("The type is not supported.")
+            case _ => throw BusinessException(14700104, "The type is not supported.")
         }
     }
 }
 
 /**
  * Enumerates the direction for the UI operation .
+ *
  */
 @!APILevel[
     since: "22",
@@ -317,6 +342,7 @@ public enum ResizeDirection {
 public enum UiDirection {
     /**
      * Left.
+     *
      */
     @!APILevel[
         since: "22",
@@ -326,6 +352,7 @@ public enum UiDirection {
     |
     /**
      * Right.
+     *
      */
     @!APILevel[
         since: "22",
@@ -335,6 +362,7 @@ public enum UiDirection {
     |
     /**
      * Up.
+     *
      */
     @!APILevel[
         since: "22",
@@ -344,6 +372,7 @@ public enum UiDirection {
     |
     /**
      * Down.
+     *
      */
     @!APILevel[
         since: "22",
@@ -358,13 +387,14 @@ public enum UiDirection {
             case Right => 1
             case Up => 2
             case Down => 3
-            case _ => throw IllegalArgumentException("The type is not supported.")
+            case _ => throw BusinessException(14700104, "The type is not supported.")
         }
     }
 }
 
 /**
  * Enumerates the id of the button on the mouse.
+ *
  */
 @!APILevel[
     since: "22",
@@ -373,6 +403,7 @@ public enum UiDirection {
 public enum MouseButton {
     /**
      * Left button of the mouse.
+     *
      */
     @!APILevel[
         since: "22",
@@ -382,6 +413,7 @@ public enum MouseButton {
     |
     /**
      * Right button of the mouse.
+     *
      */
     @!APILevel[
         since: "22",
@@ -391,6 +423,7 @@ public enum MouseButton {
     |
     /**
      * Middle button of the mouse.
+     *
      */
     @!APILevel[
         since: "22",
@@ -404,13 +437,14 @@ public enum MouseButton {
             case MouseButtonLeft => 0
             case MouseButtonRight => 1
             case MouseButtonMiddle => 2
-            case _ => throw IllegalArgumentException("The type is not supported.")
+            case _ => throw BusinessException(14700104, "The type is not supported.")
         }
     }
 }
 
 /**
  * Represents the point on the device screen.
+ *
  */
 @!APILevel[
     since: "22",
@@ -419,6 +453,7 @@ public enum MouseButton {
 public class Point {
     /**
     * The x-coordinate of the coordinate point.
+    *
     */
     @!APILevel[
         since: "22",
@@ -428,6 +463,7 @@ public class Point {
 
     /**
     * The y-coordinate of the coordinate point.
+    *
     */
     @!APILevel[
         since: "22",
@@ -437,12 +473,13 @@ public class Point {
 
     /**
     * The displayId to which the coordinate point belongs, default is the displayId of the main scrren.
+    *
     */
     @!APILevel[
         since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
-    public var displayId: ?Int32    
+    public var displayId: ?Int32
 
     /**
      * Point constructor.
@@ -453,7 +490,7 @@ public class Point {
     ]
     public init(x: Int32, y: Int32, displayId!: ?Int32 = None) {
         if (!displayId.isNone()) {
-            throw IllegalArgumentException("Invalid argument.")
+            throw BusinessException(14700102, "Invalid argument.")
         }
         this.x = x
         this.y = y
@@ -474,6 +511,7 @@ public class Point {
 
 /**
  * Represents the information of an UI element, can be a component or window.
+ *
  */
 @!APILevel[
     since: "22",
@@ -482,6 +520,7 @@ public class Point {
 public class UIElementInfo {
     /**
     * The bundle name of the host application.
+    *
     */
     @!APILevel[
         since: "22",
@@ -491,6 +530,7 @@ public class UIElementInfo {
 
     /**
     * The component type, set it as 'window' if it's a window.
+    *
     */
     @!APILevel[
         since: "22",
@@ -500,6 +540,7 @@ public class UIElementInfo {
 
     /**
     * The text of component, set it as window's title if it's a window.
+    *
     */
     @!APILevel[
         since: "22",
@@ -516,6 +557,7 @@ public class UIElementInfo {
 
 /**
  * Represents filer condition to get the window.
+ *
  */
 @!APILevel[
     since: "22",
@@ -524,6 +566,7 @@ public class UIElementInfo {
 public class WindowFilter {
     /**
      * The package name of the application which the window belongs to.
+     *
      */
     @!APILevel[
         since: "22",
@@ -533,6 +576,7 @@ public class WindowFilter {
 
     /**
      * The title of the window.
+     *
      */
     @!APILevel[
         since: "22",
@@ -542,6 +586,7 @@ public class WindowFilter {
 
     /**
      * The focal state of the window.
+     *
      */
     @!APILevel[
         since: "22",
@@ -551,6 +596,7 @@ public class WindowFilter {
 
     /**
      * The active state of the window.
+     *
      */
     @!APILevel[
         since: "22",
@@ -560,6 +606,7 @@ public class WindowFilter {
 
     /**
      * Find the window in the specified ID display. By default, it searches all displays.
+     *
      */
     @!APILevel[
         since: "22",
@@ -576,7 +623,7 @@ public class WindowFilter {
     ]
     public init(bundleName!: ?String = None, title!: ?String = None, focused!: ?Bool = None, active!: ?Bool = None, displayId!: ?Int32 = None) {
         if (!displayId.isNone()) {
-            throw IllegalArgumentException("Invalid argument.")
+            throw BusinessException(14700102, "Invalid argument.")
         }
         this.bundleName = bundleName
         this.title = title
@@ -588,6 +635,7 @@ public class WindowFilter {
 
 /**
  * Represents the rectangle area on the device screen.
+ *
  */
 @!APILevel[
     since: "22",
@@ -596,6 +644,7 @@ public class WindowFilter {
 public class Rect {
     /**
      * The x-coordinate of the top left corner of the rectangle.
+     *
      */
     @!APILevel[
         since: "22",
@@ -605,6 +654,7 @@ public class Rect {
 
     /**
      * The y-coordinate of the top left corner of the rectangle.
+     *
      */
     @!APILevel[
         since: "22",
@@ -614,6 +664,7 @@ public class Rect {
 
     /**
      * The x-coordinate at the bottom right corner of the rectangle.
+     *
      */
     @!APILevel[
         since: "22",
@@ -623,6 +674,7 @@ public class Rect {
 
     /**
      * The y-coordinate at the bottom right corner of the rectangle.
+     *
      */
     @!APILevel[
         since: "22",
@@ -632,6 +684,7 @@ public class Rect {
 
     /**
      * The displayId to which the rect belongs, default is the displayId of the main screen.
+     *
      */
     @!APILevel[
         since: "22",
@@ -648,7 +701,7 @@ public class Rect {
     ]
     public init(left: Int32, top: Int32, right: Int32, bottom: Int32, displayId!: ?Int32 = None) {
         if (!displayId.isNone()) {
-            throw IllegalArgumentException("Invalid argument.")
+            throw BusinessException(14700102, "Invalid argument.")
         }
         this.left = left
         this.top = top
@@ -675,6 +728,6 @@ func getNumberFromJsonObject(jsonObj: JsonObject, key: String): Int32 {
     if (let Some(num) <- jsonObj.get(key)) {
         Int32(num.asInt().getValue())
     } else {
-        throw Exception("getNumberFromJsonObject failed")
+        throw BusinessException(14700102, "Invalid argument.")
     }
 }
