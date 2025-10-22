@@ -47,12 +47,12 @@ class EntryView {
     func build() {
         Row {
             Column {
-                Button(message).onClick {
+                Button(message).onClick ({
                     evt => // logger.info("Hello Cangjie")
-                }.fontSize(40).height(80)
+                }).fontSize(40).height(80)
                 Button("alert")
                     .id("id")
-                    .onClick {
+                    .onClick ({
                         evt =>
                         // logger.info("dialog clicked")
                         this.getUIContext().showAlertDialog(
@@ -67,14 +67,14 @@ class EntryView {
                                 }
                             )
                         )
-                    }
+                    })
                     .backgroundColor(0x317aff)
                     .width(400.px)
                     .height(150.px)
                 Button("Hello Cangjie1")
                     .id("id1")
-                    .onClick {evt => // logger.info("Hello Cangjie clicked")
-                    }
+                    .onClick ({evt => // logger.info("Hello Cangjie clicked")
+                    })
                     .width(400.px)
                     .height(150.px)
                 TextInput(text: "cangjie")
