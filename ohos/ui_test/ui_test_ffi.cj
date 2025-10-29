@@ -17,10 +17,8 @@
 
 package ohos.ui_test
 
-import ohos.ffi.*
+import ohos.ffi.RetDataCString
 import std.convert.Parsable
-import ohos.encoding.json.*
-import std.convert.*
 
 foreign func CJ_InitConnection(token: CString): Unit
 // if ret code is 0, then the data is result; else data is error message
