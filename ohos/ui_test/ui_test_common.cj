@@ -17,10 +17,9 @@
 
 package ohos.ui_test
 
-import ohos.labels.*
-import ohos.ffi.*
+import ohos.labels.APILevel
 import std.convert.Parsable
-import ohos.encoding.json.*
+import ohos.encoding.json.{JsonObject, JsonValue}
 import ohos.business_exception.BusinessException
 
 /**

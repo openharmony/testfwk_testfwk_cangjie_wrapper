@@ -17,11 +17,10 @@
 
 package ohos.ui_test
 
-import ohos.labels.*
-import ohos.ffi.*
-import ohos.business_exception.*
-import ohos.hilog.*
-import std.collection.*
+import ohos.ffi.RetDataCString
+import ohos.business_exception.{BusinessException, getUniversalErrorMsg, ERR_PARAMETER_ERROR}
+import ohos.hilog.HilogChannel
+import std.collection.HashMap
 
 const LOG_CORE: UInt32 = 3
 const LOG_TAG_DOMAIN_ID_PARA: UInt32 = 0xD002C0C
