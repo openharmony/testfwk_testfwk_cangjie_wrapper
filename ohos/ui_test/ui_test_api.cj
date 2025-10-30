@@ -36,7 +36,7 @@ let TEST_LOG = HilogChannel(3, 0xD003100, "CJ-UITEST")
  *
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Test.UiTest"
 ]
 protected class UITest {
@@ -45,7 +45,7 @@ protected class UITest {
      *
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     protected static func setup(): Unit {
@@ -107,7 +107,7 @@ func checkNull(data: String): Bool {
  *
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Test.UiTest"
 ]
 public class Driver {
@@ -126,7 +126,7 @@ public class Driver {
      * @throws { BusinessException } 17000001 - Initialization failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public static func create(): Driver {
@@ -143,7 +143,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func delayMs(duration: Int32): Unit {
@@ -159,7 +159,7 @@ public class Driver {
      * @returns { ?Component } the first matched Component or undefined.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func findComponent(on: On): ?Component {
@@ -180,7 +180,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func findComponents(on: On): ?Array<Component> {
@@ -209,7 +209,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func findWindow(filter: WindowFilter): ?UiWindow {
@@ -264,7 +264,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func waitForComponent(on: On, time: Int32): ?Component {
@@ -284,7 +284,7 @@ public class Driver {
      * @throws { BusinessException } 17000003 - Assertion failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func assertComponentExist(on: On): Unit {
@@ -297,7 +297,7 @@ public class Driver {
      *
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func pressBack(): Unit {
@@ -314,7 +314,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func triggerKey(keyCode: Int32): Unit {
@@ -333,7 +333,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func triggerCombineKeys(key0: Int32, key1: Int32, key2!: Int32 = 0): Unit {
@@ -351,7 +351,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func click(x: Int32, y: Int32): Unit {
@@ -368,7 +368,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func doubleClick(x: Int32, y: Int32): Unit {
@@ -385,7 +385,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func longClick(x: Int32, y: Int32): Unit {
@@ -405,7 +405,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func swipe(
@@ -432,7 +432,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func drag(
@@ -456,7 +456,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func screenCap(savePath: String): Bool {
@@ -473,7 +473,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func setDisplayRotation(rotation: DisplayRotation): Unit {
@@ -487,7 +487,7 @@ public class Driver {
      * @returns { DisplayRotation } the current display rotation.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getDisplayRotation(): DisplayRotation {
@@ -503,7 +503,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func setDisplayRotationEnabled(enabled: Bool): Unit {
@@ -518,7 +518,7 @@ public class Driver {
      * @returns { Point } the size of the device display.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getDisplaySize(): Point {
@@ -533,7 +533,7 @@ public class Driver {
      * @returns { Point } the density of the device display.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getDisplayDensity(): Point {
@@ -546,7 +546,7 @@ public class Driver {
      *
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func wakeUpDisplay(): Unit {
@@ -560,7 +560,7 @@ public class Driver {
      *
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func pressHome(): Unit {
@@ -578,7 +578,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func waitForIdle(idleTime: Int32, timeout: Int32): Bool {
@@ -597,7 +597,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func injectMultiPointerAction(pointers: PointerMatrix, speed!: Int32 = 600): Bool {
@@ -616,7 +616,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func fling(from: Point, to: Point, stepLen: Int32, speed: Int32): Unit {
@@ -634,7 +634,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func fling(direction: UiDirection, speed: Int32): Unit {
@@ -652,7 +652,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func screenCapture(savePath: String, rect!: Rect = Rect(0,0,0,0)): Bool {
@@ -681,7 +681,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func mouseClick(p: Point, btnId: MouseButton, key1!: Int32 = 0, key2!: Int32 = 0): Unit {
@@ -697,7 +697,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func mouseMoveTo(p: Point): Unit {
@@ -711,7 +711,7 @@ public class Driver {
      * @returns { UIEventObserver } the UIEventObserver object.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func createUIEventObserver(): UIEventObserver {
@@ -736,7 +736,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func mouseScroll(p: Point, down: Bool, d: Int32, key1!: Int32 = 0, key2!: Int32 = 0, speed!: Int32 = 20): Unit {
@@ -758,7 +758,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func mouseDoubleClick(p: Point, btnId: MouseButton, key1!: Int32 = 0, key2!: Int32 = 0): Unit {
@@ -778,7 +778,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func mouseLongClick(p: Point, btnId: MouseButton, key1!: Int32 = 0, key2!: Int32 = 0): Unit {
@@ -796,7 +796,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func mouseMoveWithTrack(from: Point, to: Point, speed!: Int32 = 600): Unit {
@@ -815,7 +815,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func mouseDrag(from: Point, to: Point, speed!: Int32 = 600): Unit {
@@ -833,7 +833,7 @@ public class Driver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func inputText(p: Point, text: String): Unit {
@@ -850,7 +850,7 @@ public class Driver {
  *
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Test.UiTest"
 ]
 public class PointerMatrix {
@@ -872,7 +872,7 @@ public class PointerMatrix {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public static func create(fingers: Int32, steps: Int32): PointerMatrix {
@@ -891,7 +891,7 @@ public class PointerMatrix {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func setPoint(finger: Int32, step: Int32, point: Point): Unit {
@@ -907,7 +907,7 @@ public class PointerMatrix {
  *
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Test.UiTest"
 ]
 public class UiWindow {
@@ -926,7 +926,7 @@ public class UiWindow {
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getBundleName(): String {
@@ -942,7 +942,7 @@ public class UiWindow {
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getBounds(): Rect {
@@ -964,7 +964,7 @@ public class UiWindow {
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getTitle(): String {
@@ -980,7 +980,7 @@ public class UiWindow {
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getWindowMode(): WindowMode {
@@ -996,7 +996,7 @@ public class UiWindow {
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func isFocused(): Bool {
@@ -1011,7 +1011,7 @@ public class UiWindow {
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func focus(): Unit {
@@ -1031,7 +1031,7 @@ public class UiWindow {
      * @throws { BusinessException } 17000005 - This operation is not supported.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func moveTo(x: Int32, y: Int32): Unit {
@@ -1052,7 +1052,7 @@ public class UiWindow {
      * @throws { BusinessException } 17000005 - This operation is not supported.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func resize(wide: Int32, height: Int32, direction: ResizeDirection): Unit {
@@ -1068,7 +1068,7 @@ public class UiWindow {
      * @throws { BusinessException } 17000005 - This operation is not supported.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func split(): Unit {
@@ -1084,7 +1084,7 @@ public class UiWindow {
      * @throws { BusinessException } 17000005 - This operation is not supported.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func maximize(): Unit {
@@ -1100,7 +1100,7 @@ public class UiWindow {
      * @throws { BusinessException } 17000005 - This operation is not supported.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func minimize(): Unit {
@@ -1116,7 +1116,7 @@ public class UiWindow {
      * @throws { BusinessException } 17000005 - This operation is not supported.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func resume(): Unit {
@@ -1132,7 +1132,7 @@ public class UiWindow {
      * @throws { BusinessException } 17000005 - This operation is not supported.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func close(): Unit {
@@ -1148,7 +1148,7 @@ public class UiWindow {
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func isActive(): Bool {
@@ -1163,7 +1163,7 @@ public class UiWindow {
  *
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Test.UiTest"
 ]
 public class On {
@@ -1173,7 +1173,7 @@ public class On {
      *
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public init() {}
@@ -1205,7 +1205,7 @@ public class On {
      * @returns { On } On object that matches the text attribute of the target component.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func text(txt: String, pattern!: MatchPattern = MatchPattern.Equals): On {
@@ -1224,7 +1224,7 @@ public class On {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func id(id: String): On {
@@ -1242,7 +1242,7 @@ public class On {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func onType(tp: String): On {
@@ -1261,7 +1261,7 @@ public class On {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func description(val: String, pattern!: MatchPattern = MatchPattern.Equals): On {
@@ -1279,7 +1279,7 @@ public class On {
      * @returns { On } On object that matches the clickable attribute of the target component.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func clickable(b!: Bool = true): On {
@@ -1296,7 +1296,7 @@ public class On {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func longClickable(b!: Bool = true): On {
@@ -1313,7 +1313,7 @@ public class On {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func scrollable(b!: Bool = true): On {
@@ -1330,7 +1330,7 @@ public class On {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func enabled(b!: Bool = true): On {
@@ -1347,7 +1347,7 @@ public class On {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func focused(b!: Bool = true): On {
@@ -1364,7 +1364,7 @@ public class On {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func selected(b!: Bool = true): On {
@@ -1381,7 +1381,7 @@ public class On {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func checked(b!: Bool = true): On {
@@ -1398,7 +1398,7 @@ public class On {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func checkable(b!: Bool = true): On {
@@ -1416,7 +1416,7 @@ public class On {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func isBefore(on: On): On {
@@ -1435,7 +1435,7 @@ public class On {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func isAfter(on: On): On {
@@ -1454,7 +1454,7 @@ public class On {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func within(on: On): On {
@@ -1472,7 +1472,7 @@ public class On {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func inWindow(bundleName: String): On {
@@ -1488,7 +1488,7 @@ public class On {
  */
 @Derive[ToString, Equatable]
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Test.UiTest"
 ]
 public enum OnceType {
@@ -1497,7 +1497,7 @@ public enum OnceType {
      *
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     ToastShow
@@ -1507,7 +1507,7 @@ public enum OnceType {
      *
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     DialogShow
@@ -1519,7 +1519,7 @@ public enum OnceType {
  *
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Test.UiTest"
 ]
 public class UIEventObserver {
@@ -1539,7 +1539,7 @@ public class UIEventObserver {
      * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func once(onceType: OnceType, callback: Callback<UIElementInfo>): Unit {
@@ -1576,7 +1576,7 @@ public class UIEventObserver {
  *
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Test.UiTest"
 ]
 public class Component {
@@ -1597,7 +1597,7 @@ public class Component {
      *
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func click(): Unit {
@@ -1609,7 +1609,7 @@ public class Component {
      * @returns { Unit }
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func doubleClick(): Unit {
@@ -1621,7 +1621,7 @@ public class Component {
      * @returns { Unit }
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func longClick(): Unit {
@@ -1632,7 +1632,7 @@ public class Component {
      * @returns { String } the id value.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getId(): String {
@@ -1645,7 +1645,7 @@ public class Component {
      * @returns { String } the text value.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getText(): String {
@@ -1658,7 +1658,7 @@ public class Component {
      * @returns { String } the type name.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getType(): String {
@@ -1672,7 +1672,7 @@ public class Component {
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getBounds(): Rect {
@@ -1686,7 +1686,7 @@ public class Component {
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getBoundsCenter(): Point {
@@ -1699,7 +1699,7 @@ public class Component {
      * @returns { Bool } the clickable status.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func isClickable(): Bool {
@@ -1713,7 +1713,7 @@ public class Component {
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func isLongClickable(): Bool {
@@ -1727,7 +1727,7 @@ public class Component {
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func isChecked(): Bool {
@@ -1741,7 +1741,7 @@ public class Component {
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func isCheckable(): Bool {
@@ -1754,7 +1754,7 @@ public class Component {
      * @returns { Bool } the scrollable status.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func isScrollable(): Bool {
@@ -1767,7 +1767,7 @@ public class Component {
      * @returns { Bool } the enabled status.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func isEnabled(): Bool {
@@ -1780,7 +1780,7 @@ public class Component {
      * @returns { Bool } the focused status.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func isFocused(): Bool {
@@ -1793,7 +1793,7 @@ public class Component {
      * @returns { Bool } the selected status.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func isSelected(): Bool {
@@ -1806,7 +1806,7 @@ public class Component {
      * @param { String } text - The text to inject.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func inputText(text: String): Unit {
@@ -1818,7 +1818,7 @@ public class Component {
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func clearText(): Unit {
@@ -1834,7 +1834,7 @@ public class Component {
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func scrollSearch(on: On): ?Component {
@@ -1854,7 +1854,7 @@ public class Component {
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func scrollToTop(speed!: Int64 = 600): Unit {
@@ -1870,7 +1870,7 @@ public class Component {
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func scrollToBottom(speed!: Int64 = 600): Unit {
@@ -1885,7 +1885,7 @@ public class Component {
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func dragTo(target: Component): Unit {
@@ -1900,7 +1900,7 @@ public class Component {
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func pinchOut(scale: Float32): Unit {
@@ -1915,7 +1915,7 @@ public class Component {
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func pinchIn(scale: Float32): Unit {
@@ -1928,7 +1928,7 @@ public class Component {
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
     public func getDescription(): String {
