@@ -17,8 +17,6 @@
 
 package ohos.ui_test
 
-import ohos.ffi.*
-
 foreign {
     func FfiOHOSProcessManagerGetUid(): Int32
 

@@ -17,18 +17,16 @@
 
 package ohos.ui_test
 
-import std.convert.Parsable
-import ohos.encoding.json.*
-import std.convert.*
-import std.sync.*
-import ohos.hilog.*
-import ohos.app.ability.ability_delegator_registry.*
-import ohos.app.ability.ui_ability.*
-import ohos.labels.*
-import ohos.ffi.*
-import ohos.business_exception.*
-import ohos.callback_invoke.*
-import std.deriving.*
+import std.convert.{Formattable, Parsable}
+import ohos.encoding.json.JsonValue
+import std.sync.AtomicBool
+import ohos.hilog.HilogChannel
+import ohos.app.ability.ability_delegator_registry.AbilityDelegatorRegistry
+import ohos.labels.APILevel
+import ohos.ffi.Callback1Param
+import ohos.business_exception.BusinessException
+import ohos.callback_invoke.Callback
+import std.deriving.Derive
 
 let SETUP_CALLED = AtomicBool(false)
 let TEST_LOG = HilogChannel(3, 0xD003100, "CJ-UITEST")
