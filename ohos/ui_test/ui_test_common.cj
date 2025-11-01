@@ -143,6 +143,9 @@ public enum DisplayRotation {
         }
     }
 
+    /*
+     * @throws { BusinessException } 14700104 - The type is not supported.
+     */
     static func parse(val: String): DisplayRotation {
         match (val) {
             case "0" => Rotation0
@@ -214,6 +217,9 @@ public enum WindowMode {
         }
     }
 
+    /*
+     * @throws { BusinessException } 14700104 - The type is not supported.
+     */
     static func parse(val: String) {
         match (val) {
             case "0" => Fullscreen
@@ -482,6 +488,8 @@ public class Point {
 
     /**
      * Point constructor.
+     *
+     * @throws { BusinessException } 14700102 - Invalid argument.
      */
     @!APILevel[
         since: "22",
@@ -615,6 +623,8 @@ public class WindowFilter {
 
     /**
      * WindowFilter constructor.
+     *
+     * @throws { BusinessException } 14700102 - Invalid argument.
      */
     @!APILevel[
         since: "22",
@@ -693,6 +703,8 @@ public class Rect {
 
     /**
      * Rect constructor.
+     *
+     * @throws { BusinessException } 14700102 - Invalid argument.
      */
     @!APILevel[
         since: "22",
@@ -723,6 +735,9 @@ public class Rect {
     }
 }
 
+/*
+ * @throws { BusinessException } 14700102 - Invalid argument.
+ */
 func getNumberFromJsonObject(jsonObj: JsonObject, key: String): Int32 {
     if (let Some(num) <- jsonObj.get(key)) {
         Int32(num.asInt().getValue())

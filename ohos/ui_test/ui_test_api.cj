@@ -91,6 +91,9 @@ func releaseRef(ref: String) {
     }
 }
 
+/*
+ * @throws { BusinessException } 17000004 - obj create return null reference
+ */
 func checkRef(ref: String) {
     if (!ref.contains("#")) {
         throw BusinessException(OBJ_LOST, "obj create return null reference")

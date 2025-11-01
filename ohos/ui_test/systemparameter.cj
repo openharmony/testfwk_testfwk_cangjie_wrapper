@@ -22,12 +22,6 @@ import ohos.business_exception.{BusinessException, getUniversalErrorMsg, ERR_PAR
 import ohos.hilog.HilogChannel
 import std.collection.HashMap
 
-const LOG_CORE: UInt32 = 3
-const LOG_TAG_DOMAIN_ID_PARA: UInt32 = 0xD002C0C
-const MAX_NAME_LENGTH = 128
-const MAX_VALUE_LENGTH = 4096
-let PARAM_LOG = HilogChannel(LOG_CORE, LOG_TAG_DOMAIN_ID_PARA, "CJ-Param")
-
 foreign func FfiOHOSSysTemParameterGet(key: CString, def: CString): RetDataCString
 
 foreign func FfiOHOSSysTemParameterSet(key: CString, value: CString): Int32
@@ -52,11 +46,14 @@ func getErrorMsg(code: Int32): String {
 }
 
 protected class Systemparameter {
+    static const MAX_NAME_LENGTH = 128
+    static const MAX_VALUE_LENGTH = 4096
+
     protected static func get(key: String, def!: String = ""): String {
         unsafe {
             // invalid parameter error
             if (key.size >= MAX_NAME_LENGTH || def.size >= MAX_VALUE_LENGTH) {
-                PARAM_LOG.error("Systemparameter get failed: ${getErrorMsg(ERR_PARAMETER_ERROR)}")
+                TEST_LOG.error("Systemparameter get failed: ${getErrorMsg(ERR_PARAMETER_ERROR)}")
                 throw BusinessException(ERR_PARAMETER_ERROR,
                     "Systemparameter get failed: ${getErrorMsg(ERR_PARAMETER_ERROR)}")
             }
@@ -66,7 +63,7 @@ protected class Systemparameter {
             LibC.free(cKey)
             LibC.free(cDef)
             if (ret.code != 0) {
-                PARAM_LOG.error("Systemparameter get failed: ${getErrorMsg(ret.code)}")
+                TEST_LOG.error("Systemparameter get failed: ${getErrorMsg(ret.code)}")
                 throw BusinessException(ret.code, "Systemparameter get failed: ${getErrorMsg(ret.code)}")
             }
             return getStringAndFree(ret.data)
@@ -77,7 +74,7 @@ protected class Systemparameter {
         unsafe {
             // invalid parameter error
             if (key.size >= MAX_NAME_LENGTH || value.size >= MAX_VALUE_LENGTH) {
-                PARAM_LOG.error("Systemparameter set failed: ${getErrorMsg(ERR_PARAMETER_ERROR)}")
+                TEST_LOG.error("Systemparameter set failed: ${getErrorMsg(ERR_PARAMETER_ERROR)}")
                 throw BusinessException(ERR_PARAMETER_ERROR,
                     "Systemparameter set failed: ${getErrorMsg(ERR_PARAMETER_ERROR)}")
             }
@@ -87,7 +84,7 @@ protected class Systemparameter {
             LibC.free(cKey)
             LibC.free(cVal)
             if (ret != 0) {
-                PARAM_LOG.error("Systemparameter get failed: ${getErrorMsg(ret)}")
+                TEST_LOG.error("Systemparameter get failed: ${getErrorMsg(ret)}")
                 throw BusinessException(ret, "Systemparameter get failed: ${getErrorMsg(ret)}")
             }
         }
