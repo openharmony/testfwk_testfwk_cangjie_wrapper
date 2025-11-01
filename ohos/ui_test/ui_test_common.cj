@@ -71,6 +71,12 @@ public enum MatchPattern {
         syscap: "SystemCapability.Test.UiTest"
     ]
     EndsWith
+    |
+    @!Hide
+    RegExp
+    |
+    @!Hide
+    RegExpIcase
     | ...
 
     func getValue(): Int32 {
