@@ -17,7 +17,7 @@
 
 package ohos.ui_test
 
-import ohos.labels.APILevel
+import ohos.labels.{APILevel, Hide}
 import std.convert.Parsable
 import ohos.encoding.json.{JsonObject, JsonValue}
 import ohos.business_exception.BusinessException
