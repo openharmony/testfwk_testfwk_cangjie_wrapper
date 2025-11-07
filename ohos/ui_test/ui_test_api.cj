@@ -122,6 +122,10 @@ public class Driver {
         releaseRef(ref)
     }
 
+    func parseClickParam(p: Point, btnId: MouseButton, key1: Int32, key2: Int32): String {
+        let params: StringBuilder = StringBuilder("[{\"x\":${p.x},\"y\":${p.y}},${btnId.getValue()},${key1},${key2}]")
+        params.toString()
+    }
     /**
      * Create an Driver object.
      *
@@ -137,7 +141,6 @@ public class Driver {
         let data = getData(cjCallParams, DRIVER_CREATE)
         return Driver(data[1..data.size - 1])
     }
-
     /**
      * Delay with specified duration.
      *
@@ -154,7 +157,6 @@ public class Driver {
         getData(cjCallParams, DRIVER_DELAYMS)
         return
     }
-
     /**
      * Find the first matched Component on current UI.
      *
@@ -173,36 +175,6 @@ public class Driver {
         }
         return Component(data[1..data.size - 1])
     }
-
-    /**
-     * Find all the matched Components on current UI.
-     *
-     * @param { On } on - the attribute requirements of the target Component.
-     * @returns { ?Array<Component> } the matched Components list or undefined.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     */
-    @!APILevel[
-        since: "22",
-        syscap: "SystemCapability.Test.UiTest"
-    ]
-    public func findComponents(on: On): ?Array<Component> {
-        let cjCallParams = ApiCallParams(DRIVER_FINDCOMPONENTS, ref, "[\"${on.ref}\"]")
-        let data = getData(cjCallParams, DRIVER_FINDCOMPONENTS)
-        if (checkNull(data)) {
-            return Option<Array<Component>>.None
-        }
-        let jsonArr = JsonValue.fromStr(data).asArray()
-        let arr = Array<Component>(
-            jsonArr.size(),
-            {
-                i => Component(
-                    jsonArr.get(i).getOrThrow({=> BusinessException(OBJ_LOST, "wrong component")}).asString().getValue())
-            }
-        )
-        return arr
-    }
-
     /**
      * Find the first matched UiWindow window.
      *
@@ -256,7 +228,6 @@ public class Driver {
         }
         return UiWindow(data[1..data.size - 1])
     }
-
     /**
      * Find the first matched Component on current UI during the time given.
      *
@@ -277,6 +248,34 @@ public class Driver {
             return Option<Component>.None
         }
         return Component(data[1..data.size - 1])
+    }
+    /**
+     * Find all the matched Components on current UI.
+     *
+     * @param { On } on - the attribute requirements of the target Component.
+     * @returns { ?Array<Component> } the matched Components list or undefined.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     */
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Test.UiTest"
+    ]
+    public func findComponents(on: On): ?Array<Component> {
+        let cjCallParams = ApiCallParams(DRIVER_FINDCOMPONENTS, ref, "[\"${on.ref}\"]")
+        let data = getData(cjCallParams, DRIVER_FINDCOMPONENTS)
+        if (checkNull(data)) {
+            return Option<Array<Component>>.None
+        }
+        let jsonArr = JsonValue.fromStr(data).asArray()
+        let arr = Array<Component>(
+            jsonArr.size(),
+            {
+                i => Component(
+                    jsonArr.get(i).getOrThrow({=> BusinessException(OBJ_LOST, "wrong component")}).asString().getValue())
+            }
+        )
+        return arr
     }
     /**
      * Assert that the matched Components exists on current UI;if not,assertError will be raised.
@@ -590,6 +589,26 @@ public class Driver {
         return Bool.parse(data)
     }
     /**
+     * Inject fling on the device display.
+     *
+     * @param { Point } from - the coordinate point where the finger touches the screen.
+     * @param { Point } to - the coordinate point where the finger leaves the screen.
+     * @param { Int32 } stepLen - the length of each step, in pixels.
+     * @param { Int32 } speed - the speed of fling(pixels per second),ranges from 200 to 40000.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     */
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Test.UiTest"
+    ]
+    public func fling(from: Point, to: Point, stepLen: Int32, speed: Int32): Unit {
+        let params: String = "[{\"x\":${from.x},\"y\":${from.y}},{\"x\":${to.x},\"y\":${to.y}},${stepLen},${speed}]"
+        let cjCallParams = ApiCallParams(DRIVER_FLING, ref, params)
+        getData(cjCallParams, DRIVER_FLING)
+        return
+    }
+    /**
      * Inject multi-pointer action on the device display.
      *
      * @param { PointerMatrix } pointers - the two-dimensional array of pointers to inject.
@@ -611,26 +630,6 @@ public class Driver {
     /**
      * Inject fling on the device display.
      *
-     * @param { Point } from - the coordinate point where the finger touches the screen.
-     * @param { Point } to - the coordinate point where the finger leaves the screen.
-     * @param { Int32 } stepLen - the length of each step, in pixels.
-     * @param { Int32 } speed - the speed of fling(pixels per second),ranges from 200 to 40000.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     */
-    @!APILevel[
-        since: "22",
-        syscap: "SystemCapability.Test.UiTest"
-    ]
-    public func fling(from: Point, to: Point, stepLen: Int32, speed: Int32): Unit {
-        let params: String = "[{\"x\":${from.x},\"y\":${from.y}},{\"x\":${to.x},\"y\":${to.y}},${stepLen},${speed}]"
-        let cjCallParams = ApiCallParams(DRIVER_FLING, ref, params)
-        getData(cjCallParams, DRIVER_FLING)
-        return
-    }
-    /**
-     * Inject fling on the device display.
-     *
      * @param { UiDirection } direction - the direction of this action.
      * @param { Int32 } speed - the speed of fling (pixels per second), default is 600.
      * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
@@ -644,33 +643,6 @@ public class Driver {
         let cjCallParams = ApiCallParams(DRIVER_FLING, ref, "[${direction.getValue()},${speed}]")
         getData(cjCallParams, DRIVER_FLING)
         return
-    }
-    /**
-     * Capture the specified area of current screen and save as picture which PNG format.
-     *
-     * @param { String } savePath - the path where to store the picture, must be in the application sandbox directory.
-     * @param { Rect } [rect] - the specified area of current screen, default to full screen.
-     * @returns { Bool } true if screen-capturing and file-storing are completed successfully, false otherwise.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     */
-    @!APILevel[
-        since: "22",
-        syscap: "SystemCapability.Test.UiTest"
-    ]
-    public func screenCapture(savePath: String, rect!: Rect = Rect(0,0,0,0)): Bool {
-        let params: StringBuilder = StringBuilder("[\"${eatEscape(savePath)}\"")
-        params.append(",")
-        params.append("{\"left\":${rect.left},\"top\":${rect.top},\"right\":${rect.right},\"bottom\":${rect.bottom}}")
-        params.append("]")
-        let cjCallParams = ApiCallParams(DRIVER_SCREENCAPTURE, ref, params.toString())
-        let data = getData(cjCallParams, DRIVER_SCREENCAPTURE)
-        return Bool.parse(data)
-    }
-
-    func parseClickParam(p: Point, btnId: MouseButton, key1: Int32, key2: Int32): String {
-        let params: StringBuilder = StringBuilder("[{\"x\":${p.x},\"y\":${p.y}},${btnId.getValue()},${key1},${key2}]")
-        params.toString()
     }
     /**
      * Click on the specified location on the screen with the specified mouse button, and press the specified key
@@ -709,20 +681,6 @@ public class Driver {
         return
     }
     /**
-     * Create an UIEventObserver object.
-     *
-     * @returns { UIEventObserver } the UIEventObserver object.
-     */
-    @!APILevel[
-        since: "22",
-        syscap: "SystemCapability.Test.UiTest"
-    ]
-    public func createUIEventObserver(): UIEventObserver {
-        let cjCallParams = ApiCallParams(DRIVER_CREATEUIEVENTOBSERVER, ref, EMPTY_PARAM)
-        let data = getData(cjCallParams, DRIVER_CREATEUIEVENTOBSERVER)
-        return UIEventObserver(data[1..data.size - 1])
-    }
-    /**
      * The mouse wheel scrolls the specified cell at the specified position, and press the specified key simultaneously
      * if necessary.
      *
@@ -748,7 +706,42 @@ public class Driver {
         getData(cjCallParams, DRIVER_MOUSESCROLL)
         return
     }
-
+    /**
+     * Capture the specified area of current screen and save as picture which PNG format.
+     *
+     * @param { String } savePath - the path where to store the picture, must be in the application sandbox directory.
+     * @param { Rect } [rect] - the specified area of current screen, default to full screen.
+     * @returns { Bool } true if screen-capturing and file-storing are completed successfully, false otherwise.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     */
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Test.UiTest"
+    ]
+    public func screenCapture(savePath: String, rect!: Rect = Rect(0,0,0,0)): Bool {
+        let params: StringBuilder = StringBuilder("[\"${eatEscape(savePath)}\"")
+        params.append(",")
+        params.append("{\"left\":${rect.left},\"top\":${rect.top},\"right\":${rect.right},\"bottom\":${rect.bottom}}")
+        params.append("]")
+        let cjCallParams = ApiCallParams(DRIVER_SCREENCAPTURE, ref, params.toString())
+        let data = getData(cjCallParams, DRIVER_SCREENCAPTURE)
+        return Bool.parse(data)
+    }
+    /**
+     * Create an UIEventObserver object.
+     *
+     * @returns { UIEventObserver } the UIEventObserver object.
+     */
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Test.UiTest"
+    ]
+    public func createUIEventObserver(): UIEventObserver {
+        let cjCallParams = ApiCallParams(DRIVER_CREATEUIEVENTOBSERVER, ref, EMPTY_PARAM)
+        let data = getData(cjCallParams, DRIVER_CREATEUIEVENTOBSERVER)
+        return UIEventObserver(data[1..data.size - 1])
+    }
     /**
      * Double click on the specified location on the screen with the specified mouse button, and press the specified
      * key simultaneously if necessary.
@@ -1255,26 +1248,6 @@ public class On {
     }
 
     /**
-     * Specifies the description for the target Component.
-     *
-     * @param { String } val - the description value.
-     * @param { MatchPattern } pattern - the MatchPattern of description value. The default value is EQUALS.
-     * @returns { On } this On object.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     */
-    @!APILevel[
-        since: "22",
-        syscap: "SystemCapability.Test.UiTest"
-    ]
-    public func description(val: String, pattern!: MatchPattern = MatchPattern.Equals): On {
-        let param = StringBuilder("[\"${eatEscape(val)}\",${pattern.getValue()}]")
-        let data = apiCall(ON_DESCRIPTION, param.toString())
-        ref = data[1..data.size - 1]
-        this
-    }
-
-    /**
      * Specifies the clickable attribute of the target component.
      *
      * @param { Bool } b - Clickable status of the target component. The default value is true.
@@ -1483,6 +1456,26 @@ public class On {
         ref = data[1..data.size - 1]
         this
     }
+
+    /**
+     * Specifies the description for the target Component.
+     *
+     * @param { String } val - the description value.
+     * @param { MatchPattern } pattern - the MatchPattern of description value. The default value is EQUALS.
+     * @returns { On } this On object.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     */
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Test.UiTest"
+    ]
+    public func description(val: String, pattern!: MatchPattern = MatchPattern.Equals): On {
+        let param = StringBuilder("[\"${eatEscape(val)}\",${pattern.getValue()}]")
+        let data = apiCall(ON_DESCRIPTION, param.toString())
+        ref = data[1..data.size - 1]
+        this
+    }
 }
 
 /**
@@ -1669,34 +1662,6 @@ public class Component {
         return data[1..data.size - 1]
     }
     /**
-     * Get the bounds rect of this Component.
-     *
-     * @returns { Rect } the bounds rect object.
-     * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     */
-    @!APILevel[
-        since: "22",
-        syscap: "SystemCapability.Test.UiTest"
-    ]
-    public func getBounds(): Rect {
-        let jsonStr = apiCall(COMPONENT_GET_BOUNDS, EMPTY_PARAM)
-        return Rect(jsonStr)
-    }
-    /**
-     * Get the boundsCenter of this Component.
-     *
-     * @returns { Point } the boundsCenter object.
-     * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     */
-    @!APILevel[
-        since: "22",
-        syscap: "SystemCapability.Test.UiTest"
-    ]
-    public func getBoundsCenter(): Point {
-        let jsonStr = apiCall(COMPONENT_GET_BOUNDSCENTER, EMPTY_PARAM)
-        return Point(jsonStr)
-    }
-    /**
      * Get the clickable status of this Component.
      *
      * @returns { Bool } the clickable status.
@@ -1721,34 +1686,6 @@ public class Component {
     ]
     public func isLongClickable(): Bool {
         let str = apiCall(COMPONENT_IS_LONGCLICKABLE, EMPTY_PARAM)
-        return Bool.parse(str)
-    }
-    /**
-     * Get the checked status of this Component.
-     *
-     * @returns { Bool } the checked status.
-     * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     */
-    @!APILevel[
-        since: "22",
-        syscap: "SystemCapability.Test.UiTest"
-    ]
-    public func isChecked(): Bool {
-        let str = apiCall(COMPONENT_IS_CHECKED, EMPTY_PARAM)
-        return Bool.parse(str)
-    }
-    /**
-     * Get the checkable status of this Component.
-     *
-     * @returns { Bool } the checkable status.
-     * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     */
-    @!APILevel[
-        since: "22",
-        syscap: "SystemCapability.Test.UiTest"
-    ]
-    public func isCheckable(): Bool {
-        let str = apiCall(COMPONENT_IS_CHECKABLE, EMPTY_PARAM)
         return Bool.parse(str)
     }
     /**
@@ -1804,6 +1741,34 @@ public class Component {
         return Bool.parse(str)
     }
     /**
+     * Get the checked status of this Component.
+     *
+     * @returns { Bool } the checked status.
+     * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
+     */
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Test.UiTest"
+    ]
+    public func isChecked(): Bool {
+        let str = apiCall(COMPONENT_IS_CHECKED, EMPTY_PARAM)
+        return Bool.parse(str)
+    }
+    /**
+     * Get the checkable status of this Component.
+     *
+     * @returns { Bool } the checkable status.
+     * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
+     */
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Test.UiTest"
+    ]
+    public func isCheckable(): Bool {
+        let str = apiCall(COMPONENT_IS_CHECKABLE, EMPTY_PARAM)
+        return Bool.parse(str)
+    }
+    /**
      * Inject text to this Component,applicable to TextInput.
      *
      * @param { String } text - The text to inject.
@@ -1826,26 +1791,6 @@ public class Component {
     ]
     public func clearText(): Unit {
         apiCall(COMPONENT_CLEAR_TEXT, EMPTY_PARAM)
-    }
-    /**
-     * Scroll on this Componentto find matched Component,applicable to scrollable one.
-     *
-     * @param { On } on - the attribute requirements of the target Component.
-     * @returns { ?Component } the found result,or undefined if not found.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
-     */
-    @!APILevel[
-        since: "22",
-        syscap: "SystemCapability.Test.UiTest"
-    ]
-    public func scrollSearch(on: On): ?Component {
-        let data = apiCall(COMPONENT_SCROLL_SEARCH, "[\"${on.ref}\"]")
-        if (checkNull(data)) {
-            return Option<Component>.None
-        }
-        Component(data[1..data.size - 1])
     }
     /**
      * Scroll on this Component to the top,applicable to scrollable one.
@@ -1878,6 +1823,54 @@ public class Component {
     ]
     public func scrollToBottom(speed!: Int64 = 600): Unit {
         apiCall(COMPONENT_SCROLL_TOBOTTOM, "[${speed}]")
+    }
+    /**
+     * Get the bounds rect of this Component.
+     *
+     * @returns { Rect } the bounds rect object.
+     * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
+     */
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Test.UiTest"
+    ]
+    public func getBounds(): Rect {
+        let jsonStr = apiCall(COMPONENT_GET_BOUNDS, EMPTY_PARAM)
+        return Rect(jsonStr)
+    }
+    /**
+     * Scroll on this Componentto find matched Component,applicable to scrollable one.
+     *
+     * @param { On } on - the attribute requirements of the target Component.
+     * @returns { ?Component } the found result,or undefined if not found.
+     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
+     */
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Test.UiTest"
+    ]
+    public func scrollSearch(on: On): ?Component {
+        let data = apiCall(COMPONENT_SCROLL_SEARCH, "[\"${on.ref}\"]")
+        if (checkNull(data)) {
+            return Option<Component>.None
+        }
+        Component(data[1..data.size - 1])
+    }
+    /**
+     * Get the boundsCenter of this Component.
+     *
+     * @returns { Point } the boundsCenter object.
+     * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
+     */
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Test.UiTest"
+    ]
+    public func getBoundsCenter(): Point {
+        let jsonStr = apiCall(COMPONENT_GET_BOUNDSCENTER, EMPTY_PARAM)
+        return Point(jsonStr)
     }
     /**
      * Drag this Component to the bounds rect of target Component.
