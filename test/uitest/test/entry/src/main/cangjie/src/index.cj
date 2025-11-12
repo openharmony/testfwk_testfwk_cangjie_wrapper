@@ -34,7 +34,7 @@ import ohos.arkui.state_macro_manage.State
 import ohos.arkui.state_macro_manage.r
 import std.collection.ArrayList
 import ohos.resource_manager.*
-
+import ohos.resource.*
 
 @Entry
 @Component
