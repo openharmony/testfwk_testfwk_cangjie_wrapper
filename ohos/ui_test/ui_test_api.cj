@@ -107,7 +107,6 @@ func checkNull(data: String): Bool {
 /**
  * The unified facade of UiTest framework,can be used to find Component,trigger keyEvents,perform
  * coordinates-based UI actions,capture screen and so on.
- *
  */
 @!APILevel[
     since: "22",
@@ -134,7 +133,8 @@ public class Driver {
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true
     ]
     public static func create(): Driver {
         let cjCallParams = ApiCallParams(DRIVER_CREATE, "", EMPTY_PARAM)
@@ -145,12 +145,12 @@ public class Driver {
      * Delay with specified duration.
      *
      * @param { Int32 } duration - the delay duration in milliseconds, not less than 0.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func delayMs(duration: Int32): Unit {
         let cjCallParams = ApiCallParams(DRIVER_DELAYMS, ref, "[${duration}]")
@@ -161,11 +161,13 @@ public class Driver {
      * Find the first matched Component on current UI.
      *
      * @param { On } on - the attribute requirements of the target Component.
-     * @returns { ?Component } the first matched Component or undefined.
+     * @returns { ?Component } the first matched Component.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func findComponent(on: On): ?Component {
         let cjCallParams = ApiCallParams(DRIVER_FINDCOMPONENT, ref, "[\"${on.ref}\"]")
@@ -178,14 +180,14 @@ public class Driver {
     /**
      * Find the first matched UiWindow window.
      *
-     * @param { WindowFilter } filter - the filter condition to find the window.
-     * @returns { ?UiWindow } the first matched UiWindow window or undefined.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { WindowFilter } filter - the filer condition of the target window.
+     * @returns { ?UiWindow } the first matched UiWindow window.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func findWindow(filter: WindowFilter): ?UiWindow {
         let params: StringBuilder = StringBuilder("[{")
@@ -233,13 +235,13 @@ public class Driver {
      *
      * @param { On } on - the attribute requirements of the target Component.
      * @param { Int32 } time - duration of finding in milliseconds, not less than 0.
-     * @returns { ?Component } the first matched Component or undefined.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @returns { ?Component } the first matched Component.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func waitForComponent(on: On, time: Int32): ?Component {
         let cjCallParams = ApiCallParams(DRIVER_WAITFORCOMPONENT, ref, "[\"${on.ref}\",${time}]")
@@ -253,13 +255,13 @@ public class Driver {
      * Find all the matched Components on current UI.
      *
      * @param { On } on - the attribute requirements of the target Component.
-     * @returns { ?Array<Component> } the matched Components list or undefined.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @returns { ?Array<Component> } the matched Components list.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func findComponents(on: On): ?Array<Component> {
         let cjCallParams = ApiCallParams(DRIVER_FINDCOMPONENTS, ref, "[\"${on.ref}\"]")
@@ -281,13 +283,13 @@ public class Driver {
      * Assert that the matched Components exists on current UI;if not,assertError will be raised.
      *
      * @param { On } on - the attribute requirements of the target Component.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessException } 17000003 - Assertion failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func assertComponentExist(on: On): Unit {
         let cjCallParams = ApiCallParams(DRIVER_ASSERTCOMPONENTEXIST, ref, "[\"${on.ref}\"]")
@@ -296,11 +298,11 @@ public class Driver {
     }
     /**
      * Press the BACK key.
-     *
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        workerthread: true
     ]
     public func pressBack(): Unit {
         let cjCallParams = ApiCallParams(DRIVER_PRESSBACK, ref, EMPTY_PARAM)
@@ -312,12 +314,12 @@ public class Driver {
      * Press the specified key.
      *
      * @param { Int32 } keyCode - the target keyCode.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func triggerKey(keyCode: Int32): Unit {
         let cjCallParams = ApiCallParams(DRIVER_TRIGGERKEY, ref, "[${keyCode}]")
@@ -330,13 +332,13 @@ public class Driver {
      *
      * @param { Int32 } key0 - the first keyCode.
      * @param { Int32 } key1 - the second keyCode.
-     * @param { Int32 } key2 - the third keyCode, default is 0.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { Int32 } [key2] - the third keyCode,set it default 0.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func triggerCombineKeys(key0: Int32, key1: Int32, key2!: Int32 = 0): Unit {
         let params: StringBuilder = StringBuilder("[${key0},${key1},${key2}]")
@@ -349,12 +351,12 @@ public class Driver {
      *
      * @param { Int32 } x - the x-coordinate, not less than 0.
      * @param { Int32 } y - the y-coordinate, not less than 0.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func click(x: Int32, y: Int32): Unit {
         let cjCallParams = ApiCallParams(DRIVER_CLICK, ref, "[${x},${y}]")
@@ -366,12 +368,12 @@ public class Driver {
      *
      * @param { Int32 } x - the x-coordinate, not less than 0.
      * @param { Int32 } y - the y-coordinate, not less than 0.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func doubleClick(x: Int32, y: Int32): Unit {
         let cjCallParams = ApiCallParams(DRIVER_DOUBLECLICK, ref, "[${x},${y}]")
@@ -383,12 +385,12 @@ public class Driver {
      *
      * @param { Int32 } x - the x-coordinate, not less than 0.
      * @param { Int32 } y - the y-coordinate, not less than 0.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func longClick(x: Int32, y: Int32): Unit {
         let cjCallParams = ApiCallParams(DRIVER_LONGCLICK, ref, "[${x},${y}]")
@@ -402,13 +404,13 @@ public class Driver {
      * @param { Int32 } starty - the y-coordinate of the starting point, not less than 0.
      * @param { Int32 } endx - the x-coordinate of the ending point, not less than 0.
      * @param { Int32 } endy - the y-coordinate of the ending point, not less than 0.
-     * @param { Int32 } speed - the speed of swipe(pixels per second),ranges from 200 to 40000.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { Int32 } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func swipe(
         startx: Int32,
@@ -429,13 +431,13 @@ public class Driver {
      * @param { Int32 } starty - the y-coordinate of the starting point, not less than 0.
      * @param { Int32 } endx - the x-coordinate of the ending point, not less than 0.
      * @param { Int32 } endy - the y-coordinate of the ending point, not less than 0.
-     * @param { Int32 } [speed] the speed of drag(pixels per second),ranges from 200 to 40000.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { Int32 } [speed] - the speed of drag(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func drag(
         startx: Int32,
@@ -454,12 +456,12 @@ public class Driver {
      *
      * @param { String } savePath - the path where to store the picture, must be in the application sandbox directory.
      * @returns { Bool } true if screen-capturing and file-storing are completed successfully,false otherwise.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func screenCap(savePath: String): Bool {
         let cjCallParams = ApiCallParams(DRIVER_SCREENCAP, ref, "[\"${eatEscape(savePath)}\"]")
@@ -471,12 +473,12 @@ public class Driver {
      * Set the rotation of the device display.
      *
      * @param { DisplayRotation } rotation - the target rotation to set.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func setDisplayRotation(rotation: DisplayRotation): Unit {
         let cjCallParams = ApiCallParams(DRIVER_SETDISPLAYROTATION, ref, "[${rotation.getValue()}]")
@@ -490,7 +492,8 @@ public class Driver {
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        workerthread: true
     ]
     public func getDisplayRotation(): DisplayRotation {
         let cjCallParams = ApiCallParams(DRIVER_GETDISPLAYROTATION, ref, EMPTY_PARAM)
@@ -501,12 +504,12 @@ public class Driver {
      * Enable/disable the rotation of device display.
      *
      * @param { Bool } enabled - enable the rotation or not.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func setDisplayRotationEnabled(enabled: Bool): Unit {
         let cjCallParams = ApiCallParams(DRIVER_SETDISPLAYROTATIONENABLED, ref, "[${enabled}]")
@@ -521,7 +524,8 @@ public class Driver {
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        workerthread: true
     ]
     public func getDisplaySize(): Point {
         let cjCallParams = ApiCallParams(DRIVER_GETDISPLAYSIZE, ref, EMPTY_PARAM)
@@ -536,7 +540,8 @@ public class Driver {
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        workerthread: true
     ]
     public func getDisplayDensity(): Point {
         let cjCallParams = ApiCallParams(DRIVER_GETDISPLAYDENSITY, ref, EMPTY_PARAM)
@@ -545,11 +550,11 @@ public class Driver {
     }
     /**
      * Wake up the device display.
-     *
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        workerthread: true
     ]
     public func wakeUpDisplay(): Unit {
         let cjCallParams = ApiCallParams(DRIVER_WAKEUPDISPLAY, ref, EMPTY_PARAM)
@@ -559,11 +564,11 @@ public class Driver {
 
     /**
      * Press the home key.
-     *
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        workerthread: true
     ]
     public func pressHome(): Unit {
         let cjCallParams = ApiCallParams(DRIVER_PRESSHOME, ref, EMPTY_PARAM)
@@ -576,12 +581,12 @@ public class Driver {
      * @param { Int32 } idleTime - the threshold of UI idle time, in millisecond, not less than 0.
      * @param { Int32 } timeout - the maximum time to wait for idle, in millisecond, not less than 0.
      * @returns { Bool } true if wait for idle succeed in the timeout, false otherwise.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func waitForIdle(idleTime: Int32, timeout: Int32): Bool {
         let cjCallParams = ApiCallParams(DRIVER_WAITFORIDLE, ref, "[${idleTime},${timeout}]")
@@ -594,13 +599,13 @@ public class Driver {
      * @param { Point } from - the coordinate point where the finger touches the screen.
      * @param { Point } to - the coordinate point where the finger leaves the screen.
      * @param { Int32 } stepLen - the length of each step, in pixels.
-     * @param { Int32 } speed - the speed of fling(pixels per second),ranges from 200 to 40000.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { Int32 } speed - the speed of fling(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func fling(from: Point, to: Point, stepLen: Int32, speed: Int32): Unit {
         let params: String = "[{\"x\":${from.x},\"y\":${from.y}},{\"x\":${to.x},\"y\":${to.y}},${stepLen},${speed}]"
@@ -613,14 +618,14 @@ public class Driver {
      *
      * @param { PointerMatrix } pointers - the two-dimensional array of pointers to inject.
      * @param { Int32 } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if
-     * out of range or null or undefined.
-     * @returns { Bool } true if the operation finished, false
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     * out of range.
+     * @returns { Bool } true if the operation finished, false otherwise.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func injectMultiPointerAction(pointers: PointerMatrix, speed!: Int32 = 600): Bool {
         let cjCallParams = ApiCallParams(DRIVER_INJECTMULTIPOINTERACTION, ref, "[\"${pointers.ref}\",${speed}]")
@@ -631,13 +636,13 @@ public class Driver {
      * Inject fling on the device display.
      *
      * @param { UiDirection } direction - the direction of this action.
-     * @param { Int32 } speed - the speed of fling (pixels per second), default is 600.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { Int32 } speed - the speed of fling (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func fling(direction: UiDirection, speed: Int32): Unit {
         let cjCallParams = ApiCallParams(DRIVER_FLING, ref, "[${direction.getValue()},${speed}]")
@@ -650,14 +655,14 @@ public class Driver {
      *
      * @param { Point } p - the coordinate of the specified location.
      * @param { MouseButton } btnId - the button of Mouse.
-     * @param { Int32 } key1 - the first keyCode,set default is 0.
-     * @param { Int32 } key2 - the second keyCode,set idefault is 0.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { Int32 } [key1] - the first keyCode,set it default 0.
+     * @param { Int32 } [key2] - the second keyCode,set it default 0.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func mouseClick(p: Point, btnId: MouseButton, key1!: Int32 = 0, key2!: Int32 = 0): Unit {
         let cjCallParams = ApiCallParams(DRIVER_MOUSECLICK, ref, parseClickParam(p, btnId, key1, key2))
@@ -668,12 +673,12 @@ public class Driver {
      * Move the mouse cursor to the specified location.
      *
      * @param { Point } p - the coordinate of the specified location.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func mouseMoveTo(p: Point): Unit {
         let cjCallParams = ApiCallParams(DRIVER_MOUSEMOVETO, ref, "[{\"x\":${p.x},\"y\":${p.y}}]")
@@ -688,17 +693,15 @@ public class Driver {
      * @param { Bool } down - whether the mouse wheel rolls down.
      * @param { Int32 } d - the number of cells that the mouse wheel scrolls, each cell will make the target point
      * shift 120 pixels.
-     * @param { Int32 } key1 - the first keyCode, default is 0.
-     * @param { Int32 } key2 - the second keyCode, default is 0.
-     * @param { Int32 } speed - The Speed of mouse wheel rolls(cells per second),ranges from 1 to 500, default is 20.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { Int32 } [key1] - the first keyCode,set it default 0.
+     * @param { Int32 } [key2] - the second keyCode,set it default 0.
+     * @param { Int32 } [speed] - The Speed of mouse wheel rolls(cells per second),ranges from 1 to 500.Set it default 20 if out of range.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func mouseScroll(p: Point, down: Bool, d: Int32, key1!: Int32 = 0, key2!: Int32 = 0, speed!: Int32 = 20): Unit {
         let params: StringBuilder = StringBuilder("[{\"x\":${p.x},\"y\":${p.y}},${down},${d},${key1},${key2},${speed}]")
@@ -710,16 +713,16 @@ public class Driver {
      * Capture the specified area of current screen and save as picture which PNG format.
      *
      * @param { String } savePath - the path where to store the picture, must be in the application sandbox directory.
-     * @param { Rect } [rect] - the specified area of current screen, default to full screen.
+     * @param { Rect } [rect] - the specified area of current screen, default to full screen.Set it default.
      * @returns { Bool } true if screen-capturing and file-storing are completed successfully, false otherwise.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
-    public func screenCapture(savePath: String, rect!: Rect = Rect(0,0,0,0)): Bool {
+    public func screenCapture(savePath: String, rect!: Rect = Rect(0, 0, 0, 0)): Bool {
         let params: StringBuilder = StringBuilder("[\"${eatEscape(savePath)}\"")
         params.append(",")
         params.append("{\"left\":${rect.left},\"top\":${rect.top},\"right\":${rect.right},\"bottom\":${rect.bottom}}")
@@ -729,18 +732,18 @@ public class Driver {
         return Bool.parse(data)
     }
     /**
-     * Create an UIEventObserver object.
+     * Create an UiEventObserver object.
      *
-     * @returns { UIEventObserver } the UIEventObserver object.
+     * @returns { UiEventObserver } the UiEventObserver object.
      */
     @!APILevel[
         since: "22",
         syscap: "SystemCapability.Test.UiTest"
     ]
-    public func createUIEventObserver(): UIEventObserver {
+    public func createUiEventObserver(): UiEventObserver {
         let cjCallParams = ApiCallParams(DRIVER_CREATEUIEVENTOBSERVER, ref, EMPTY_PARAM)
         let data = getData(cjCallParams, DRIVER_CREATEUIEVENTOBSERVER)
-        return UIEventObserver(data[1..data.size - 1])
+        return UiEventObserver(data[1..data.size - 1])
     }
     /**
      * Double click on the specified location on the screen with the specified mouse button, and press the specified
@@ -748,14 +751,14 @@ public class Driver {
      *
      * @param { Point } p - the coordinate of the specified location.
      * @param { MouseButton } btnId - the button of Mouse.
-     * @param { Int32 } key1 - the first keyCode, default is 0.
-     * @param { Int32 } key2 - the second keyCode, default is 0.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { Int32 } [key1] - the first keyCode,set it default 0.
+     * @param { Int32 } [key2] - the second keyCode,set it default 0.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func mouseDoubleClick(p: Point, btnId: MouseButton, key1!: Int32 = 0, key2!: Int32 = 0): Unit {
         let cjCallParams = ApiCallParams(DRIVER_MOUSEDOUBLECLICK, ref, parseClickParam(p, btnId, key1, key2))
@@ -768,14 +771,14 @@ public class Driver {
      *
      * @param { Point } p - the coordinate of the specified location.
      * @param { MouseButton } btnId - the button of Mouse.
-     * @param { Int32 } key1 - the first keyCode, default is 0.
-     * @param { Int32 } key2 - the second keyCode, default is 0.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { Int32 } [key1] - the first keyCode,set it default 0.
+     * @param { Int32 } [key2] - the second keyCode,set it default 0.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func mouseLongClick(p: Point, btnId: MouseButton, key1!: Int32 = 0, key2!: Int32 = 0): Unit {
         let cjCallParams = ApiCallParams(DRIVER_MOUSELONGCLICK, ref, parseClickParam(p, btnId, key1, key2))
@@ -787,13 +790,13 @@ public class Driver {
      *
      * @param { Point } from - the starting point.
      * @param { Point } to - the ending point.
-     * @param { Int32 } speed - speed of swipe (pixels per second),the value ranges from 200 to 40000, default is 600.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { Int32 } [speed] - speed of swipe (pixels per second),the value ranges from 200 to 40000.Set it default 600 if out of range.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func mouseMoveWithTrack(from: Point, to: Point, speed!: Int32 = 600): Unit {
         let params = "[{\"x\":${from.x},\"y\":${from.y}},{\"x\":${to.x},\"y\":${to.y}},${speed}]"
@@ -806,13 +809,13 @@ public class Driver {
      *
      * @param { Point } from - the starting point.
      * @param { Point } to - the ending point.
-     * @param { Int32 } speed - speed of swipe (pixels per second),the value ranges from 200 to 40000, default is 600.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { Int32 } [speed] - speed of drag (pixels per second),the value ranges from 200 to 40000,Set it default 600 if out of range.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func mouseDrag(from: Point, to: Point, speed!: Int32 = 600): Unit {
         let params = "[{\"x\":${from.x},\"y\":${from.y}},{\"x\":${to.x},\"y\":${to.y}},${speed}]"
@@ -825,12 +828,12 @@ public class Driver {
      *
      * @param { Point } p - the coordinate of the specified location.
      * @param { String } text - the text to inject.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func inputText(p: Point, text: String): Unit {
         let params: String = "[{\"x\":${p.x},\"y\":${p.y}},\"${eatEscape(text)}\"]"
@@ -843,7 +846,6 @@ public class Driver {
 /**
  * Represents a two-dimensional array of pointers on the device display, it's used to build a
  * multi-finger trace which can be injected with UiDriver.
- *
  */
 @!APILevel[
     since: "22",
@@ -864,12 +866,11 @@ public class PointerMatrix {
      * @param { Int32 } fingers - The number of fingers, ranges from 1 to 10.
      * @param { Int32 } steps - The number of steps of each finger trace, ranges from 1 to 1000.
      * @returns { PointerMatrix } the PointerMatrix object.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true
     ]
     public static func create(fingers: Int32, steps: Int32): PointerMatrix {
         let ffiParam = ApiCallParams(POINTERMATRIX_CREATE, "", "[${fingers},${steps}]")
@@ -883,12 +884,11 @@ public class PointerMatrix {
      * @param { Int32 } finger - the index of target finger to set.
      * @param { Int32 } step - the index of target step to set.
      * @param { Point } point - the coordinate of target step to set.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true
     ]
     public func setPoint(finger: Int32, step: Int32, point: Point): Unit {
         let ffiParam = ApiCallParams(POINTERMATRIX_SETPOINT, ref,
@@ -900,7 +900,6 @@ public class PointerMatrix {
 
 /**
  * Represents a window of the ohos application,user can perform operations or query attributes on it.
- *
  */
 @!APILevel[
     since: "22",
@@ -923,7 +922,9 @@ public class UiWindow {
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func getBundleName(): String {
         let ffiParam = ApiCallParams(UIWINDOW_GETBUNDLENAME, ref, EMPTY_PARAM)
@@ -939,7 +940,9 @@ public class UiWindow {
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func getBounds(): Rect {
         let ffiParam = ApiCallParams(UIWINDOW_GETBOUNDS, ref, EMPTY_PARAM)
@@ -961,7 +964,9 @@ public class UiWindow {
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func getTitle(): String {
         let ffiParam = ApiCallParams(UIWINDOW_GETTITLE, ref, EMPTY_PARAM)
@@ -977,7 +982,9 @@ public class UiWindow {
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func getWindowMode(): WindowMode {
         let ffiParam = ApiCallParams(UIWINDOW_GETWINDOWMODE, ref, EMPTY_PARAM)
@@ -993,7 +1000,9 @@ public class UiWindow {
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func isFocused(): Bool {
         let ffiParam = ApiCallParams(UIWINDOW_ISFOCUSED, ref, EMPTY_PARAM)
@@ -1008,7 +1017,9 @@ public class UiWindow {
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func focus(): Unit {
         let ffiParam = ApiCallParams(UIWINDOW_FOCUS, ref, EMPTY_PARAM)
@@ -1021,14 +1032,14 @@ public class UiWindow {
      *
      * @param { Int32 } x - the x coordinate of destination, not less than 0.
      * @param { Int32 } y - the y coordinate of destination, not less than 0.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      * @throws { BusinessException } 17000005 - This operation is not supported.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func moveTo(x: Int32, y: Int32): Unit {
         let ffiParam = ApiCallParams(UIWINDOW_MOVETO, ref, "[${x},${y}]")
@@ -1042,14 +1053,14 @@ public class UiWindow {
      * @param { Int32 } wide - the expected wide of the window after resizing.
      * @param { Int32 } height - the expected height of the window after resizing.
      * @param { ResizeDirection } direction - the expected direction of the window after resizing.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      * @throws { BusinessException } 17000005 - This operation is not supported.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func resize(wide: Int32, height: Int32, direction: ResizeDirection): Unit {
         let ffiParam = ApiCallParams(UIWINDOW_RESIZE, ref, "[${wide},${height},${direction.getValue()}]")
@@ -1065,7 +1076,9 @@ public class UiWindow {
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func split(): Unit {
         let ffiParam = ApiCallParams(UIWINDOW_SPLIT, ref, EMPTY_PARAM)
@@ -1081,7 +1094,9 @@ public class UiWindow {
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func maximize(): Unit {
         let ffiParam = ApiCallParams(UIWINDOW_MAXIMIZE, ref, EMPTY_PARAM)
@@ -1097,7 +1112,9 @@ public class UiWindow {
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func minimize(): Unit {
         let ffiParam = ApiCallParams(UIWINDOW_MINIMIZE, ref, EMPTY_PARAM)
@@ -1113,7 +1130,9 @@ public class UiWindow {
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func resume(): Unit {
         let ffiParam = ApiCallParams(UIWINDOW_RESUME, ref, EMPTY_PARAM)
@@ -1129,7 +1148,9 @@ public class UiWindow {
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func close(): Unit {
         let ffiParam = ApiCallParams(UIWINDOW_CLOSE, ref, EMPTY_PARAM)
@@ -1145,7 +1166,9 @@ public class UiWindow {
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func isActive(): Bool {
         let ffiParam = ApiCallParams(UIWINDOW_ISACTIVE, ref, EMPTY_PARAM)
@@ -1156,7 +1179,6 @@ public class UiWindow {
 
 /**
  * Describes the attribute requirements for the target Components.
- *
  */
 @!APILevel[
     since: "22",
@@ -1166,7 +1188,6 @@ public class On {
     var ref: String = ON_SEED_REF
     /**
      * On constructor
-     *
      */
     @!APILevel[
         since: "22",
@@ -1194,15 +1215,16 @@ public class On {
     }
 
     /**
-     * Specifies the text attribute of the target component. Multiple match patterns are supported.
+     * Specifies the text for the target Component.
      *
-     * @param { String } txt - Component text, used to match the target component.
-     * @param { MatchPattern } pattern - Match pattern. The default value is EQUALS.
+     * @param { String } txt - the text value.
+     * @param { MatchPattern } [pattern] - the match pattern of the text value.Set it default MatchPattern.
      * @returns { On } On object that matches the text attribute of the target component.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true
     ]
     public func text(txt: String, pattern!: MatchPattern = MatchPattern.Equals): On {
         let param = "[\"${eatEscape(txt)}\",${pattern.getValue()}]"
@@ -1216,12 +1238,11 @@ public class On {
      *
      * @param { String } id - the id value.
      * @returns { On } this On object.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true
     ]
     public func id(id: String): On {
         let data = apiCall(ON_ID, toParamString(eatEscape(id)))
@@ -1234,12 +1255,11 @@ public class On {
      *
      * @param { String } tp - the type value.
      * @returns { On } this On object.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true
     ]
     public func onType(tp: String): On {
         let data = apiCall(ON_TYPE, toParamString(eatEscape(tp)))
@@ -1250,13 +1270,13 @@ public class On {
     /**
      * Specifies the clickable attribute of the target component.
      *
-     * @param { Bool } b - Clickable status of the target component. The default value is true.
-     *                     true: clickable; false: not clickable.
-     * @returns { On } On object that matches the clickable attribute of the target component.
+     * @param { Bool } [b] - the clickable status.Set it default true.
+     * @returns { On } this On object.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true
     ]
     public func clickable(b!: Bool = true): On {
         ref = boolParamCall(ON_CLICKABLE, b)
@@ -1266,14 +1286,13 @@ public class On {
     /**
      * Specifies the longClickable status of the target Component.
      *
-     * @param { Bool } b - the longClickable status. The default value is true.
-     * @returns { On } this {@link On} object.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { Bool } [b] - the longClickable status.Set it default true.
+     * @returns { On } this On object.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true
     ]
     public func longClickable(b!: Bool = true): On {
         ref = boolParamCall(ON_LONG_CLICKABLE, b)
@@ -1283,14 +1302,13 @@ public class On {
     /**
      * Specifies the scrollable status of the target Component.
      *
-     * @param { Bool } b - the scrollable status. The default value is true.
+     * @param { Bool } [b] - the scrollable status.Set it default true.
      * @returns { On } this On object.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true
     ]
     public func scrollable(b!: Bool = true): On {
         ref = boolParamCall(ON_SCROLLABLE, b)
@@ -1300,14 +1318,13 @@ public class On {
     /**
      * Specifies the enabled status of the target Component.
      *
-     * @param { Bool } b - the enabled status. The default value is true.
+     * @param { Bool } [b] - the enabled status.Set it default true.
      * @returns { On } this On object.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true
     ]
     public func enabled(b!: Bool = true): On {
         ref = boolParamCall(ON_ENABLED, b)
@@ -1317,14 +1334,13 @@ public class On {
     /**
      * Specifies the focused status of the target Component.
      *
-     * @param { Bool } b - the focused status. The default value is true.
+     * @param { Bool } [b] - the focused status. The default value is true.
      * @returns { On } this On object.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true
     ]
     public func focused(b!: Bool = true): On {
         ref = boolParamCall(ON_FOCUSED, b)
@@ -1334,14 +1350,13 @@ public class On {
     /**
      * Specifies the selected status of the target Component.
      *
-     * @param { Bool } b - the selected status. The default value is true.
+     * @param { Bool } [b] - the selected status. The default value is true.
      * @returns { On } this On object.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true
     ]
     public func selected(b!: Bool = true): On {
         ref = boolParamCall(ON_SELECTED, b)
@@ -1351,14 +1366,13 @@ public class On {
     /**
      * Specifies the checked status of the target Component.
      *
-     * @param { Bool } b - the checked status. The default value is true.
+     * @param { Bool } [b] - the checked status. The default value is true.
      * @returns { On } this On object.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true
     ]
     public func checked(b!: Bool = true): On {
         ref = boolParamCall(ON_CHECKED, b)
@@ -1368,14 +1382,13 @@ public class On {
     /**
      * Specifies the checkable status of the target Component.
      *
-     * @param { Bool } b - the checkable status. The default value is true.
+     * @param { Bool } [b] - the checkable status. The default value is true.
      * @returns { On } this On object.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true
     ]
     public func checkable(b!: Bool = true): On {
         ref = boolParamCall(ON_CHECKABLE, b)
@@ -1386,14 +1399,13 @@ public class On {
      * Requires that the target Component which is before another Component that specified by the given On
      * object,used to locate Component relatively.
      *
-     * @param { On } on - the attribute requirements of Component which the target one is in front of.
+     * @param { On } on - describes the attribute requirements of Component which the target one is in front of.
      * @returns { On } this On object.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true
     ]
     public func isBefore(on: On): On {
         let data = apiCall(ON_IS_BEFORE, "[\"${on.ref}\"]")
@@ -1405,14 +1417,13 @@ public class On {
      * Requires that the target Component which is after another Component that specified by the given On
      * object,used to locate Component relatively.
      *
-     * @param { On } on - the attribute requirements of Component which the target one is in back of.
+     * @param { On } on - describes the attribute requirements of Component which the target one is in back of.
      * @returns { On } this On object.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true
     ]
     public func isAfter(on: On): On {
         let data = apiCall(ON_IS_AFTER, "[\"${on.ref}\"]")
@@ -1424,14 +1435,13 @@ public class On {
      * Requires that the target Component which is inside of another Component that specified by the given On
      * object,used to locate Component relatively.
      *
-     * @param { On } on - the attribute requirements of Component which the target one is inside of.
+     * @param { On } on - describes the attribute requirements of Component which the target one is inside of.
      * @returns { On } this On object.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true
     ]
     public func within(on: On): On {
         let data = apiCall(ON_WITHIN, "[\"${on.ref}\"]")
@@ -1442,14 +1452,13 @@ public class On {
     /**
      * Specifies the bundleName of the application which the window that the target Component is located belongs.
      *
-     * @param { String } bundleName - the bundle name of the application.
+     * @param { String } bundleName - the bundleName of the specified window.
      * @returns { On } this On object.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true
     ]
     public func inWindow(bundleName: String): On {
         let data = apiCall(ON_IN_WINDOW, toParamString(eatEscape(bundleName)))
@@ -1461,14 +1470,13 @@ public class On {
      * Specifies the description for the target Component.
      *
      * @param { String } val - the description value.
-     * @param { MatchPattern } pattern - the MatchPattern of description value. The default value is EQUALS.
+     * @param { MatchPattern } [pattern] - the MatchPattern of description value, set it default MatchPattern.
      * @returns { On } this On object.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true
     ]
     public func description(val: String, pattern!: MatchPattern = MatchPattern.Equals): On {
         let param = StringBuilder("[\"${eatEscape(val)}\",${pattern.getValue()}]")
@@ -1480,7 +1488,6 @@ public class On {
 
 /**
  * The type of func once.
- *
  */
 @Derive[ToString, Equatable]
 @!APILevel[
@@ -1489,8 +1496,7 @@ public class On {
 ]
 public enum OnceType {
     /**
-     * oastShow
-     *
+     * The type of toast show.
      */
     @!APILevel[
         since: "22",
@@ -1499,8 +1505,7 @@ public enum OnceType {
     ToastShow
     |
     /**
-     * DialogShow
-     *
+     * The type of dialog show.
      */
     @!APILevel[
         since: "22",
@@ -1512,14 +1517,13 @@ public enum OnceType {
 
 /**
  * Observer to monitor UI events.
- *
  */
 @!APILevel[
     since: "22",
     syscap: "SystemCapability.Test.UiTest"
 ]
-public class UIEventObserver {
-    UIEventObserver(let ref: String) {
+public class UiEventObserver {
+    UiEventObserver(let ref: String) {
         checkRef(ref)
     }
 
@@ -1530,15 +1534,14 @@ public class UIEventObserver {
      * Listen for toast show once
      *
      * @param { OnceType } onceType - the type of func once.
-     * @param { Callback<UIElementInfo> } callback - function, returns the monitored UIElementInfo.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { Callback<UiElementInfo> } callback - function, returns the monitored UiElementInfo.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true
     ]
-    public func once(onceType: OnceType, callback: Callback<UIElementInfo>): Unit {
+    public func once(onceType: OnceType, callback: Callback<UiElementInfo>): Unit {
         if (onceType == OnceType.ToastShow) {
             onceShow(TOAST, callback)
         }
@@ -1547,11 +1550,11 @@ public class UIEventObserver {
         }
     }
 
-    func onceShow(api: String, callback: Callback<UIElementInfo>): Unit {
+    func onceShow(api: String, callback: Callback<UiElementInfo>): Unit {
         unsafe {
             let wrapper = {
                 cUIElementInfo: CUIElementInfo =>
-                let info = UIElementInfo(cUIElementInfo)
+                let info = UiElementInfo(cUIElementInfo)
                 callback(info)
             }
             let param = ApiCallParams(OBSERVER_ONCE, this.ref,
@@ -1569,7 +1572,6 @@ public class UIEventObserver {
 
 /**
  * Represents a Component of the ohos application,user can perform operations or query attributes on it.
- *
  */
 @!APILevel[
     since: "22",
@@ -1591,10 +1593,13 @@ public class Component {
     /**
      * Click this Component.
      *
+     * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func click(): Unit {
         apiCall(COMPONENT_CLICK, EMPTY_PARAM)
@@ -1602,11 +1607,13 @@ public class Component {
     /**
      * Double click this Component.
      *
-     * @returns { Unit }
+     * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func doubleClick(): Unit {
         apiCall(COMPONENT_DOUBLE_CLICK, EMPTY_PARAM)
@@ -1614,22 +1621,28 @@ public class Component {
     /**
      * Long click this Component.
      *
-     * @returns { Unit }
+     * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func longClick(): Unit {
         apiCall(COMPONENT_LONG_CLICK, EMPTY_PARAM)
     }
     /**
      * Get the id attribute value.
+     *
      * @returns { String } the id value.
+     * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func getId(): String {
         let data = apiCall(COMPONENT_GET_ID, EMPTY_PARAM)
@@ -1639,10 +1652,13 @@ public class Component {
      * Get the text attribute value.
      *
      * @returns { String } the text value.
+     * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func getText(): String {
         let data = apiCall(COMPONENT_GET_TEXT, EMPTY_PARAM)
@@ -1652,10 +1668,13 @@ public class Component {
      * Get the type name.
      *
      * @returns { String } the type name.
+     * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func getType(): String {
         let data = apiCall(COMPONENT_GET_TYPE, EMPTY_PARAM)
@@ -1665,24 +1684,29 @@ public class Component {
      * Get the clickable status of this Component.
      *
      * @returns { Bool } the clickable status.
+     * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func isClickable(): Bool {
         let str = apiCall(COMPONENT_IS_CLICKABLE, EMPTY_PARAM)
         return Bool.parse(str)
     }
     /**
-     * Get the clickable status of this Component.
+     * Get the longClickable status of this Component.
      *
-     * @returns { Bool } the clickable status.
+     * @returns { Bool } the longClickable status.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func isLongClickable(): Bool {
         let str = apiCall(COMPONENT_IS_LONGCLICKABLE, EMPTY_PARAM)
@@ -1692,10 +1716,13 @@ public class Component {
      * Get the scrollable status of this Component.
      *
      * @returns { Bool } the scrollable status.
+     * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func isScrollable(): Bool {
         let str = apiCall(COMPONENT_IS_SCROLLABLE, EMPTY_PARAM)
@@ -1705,10 +1732,13 @@ public class Component {
      * Get the enabled status of this Component.
      *
      * @returns { Bool } the enabled status.
+     * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func isEnabled(): Bool {
         let str = apiCall(COMPONENT_IS_ENABLED, EMPTY_PARAM)
@@ -1718,10 +1748,13 @@ public class Component {
      * Get the focused status of this Component.
      *
      * @returns { Bool } the focused status.
+     * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func isFocused(): Bool {
         let str = apiCall(COMPONENT_IS_FOCUSED, EMPTY_PARAM)
@@ -1731,10 +1764,13 @@ public class Component {
      * Get the selected status of this Component.
      *
      * @returns { Bool } the selected status.
+     * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func isSelected(): Bool {
         let str = apiCall(COMPONENT_IS_SELECTED, EMPTY_PARAM)
@@ -1748,7 +1784,9 @@ public class Component {
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func isChecked(): Bool {
         let str = apiCall(COMPONENT_IS_CHECKED, EMPTY_PARAM)
@@ -1762,7 +1800,9 @@ public class Component {
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func isCheckable(): Bool {
         let str = apiCall(COMPONENT_IS_CHECKABLE, EMPTY_PARAM)
@@ -1771,11 +1811,14 @@ public class Component {
     /**
      * Inject text to this Component,applicable to TextInput.
      *
-     * @param { String } text - The text to inject.
+     * @param { String } text - the text to inject.
+     * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func inputText(text: String): Unit {
         apiCall(COMPONENT_INPUT_TEXT, "[\"${eatEscape(text)}\"]")
@@ -1787,7 +1830,9 @@ public class Component {
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func clearText(): Unit {
         apiCall(COMPONENT_CLEAR_TEXT, EMPTY_PARAM)
@@ -1795,15 +1840,14 @@ public class Component {
     /**
      * Scroll on this Component to the top,applicable to scrollable one.
      *
-     * @param { Int64 } speed - the speed of swipe(pixels per second),ranges from 200 to 40000. The default value is
-     * 600.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { Int64 } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func scrollToTop(speed!: Int64 = 600): Unit {
         apiCall(COMPONENT_SCROLL_TOTOP, "[${speed}]")
@@ -1811,15 +1855,14 @@ public class Component {
     /**
      * Scroll on this Component to the bottom,applicable to scrollable one.
      *
-     * @param { Int64 } speed - the speed of swipe(pixels per second),ranges from 200 to 40000. The default value is
-     * 600.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { Int64 } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func scrollToBottom(speed!: Int64 = 600): Unit {
         apiCall(COMPONENT_SCROLL_TOBOTTOM, "[${speed}]")
@@ -1832,24 +1875,26 @@ public class Component {
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func getBounds(): Rect {
         let jsonStr = apiCall(COMPONENT_GET_BOUNDS, EMPTY_PARAM)
         return Rect(jsonStr)
     }
     /**
-     * Scroll on this Componentto find matched Component,applicable to scrollable one.
+     * Scroll on this Component to find matched Component,applicable to scrollable one.
      *
      * @param { On } on - the attribute requirements of the target Component.
      * @returns { ?Component } the found result,or undefined if not found.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func scrollSearch(on: On): ?Component {
         let data = apiCall(COMPONENT_SCROLL_SEARCH, "[\"${on.ref}\"]")
@@ -1866,7 +1911,9 @@ public class Component {
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func getBoundsCenter(): Point {
         let jsonStr = apiCall(COMPONENT_GET_BOUNDSCENTER, EMPTY_PARAM)
@@ -1876,13 +1923,13 @@ public class Component {
      * Drag this Component to the bounds rect of target Component.
      *
      * @param { Component } target - the target Component.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func dragTo(target: Component): Unit {
         apiCall(COMPONENT_DRAGTO, "[\"${target.ref}\"]")
@@ -1891,13 +1938,13 @@ public class Component {
      * Pinch enlarge this Component to the target scale.
      *
      * @param { Float32 } scale - the scale of the pinch enlarge this Component's size, ranges greater than 1.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func pinchOut(scale: Float32): Unit {
         apiCall(COMPONENT_PINCHOUT, "[${scale.format(".16")}]")
@@ -1906,13 +1953,13 @@ public class Component {
      * Pinch shrink this Component to the target scale.
      *
      * @param { Float32 } scale - the scale of the pinch shrink this Component's size, ranges from 0 to 1.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
-     * unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessException } 17000004 - The window or component is invisible or destroyed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func pinchIn(scale: Float32): Unit {
         apiCall(COMPONENT_PINCHIN, "[${scale.format(".16")}]")
@@ -1925,7 +1972,9 @@ public class Component {
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Test.UiTest"
+        syscap: "SystemCapability.Test.UiTest",
+        throwexception: true,
+        workerthread: true
     ]
     public func getDescription(): String {
         let data = apiCall(COMPONENT_GET_DESCRIPTION, EMPTY_PARAM)

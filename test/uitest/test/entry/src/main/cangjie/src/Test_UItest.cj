@@ -83,7 +83,7 @@ public class Test_UItest {
     @TestCase
     @Tag[APILevel22, TestLevel0]
     func testUIObserver() {
-        let observer: UIEventObserver = driver.createUIEventObserver()
+        let observer: UiEventObserver = driver.createUiEventObserver()
         let callbackTrigger = AtomicBool(false)
         observer.once(
             OnceType.ToastShow,
