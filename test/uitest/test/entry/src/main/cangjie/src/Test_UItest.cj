@@ -156,7 +156,7 @@ public class Test_UItest {
 
         let txt = driver.findComponent(On().text("cangjie")).getOrThrow()
         txt.clearText()
-        txt.inputText("111")
+        // txt.inputText("111")
 
         let drag = driver.findComponent(On().text("ohos")).getOrThrow()
         button.dragTo(drag)
