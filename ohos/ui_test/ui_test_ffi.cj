@@ -19,6 +19,7 @@ package ohos.ui_test
 
 import ohos.ffi.RetDataCString
 import std.convert.Parsable
+import ohos.business_exception.BusinessException
 
 foreign func CJ_InitConnection(token: CString): Unit
 // if ret code is 0, then the data is result; else data is error message
@@ -47,7 +48,7 @@ struct ApiCallParams {
             callerObjRef = mallocCString(ref)
         } catch (e: Exception) {
             unsafe { LibC.free(apiId) }
-            throw e
+            throw BusinessException(14700104, getErrorMsg(14700104))
         }
         try {
             params = mallocCString(param)
@@ -56,7 +57,7 @@ struct ApiCallParams {
                 LibC.free(apiId)
                 LibC.free(callerObjRef)
             }
-            throw e
+            throw BusinessException(14700104, getErrorMsg(14700104))
         }
     }
 
