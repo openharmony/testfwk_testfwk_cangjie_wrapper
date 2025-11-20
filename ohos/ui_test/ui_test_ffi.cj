@@ -42,6 +42,9 @@ struct ApiCallParams {
     let callerObjRef: CString
     let params: CString
 
+    /**
+     * @throws { BusinessException } 14700104 - System internal error including out of memory, deadlock etc.
+     */
     init(id: String, ref: String, param: String) {
         apiId = mallocCString(id)
         try {
