@@ -38,6 +38,12 @@
         "inner_kits": [
           {
             "name": "//test/testfwk/testfwk_cangjie_wrapper/ohos/ui_test:ohos.ui_test"
+          },
+          {
+            "name": "//test/testfwk/testfwk_cangjie_wrapper:copy_sdk_testfwk_cangjie_libs"
+          },
+          {
+            "name": "//test/testfwk/testfwk_cangjie_wrapper:copy_sdk_testfwk_cangjie_libs_kit"
           }
         ],
         "test": []
