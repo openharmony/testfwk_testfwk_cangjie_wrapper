@@ -12,9 +12,7 @@
     "component": {
       "name": "testfwk_cangjie_wrapper",
       "subsystem": "testfwk",
-      "syscap": [
-          "SystemCapability.Test.UiTest"
-      ],
+      "syscap": [],
       "features": [
       ],
       "adapted_system_type": [ "standard" ],
