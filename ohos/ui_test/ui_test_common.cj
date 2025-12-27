@@ -66,10 +66,10 @@ public enum MatchPattern {
     ]
     EndsWith
     |
-    @!Hide
+    @!Hide[isChecked: true]
     RegExp
     |
-    @!Hide
+    @!Hide[isChecked: true]
     RegExpIcase
     | ...
 
