@@ -18,7 +18,6 @@
 package ohos.ui_test
 
 import ohos.ffi.RetDataCString
-import std.convert.Parsable
 import ohos.business_exception.BusinessException
 
 foreign func CJ_InitConnection(token: CString): Unit
