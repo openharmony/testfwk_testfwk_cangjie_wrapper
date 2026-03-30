@@ -113,7 +113,9 @@ func checkNull(data: String): Bool {
     syscap: "SystemCapability.Test.UiTest"
 ]
 public class Driver {
-    Driver(let ref: String) {
+    let ref: String
+    init(ref: String) {
+        this.ref = ref
         checkRef(ref)
     }
 
@@ -852,7 +854,9 @@ public class Driver {
     syscap: "SystemCapability.Test.UiTest"
 ]
 public class PointerMatrix {
-    PointerMatrix(protected let ref: String) {
+    protected let ref: String
+    init(ref: String) {
+        this.ref = ref
         checkRef(ref)
     }
 
@@ -906,7 +910,9 @@ public class PointerMatrix {
     syscap: "SystemCapability.Test.UiTest"
 ]
 public class UiWindow {
-    UiWindow(let ref: String) {
+    let ref: String
+    init(ref: String) {
+        this.ref = ref
         checkRef(ref)
     }
 
@@ -1523,7 +1529,9 @@ public enum OnceType {
     syscap: "SystemCapability.Test.UiTest"
 ]
 public class UiEventObserver {
-    UiEventObserver(let ref: String) {
+    let ref: String
+    init(ref: String) {
+        this.ref = ref
         checkRef(ref)
     }
 
@@ -1578,7 +1586,9 @@ public class UiEventObserver {
     syscap: "SystemCapability.Test.UiTest"
 ]
 public class Component {
-    Component(let ref: String) {
+    let ref: String
+    init(ref: String) {
+        this.ref = ref
         checkRef(ref)
     }
 
