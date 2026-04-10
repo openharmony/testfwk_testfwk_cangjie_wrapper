@@ -28,6 +28,7 @@ import std.unittest.testmacro.*
 import ohos.base.*
 import kit.PerformanceAnalysisKit.Hilog
 import ohos.business_exception.*
+import ohos.device_info.*
 
 
 @Test
@@ -177,13 +178,15 @@ public class Test_UItest {
         driver.getDisplayDensity()
 
         driver.setDisplayRotationEnabled(true)
-        driver.setDisplayRotation(DisplayRotation.Rotation0)
-        let rotation0 = driver.getDisplayRotation()
-        driver.setDisplayRotation(DisplayRotation.Rotation90)
-        let rotation90 = driver.getDisplayRotation()
-        driver.setDisplayRotation(DisplayRotation.Rotation270)
-        let rotation270 = driver.getDisplayRotation()
-        driver.setDisplayRotation(DisplayRotation.Rotation180)
+        if (DeviceInfo.deviceType != "2in1") {
+            driver.setDisplayRotation(DisplayRotation.Rotation0)
+            let rotation0 = driver.getDisplayRotation()
+            driver.setDisplayRotation(DisplayRotation.Rotation90)
+            let rotation90 = driver.getDisplayRotation()
+            driver.setDisplayRotation(DisplayRotation.Rotation270)
+            let rotation270 = driver.getDisplayRotation()
+            driver.setDisplayRotation(DisplayRotation.Rotation180)
+        }
         let rotation = driver.getDisplayRotation()
         driver.click(100, 100)
         driver.doubleClick(100, 100)
@@ -224,7 +227,11 @@ public class Test_UItest {
         driver.mouseLongClick(PT(248, 194), MouseBtn.MouseButtonMiddle, key1: 2072)
         driver.mouseMoveWithTrack(PT(100, 100), PT(200, 200))
         driver.mouseDrag(PT(100, 100), PT(200, 200))
-        driver.triggerKey(1)
+        if (DeviceInfo.deviceType != "2in1") {
+            driver.triggerKey(1)
+        } else {
+            driver.triggerKey(2)
+        }
         driver.triggerCombineKeys(2072, 2047, key2: 2035)
         @Expect(true)
     }
@@ -232,91 +239,181 @@ public class Test_UItest {
     @TestCase
     @Tag[APILevel22, TestLevel0]
     func testUIWindow() {
-        let window = driver.findWindow(WindowFilter(active: true)).getOrThrow()
-        let name = window.getBundleName()
-        // logger.info(name)
-        @Expect(!name.isEmpty() && !name.startsWith("\""))
-        let rect = window.getBounds()
-        let title: String = window.getTitle()
-        // logger.info(title)
-        @Expect(title.isEmpty())
-        let mode = window.getWindowMode()
-        //        let focused = window.isFocused()
-        //        let active = window.isActive()
-        window.focus()
-        @Expect(window.isFocused())
-        @Expect(window.isActive())
-        // not support
-        try {
-            window.moveTo(100, 100)
-        } catch (e: Exception) {
-            // logger.info("${e}")
+        if (DeviceInfo.deviceType != "2in1") {
+            let window = driver.findWindow(WindowFilter(active: true)).getOrThrow()
+            let name = window.getBundleName()
+            // logger.info(name)
+            @Expect(!name.isEmpty() && !name.startsWith("\""))
+            let rect = window.getBounds()
+            let title: String = window.getTitle()
+            // logger.info(title)
+            @Expect(title.isEmpty())
+            let mode = window.getWindowMode()
+            //        let focused = window.isFocused()
+            //        let active = window.isActive()
+            window.focus()
+            @Expect(window.isFocused())
+            @Expect(window.isActive())
+            // not support
+            try {
+                window.moveTo(100, 100)
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.resize(100, 100, ResizeDirection.Right)
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.resize(100, 100, ResizeDirection.Up)
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.resize(100, 100, ResizeDirection.Down)
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.resize(100, 100, ResizeDirection.LeftUp)
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.resize(100, 100, ResizeDirection.RightDown)
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.resize(100, 100, ResizeDirection.LeftDown)
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.resize(100, 100, ResizeDirection.RightUp)
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.resize(100, 100, ResizeDirection.Left)
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.split()
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.maximize()
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.minimize()
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.resume()
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.close()
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
         }
-        try {
-            window.resize(100, 100, ResizeDirection.Right)
-        } catch (e: Exception) {
-            // logger.info("${e}")
+        if (DeviceInfo.deviceType == "2in1") {
+            let window = driver.findWindow(WindowFilter(active: false)).getOrThrow()
+            let name = window.getBundleName()
+            // logger.info(name)
+            @Expect(!name.isEmpty() && !name.startsWith("\""))
+            let rect = window.getBounds()
+            let title: String = window.getTitle()
+            // logger.info(title)
+            @Expect(title.isEmpty())
+            let mode = window.getWindowMode()
+            //        let focused = window.isFocused()
+            //        let active = window.isActive()
+            window.focus()
+            @Expect(window.isFocused(),false)
+            @Expect(window.isActive(),false)
+            // not support
+            try {
+                window.moveTo(100, 100)
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.resize(100, 100, ResizeDirection.Right)
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.resize(100, 100, ResizeDirection.Up)
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.resize(100, 100, ResizeDirection.Down)
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.resize(100, 100, ResizeDirection.LeftUp)
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.resize(100, 100, ResizeDirection.RightDown)
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.resize(100, 100, ResizeDirection.LeftDown)
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.resize(100, 100, ResizeDirection.RightUp)
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.resize(100, 100, ResizeDirection.Left)
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.split()
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.maximize()
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.minimize()
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.resume()
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }
+            try {
+                window.close()
+            } catch (e: Exception) {
+                // logger.info("${e}")
+            }   
         }
-        try {
-            window.resize(100, 100, ResizeDirection.Up)
-        } catch (e: Exception) {
-            // logger.info("${e}")
-        }
-        try {
-            window.resize(100, 100, ResizeDirection.Down)
-        } catch (e: Exception) {
-            // logger.info("${e}")
-        }
-        try {
-            window.resize(100, 100, ResizeDirection.LeftUp)
-        } catch (e: Exception) {
-            // logger.info("${e}")
-        }
-        try {
-            window.resize(100, 100, ResizeDirection.RightDown)
-        } catch (e: Exception) {
-            // logger.info("${e}")
-        }
-        try {
-            window.resize(100, 100, ResizeDirection.LeftDown)
-        } catch (e: Exception) {
-            // logger.info("${e}")
-        }
-        try {
-            window.resize(100, 100, ResizeDirection.RightUp)
-        } catch (e: Exception) {
-            // logger.info("${e}")
-        }
-        try {
-            window.resize(100, 100, ResizeDirection.Left)
-        } catch (e: Exception) {
-            // logger.info("${e}")
-        }
-        try {
-            window.split()
-        } catch (e: Exception) {
-            // logger.info("${e}")
-        }
-        try {
-            window.maximize()
-        } catch (e: Exception) {
-            // logger.info("${e}")
-        }
-        try {
-            window.minimize()
-        } catch (e: Exception) {
-            // logger.info("${e}")
-        }
-        try {
-            window.resume()
-        } catch (e: Exception) {
-            // logger.info("${e}")
-        }
-        try {
-            window.close()
-        } catch (e: Exception) {
-            // logger.info("${e}")
-        }
+
     }
 
     @TestCase
