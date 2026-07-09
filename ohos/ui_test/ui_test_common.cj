@@ -197,16 +197,6 @@ public enum WindowMode {
     Floating
     | ...
 
-    func getValue(): Int32 {
-        match (this) {
-            case Fullscreen => 0
-            case Primary => 1
-            case Secondary => 2
-            case Floating => 3
-            case _ => throw BusinessException(14700104, "The type is not supported.")
-        }
-    }
-
     /*
      * @throws { BusinessException } 14700104 - The type is not supported.
      */
