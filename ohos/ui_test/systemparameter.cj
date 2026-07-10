@@ -69,26 +69,6 @@ protected class Systemparameter {
             return getStringAndFree(ret.data)
         }
     }
-
-    protected static func set(key: String, value: String): Unit {
-        unsafe {
-            // invalid parameter error
-            if (key.size >= MAX_NAME_LENGTH || value.size >= MAX_VALUE_LENGTH) {
-                TEST_LOG.error("Systemparameter set failed: ${getErrorMsg(ERR_PARAMETER_ERROR)}")
-                throw BusinessException(ERR_PARAMETER_ERROR,
-                    "Systemparameter set failed: ${getErrorMsg(ERR_PARAMETER_ERROR)}")
-            }
-            let cKey = LibC.mallocCString(key)
-            let cVal = LibC.mallocCString(value)
-            let ret = FfiOHOSSysTemParameterSet(cKey, cVal)
-            LibC.free(cKey)
-            LibC.free(cVal)
-            if (ret != 0) {
-                TEST_LOG.error("Systemparameter get failed: ${getErrorMsg(ret)}")
-                throw BusinessException(ret, "Systemparameter get failed: ${getErrorMsg(ret)}")
-            }
-        }
-    }
 }
 
 func getStringAndFree(value: CString): String {
