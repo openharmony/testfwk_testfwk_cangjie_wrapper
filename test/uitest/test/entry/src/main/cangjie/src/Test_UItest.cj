@@ -157,7 +157,11 @@ public class Test_UItest {
 
         let txt = driver.findComponent(On().text("cangjie")).getOrThrow()
         txt.clearText()
-        // txt.inputText("111")
+        try {
+            txt.inputText("\t\b\r\n\f\v")
+        } catch (e: Exception) {
+            // ignore
+        }
 
         let drag = driver.findComponent(On().text("ohos")).getOrThrow()
         button.dragTo(drag)
@@ -506,12 +510,23 @@ public class Test_UItest {
     @Tag[APILevel22, TestLevel0]
     func addLLT(): Unit {
         let wf = WindowFilter(bundleName: "test", title: "test", focused: true, active: true)
+        wf.displayId = 1i32
         try {
             driver.findWindow(wf)
             ()
         } catch (e: Exception) {
             // logger.error(e.message)
         }
+    }
+
+    @TestCase
+    @Tag[APILevel22, TestLevel0]
+    func testDisplayId() {
+        var caught = 0
+        try { PT(0, 0, displayId: 1i32) } catch (e: BusinessException) { caught = caught + 1 }
+        try { Rct(0, 0, 0, 0, displayId: 1i32) } catch (e: BusinessException) { caught = caught + 1 }
+        try { WindowFilter(displayId: 1i32) } catch (e: BusinessException) { caught = caught + 1 }
+        @Expect(caught == 3)
     }
 }
 
